@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TFS Film Works</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link href="../CSS/header.css" rel="stylesheet">
+  <link href="../CSS/Footer.css" rel="stylesheet">
+  <style>
+    /* Root variables */
+    :root {
+      --max-width: 1200px;
+      --bg-1: #06092d;
+      --bg-2: #300e30;
+      --text: #e9f6ff;
+      --muted: rgba(181, 204, 230, 0.85);
+      --accent: #7fe9ff;
+      --gap: 28px;
+    }
+
+    /* Reset / base */
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    img {
+      max-width: 100%;
+      display: block
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 28px
+    }
+
+
+    /* ------------------------ PAGE TITLE / Intro ------------------------ */
+
+    h1.page-title {
+      margin: 60px 0 2px;
+      font-size: 28px;
+      text-align: center;
+    }
+
+    p.lead {
+      color: var(--muted);
+      margin: 0 0 18px
+    }
+
+    /* ------------------------ Alternating media rows ------------------------ */
+
+    .media-row {
+      display: flex;
+      gap: var(--gap);
+      align-items: center;
+      margin: 28px 0;
+      padding: 18px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(0, 0, 0, 0.06));
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+    }
+
+    .media-row.alt {
+      flex-direction: row-reverse
+    }
+
+    .media-image {
+      flex: 1 1 44%;
+      min-width: 240px;
+      height: 260px;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      background: #0b1220;
+    }
+
+    .media-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block
+    }
+
+    .media-info {
+      flex: 1 1 52%;
+      min-width: 260px;
+      padding: 6px 12px
+    }
+
+    .media-info h3 {
+      margin: 0 0 8px;
+      font-size: 20px
+    }
+
+    .media-info p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      line-height: 1.6
+    }
+
+    .meta {
+      font-size: 13px;
+      color: var(--muted)
+    }
+
+    .caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    /* ------------------------ Image left and right Animations ------------------------ */
+    @keyframes img-from-left {
+      from {
+        transform: translateX(-120%);
+        opacity: 0
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1
+      }
+    }
+
+    @keyframes img-from-right {
+      from {
+        transform: translateX(120%);
+        opacity: 0
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1
+      }
+    }
+
+    @keyframes info-from-right {
+      from {
+        transform: translateX(40px);
+        opacity: 0
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1
+      }
+    }
+
+    @keyframes info-from-left {
+      from {
+        transform: translateX(-40px);
+        opacity: 0
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1
+      }
+    }
+
+    .img-left-enter {
+      animation: img-from-left var(--dur, 700ms) cubic-bezier(.2, .9, .25, 1) both;
+    }
+
+    .img-right-enter {
+      animation: img-from-right var(--dur, 700ms) cubic-bezier(.2, .9, .25, 1) both;
+    }
+
+    .info-from-right {
+      animation: info-from-right var(--dur, 650ms) ease both;
+    }
+
+    .info-from-left {
+      animation: info-from-left var(--dur, 650ms) ease both;
+    }
+
+    /* ----------------- acquire section ----------------- */
+
+    .acquire-horizontal {
+      display: flex;
+      gap: 22px;
+      padding: 20px 0;
+    }
+
+    /* Card */
+    .acquire-box {
+      display: flex;
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 253, 0.35);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+      padding: 18px;
+      width: 100%;
+      transition: 0.3s;
+    }
+
+    .acquire-box:hover {
+      border-color: var(--accent);
+      transform: translateY(-5px);
+      box-shadow:
+        0 22px 46px rgba(14, 165, 233, 0.45),
+        0 0 32px rgba(45, 212, 191, 0.5);
+    }
+
+    /* Left block */
+    .acq-left {
+      width: 130px;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 14px;
+      margin-right: 18px;
+    }
+
+    /* Right content */
+    .acq-right h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    .acq-right p {
+      color: var(--muted);
+      margin: 0 0 10px;
+      font-size: 14px;
+    }
+
+    /* ----------------- BUTTON (SAME STYLE) ----------------- */
+
+    .btn-uni {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 1px solid rgb(61, 106, 255);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ffffff;
+      background: transparent;
+      text-decoration: none;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.18s ease-in;
+
+      /* 🔥 FIX: button ko normal position pe rakha */
+      bottom: auto;
+      margin-top: 18px;
+    }
+
+    /* Hover */
+    .btn-uni:hover {
+      background: rgb(61, 106, 255);
+      color: #fff;
+      box-shadow:
+        0 0 5px #083deb,
+        0 0 25px #0317f4,
+        0 0 50px #033bf4,
+        0 0 100px #0327f4;
+    }
+
+    /* Moving light line */
+    .btn-uni span {
+      position: absolute;
+      bottom: 2px;
+      left: -100%;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #ffffff);
+      animation: btn-anim1 1s linear infinite;
+    }
+
+    @keyframes btn-anim1 {
+      0% {
+        left: -100%;
+      }
+
+      50%,
+      100% {
+        left: 100%;
+      }
+    }
+
+    /* Arrow animation */
+    .btn-arrow {
+      margin-left: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-uni:hover .btn-arrow {
+      transform: translateX(5px);
+    }
+
+    /* ----------------- Responsive ----------------- */
+
+    @media (max-width: 900px) {
+      .acquire-horizontal {
+        flex-direction: column;
+      }
+
+      .acq-left {
+        width: 100px;
+      }
+    }
+
+
+    /* focus visible */
+    :focus {
+      outline-offset: 3px
+    }
+
+    a:focus,
+    button:focus {
+      outline: 3px solid rgba(127, 233, 255, 0.12);
+      border-radius: 8px
+    }
+
+    /* reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+
+      .img-left-enter,
+      .img-right-enter,
+      .info-from-right,
+      .info-from-left {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    /* responsive rows */
+    @media(max-width:900px) {
+      .media-row {
+        flex-direction: column
+      }
+
+      .media-row.alt {
+        flex-direction: column
+      }
+
+      .media-image {
+        width: 100%;
+        height: 200px
+      }
+
+      .media-info {
+        width: 100%
+      }
+    }
+
+    @media(max-width:620px) {
+      .container {
+        padding: 18px
+      }
+
+      h1.page-title {
+        font-size: 22px
+      }
+    }
+
+
+
+
+    /* Social icons horizontal row */
+    .social-icons-row {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+
+    /* Icon container */
+    .course-media {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: glowCycle 4s infinite;
+    }
+
+    /* Images */
+    .course-media img {
+      width: 110%;
+      height: 110%;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    /* Hover still works */
+    .course-media:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(42, 32, 191, 0.9);
+    }
+
+    /* 🔥 Glow animation */
+    @keyframes glowCycle {
+      0% {
+        box-shadow: none;
+        transform: scale(1);
+      }
+
+      20% {
+        box-shadow: 0 0 30px rgba(45, 212, 191, 0.9);
+        transform: scale(1.08);
+      }
+
+      40% {
+        box-shadow: none;
+        transform: scale(1);
+      }
+
+      100% {
+        box-shadow: none;
+      }
+    }
+
+    /* ⏱ Clock-style delays */
+    .course-media:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .course-media:nth-child(2) {
+      animation-delay: 1s;
+    }
+
+    .course-media:nth-child(3) {
+      animation-delay: 2s;
+    }
+
+    .course-media:nth-child(4) {
+      animation-delay: 3s;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="tfs-header">
+    <div class="header-inner container">
+
+      <!-- Brand -->
+      <div class="brand">
+        <a href="Home1.html" class="brand-link" aria-label="TFS Universe home">
+          <img src="../photo/logo.png" alt="TFS logo" class="brand-logo">
+          <div class="brand-text"><i>TFS Universe</i></div>
+        </a>
+      </div>
+
+      <!-- Desktop nav (extended, same as other pages) -->
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <ul id="main-nav" class="nav-list">
+          <li><a href="Home1.html">Home</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile hamburger -->
+      <div class="nav-mobile-controls">
+        <button id="navToggle" class="hamburger" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile nav dropdown -->
+    <div id="mobileNav" class="mobile-nav" aria-hidden="true">
+      <ul class="mobile-nav-list">
+        <li><a href="Home1.html">Home</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container" role="main" aria-labelledby="pageTitle">
+    <h1 id="pageTitle" class="page-title">TFS Film Works</h1>
+    <p class="lead"> </p>
+
+    <!-- Alternating rows -->
+    <section id="rows" aria-label="Project rows" style="margin-top:22px">
+
+      <article class="media-row" data-src="../photo/Film works.jpg" data-title="Mountain Cinematic Frame"
+        data-desc="Wide cinematic mountain frame shot at golden hour.">
+        <a href="#" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: block;">
+          <div class="media-image" aria-hidden="false" style="cursor: pointer;"></div>
+        </a>
+        <div class="media-info">
+          <h3>TFS Filme Works</h3>
+          <p class="meta">____________________________________________________________</p>
+          <p>A creative Studio crafting high-end videos, photos and podcasts with purpose at TFS Film Works,every story
+            is intentional,cinematic and timeless.
+          </p>
+          <div class="caption"></div>
+        </div>
+      </article>
+      <!-- Motorcycle reviews -->
+      <article class="media-row alt" data-src="../photo/TFS film image1.jpg" data-title="Motorcycle reviews"
+        data-desc="Smooth aerial sweep over coastline.">
+        <a href="#" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: block;">
+          <div class="media-image" aria-hidden="false" style="cursor: pointer;"></div>
+        </a>
+        <div class="media-info">
+          <h3>Created by Us</h3>
+          <p class="meta">_____________________________________________________________</p>
+          <p>We captured impactful moments through photography and cinematography,
+            presenting them in a curated collection. We break the conventional definition
+            of solving for purpose</p>
+          <div class="caption"></div>
+          <a class="btn-uni" href="TFS-filme-works-1.html">See More
+            <i class="btn-arrow">→</i><span></span></a>
+        </div>
+      </article>
+      <!-- IBW 2023 -->
+      <article class="media-row" data-src="../photo/create.jpg" data-title="Portrait — Low Light"
+        data-desc="Moody portrait with natural window light.">
+        <a href="#" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: block;">
+          <div class="media-image" aria-hidden="false" style="cursor: pointer;"></div>
+        </a>
+        <div class="media-info">
+          <h3>Edited by Us</h3>
+          <p class="meta">_______________________________________________________________</p>
+          <p>Our young and creative team specializes in video editing,
+            graphic design, and presenting polished photo and video collections.</p>
+          <div class="caption"></div>
+          <a class="btn-uni" href="TFS-filme-works-2.html">See More
+            <i class="btn-arrow">→</i><span></span></a>
+        </div>
+      </article>
+
+      <article class="media-row alt" data-src="../photo/Film-3.png" data-title="Drone Aerial Visual"
+        data-desc="Smooth aerial sweep over coastline.">
+        <a href="#" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: block;">
+          <div class="media-image" aria-hidden="false" style="cursor: pointer;"></div>
+        </a>
+        <div class="media-info">
+          <h3>Web Development</h3>
+          <p class="meta">________________________________________________________________</p>
+          <p>Our creative team has designed and developed three websites:
+            OZA Motorsports, dedicated to automotive engineering; BuyItOnline,
+            a comprehensive e-commerce platform; and TFS Universe, the parent
+            company showcasing its sub-brands.</p>
+          <div class="caption"></div>
+          <a class="btn-uni" href="TFS-filme-works-3.html">See More
+            <i class="btn-arrow">→</i><span></span></a>
+        </div>
+      </article>
+
+      <section>
+        <div class="acquire-horizontal">
+
+          <!-- CARD 1 -->
+          <div class="acquire-box">
+            <div class="acq-left"></div>
+
+            <div class="acq-right">
+              <h3>Studio rental</h3>
+              <p class="meta">Exclusive features — Early releases</p>
+              <p>We offer studio rental services tailored for all your creative needs.</p>
+              <a class="btn-uni" href="#">Get Now <i class="btn-arrow">→</i><span></span></a>
+            </div>
+          </div>
+
+
+          <!-- CARD 2 -->
+          <div class="acquire-box">
+            <div class="acq-left"></div>
+
+            <div class="acq-right">
+              <h3>Brand Promotion</h3>
+              <p class="meta">Brand boost</p>
+              <p>Our expert brand promotion services are designed to boost your visibility and engage your audience.</p>
+              <a class="btn-uni" href="#">Apply <i class="btn-arrow">→</i><span></span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="simple-footer">
+    <div class="footer-inner footer-grid">
+
+      <!-- LEFT SIDE : CONTACT -->
+      <div class="footer-block">
+        <span class="footer-label">Phone</span>
+        <p class="footer-detail">
+          <a href="tel:+918320287732">+91 8320287732</a>
+        </p>
+      </div>
+
+      <div class="footer-block">
+        <span class="footer-label">Email</span>
+        <p class="footer-detail">
+          <a href="mailto:tfsfilmworks@gmail.com">tfsfilmworks@gmail.com</a>
+        </p>
+      </div>
+
+      <!-- RIGHT SIDE : FOUNDER -->
+      <div class="footer-block founder-block">
+        <span class="footer-label">The Founder</span>
+        <p class="footer-detail">Dhairya N. Oza</p>
+      </div>
+
+    </div>
+
+    <p class="copyright">
+      © 2025 TFS Universe.
+    </p>
+  </footer>
+
+
+
+  <script>
+
+
+    // setup alternating images + animations
+    const rows = Array.from(document.querySelectorAll('.media-row'));
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function setupRows() {
+      rows.forEach((row, idx) => {
+        const imgWrap = row.querySelector('.media-image');
+        const info = row.querySelector('.media-info');
+        const src = row.dataset.src;
+        const title = row.dataset.title || '';
+
+        imgWrap.innerHTML = '';
+
+        const a = document.createElement('a');
+        a.href = src || '#';
+        a.target = '_blank';
+        a.rel = 'noopener';
+
+        const img = document.createElement('img');
+        img.src = src || `https://picsum.photos/seed/${idx}/1200/800`;
+        img.alt = title || 'Project image';
+        img.loading = 'lazy';
+        a.appendChild(img);
+        imgWrap.appendChild(a);
+
+        imgWrap.classList.remove('img-left-enter', 'img-right-enter');
+        info.classList.remove('info-from-left', 'info-from-right');
+        imgWrap.style.opacity = 0;
+        info.style.opacity = 0;
+
+        if (reduced) {
+          imgWrap.style.opacity = 1;
+          info.style.opacity = 1;
+          return;
+        }
+
+        const isAlt = row.classList.contains('alt');
+        const baseDelay = idx * 120;
+        const jitter = Math.floor(Math.random() * 140);
+        const delay = baseDelay + jitter;
+        const dur = 700 + Math.floor(Math.random() * 250);
+
+        imgWrap.style.setProperty('--dur', dur + 'ms');
+        info.style.setProperty('--dur', (dur - 80) + 'ms');
+
+        setTimeout(() => {
+          if (isAlt) {
+            imgWrap.classList.add('img-right-enter');
+            info.classList.add('info-from-left');
+          } else {
+            imgWrap.classList.add('img-left-enter');
+            info.classList.add('info-from-right');
+          }
+        }, delay);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', setupRows);
+    window.addEventListener('focus', () => { setTimeout(setupRows, 120); });
+
+
+    // MOBILE NAV + compact header JS
+    (function () {
+      const toggle = document.getElementById('navToggle');
+      const mobile = document.getElementById('mobileNav');
+      const header = document.querySelector('.tfs-header');
+
+      if (!toggle || !mobile || !header) return;
+
+      function closeMenu() {
+        toggle.classList.remove('open');
+        mobile.classList.remove('show');
+        toggle.setAttribute('aria-expanded', 'false');
+        mobile.setAttribute('aria-hidden', 'true');
+      }
+
+      toggle.addEventListener('click', () => {
+        const open = !toggle.classList.contains('open');
+        if (open) {
+          toggle.classList.add('open');
+          mobile.classList.add('show');
+        } else {
+          mobile.classList.remove('show');
+          toggle.classList.remove('open');
+        }
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        mobile.setAttribute('aria-hidden', open ? 'false' : 'true');
+      });
+
+      // close when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!mobile.classList.contains('show')) return;
+        const inside = mobile.contains(e.target) || toggle.contains(e.target);
+        if (!inside) closeMenu();
+      });
+
+      // close on Esc
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobile.classList.contains('show')) {
+          closeMenu();
+          toggle.focus();
+        }
+      });
+
+      // close menu when a mobile link is clicked
+      mobile.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          if (mobile.classList.contains('show')) closeMenu();
+        });
+      });
+
+      // compact header on scroll
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY || 0;
+        if (y > 40) header.classList.add('compact');
+        else header.classList.remove('compact');
+      }, { passive: true });
+    })();
+  </script>
+</body>
+
+</html>

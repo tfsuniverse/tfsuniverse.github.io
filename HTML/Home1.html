@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TFS Universe — One Vision, Many Worlds</title>
+  <meta name="description"
+    content="TFS Universe — A creative ecosystem spanning film production, media works, e-commerce, and more. Discover our many worlds." />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="TFS Universe — One Vision, Many Worlds" />
+  <meta property="og:description"
+    content="A creative ecosystem spanning film production, media works, e-commerce, and more." />
+  <meta property="og:image" content="../photo/TFS UNIVERSE1.png" />
+  <meta property="og:url" content="https://tfsuniverse.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link href="../CSS/header.css" rel="stylesheet">
+  <link href="../CSS/Footer.css" rel="stylesheet">
+  <link href="../CSS/home.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="loader-content">
+      <img src="../photo/TFS UNIVERSE1.png" alt="TFS Universe Loading">
+      <div class="loader-bar">
+        <div class="loader-progress"></div>
+      </div>
+      <p class="loader-text">Loading 0%</p>
+    </div>
+  </div>
+
+  <!-- SCROLL PROGRESS BAR -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- GRAIN OVERLAY -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- BACKGROUND IMAGE (scroll synced - image sequence) -->
+  <div class="bg-video">
+    <img id="scrollImage" src="../photo/scroll-frames/frame_001.jpg" alt="" loading="eager">
+  </div>
+
+  <!-- HEADER -->
+  <header class="tfs-header" role="banner">
+    <div class="header-inner">
+      <div class="brand">
+        <a href="Home1.html" class="brand-link" aria-label="TFS Universe home">
+          <img src="../photo/logo.png" alt="TFS logo" class="brand-logo">
+          <div class="brand-text"><i>TFS Universe</i></div>
+        </a>
+      </div>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <ul id="main-nav" class="nav-list">
+          <li><a href="Home1.html">Our Story</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-mobile-controls">
+        <button id="navToggle" class="hamburger" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileNav" class="mobile-nav" aria-hidden="true">
+      <ul class="mobile-nav-list">
+        <li><a href="Home1.html">Home</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+
+  <!-- HERO VIDEO -->
+  <div class="top-hero" id="heroWrapper">
+
+    <video id="heroVideo" src="../video/Hero_Banner.mp4" autoplay playsinline muted preload="auto">
+    </video>
+
+    <!-- Transparent Logo -->
+    <img id="heroLogo" src="../photo/TFS UNIVERSE1.png" alt="TFS Universe Logo" />
+
+    <!-- Play Button (Bottom Right) -->
+    <button id="heroPlayBtn" aria-label="Play intro video">▶</button>
+
+  </div>
+
+
+  <!-- ================= MAIN SECTION ================= -->
+  <main id="home" class="container">
+    <section id="business">
+      <h2 class="section-title">What is TFS Universe?</h2>
+      <p class="lead">One vision. Many worlds.</p>
+
+      <div class="business-grid">
+
+        <!-- Card 1 -->
+        <a href="the flying shirt.html" class="biz-card card-link secondAnimation" aria-label="The Flying Shirt">
+          <div class="hover-card">
+            <img src="../photo/tfs flying shirt1.png" alt="The Flying Shirt" loading="lazy">
+            <div class="card-title">The Flying Shirt</div>
+            <div class="card-sub">Freedom on Two Wheels, Powered by Passion.</div>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="TFS-film works.html" class="biz-card card-link secondAnimation" aria-label="TFS Film Works">
+          <div class="hover-card">
+            <img src="../photo/tfs film works2.png" alt="Production House" loading="lazy">
+            <div class="card-title">TFS Film Works</div>
+            <div class="card-sub">Video Production — Concept, Shooting & Post.</div>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="TFS media works.html" class="biz-card card-link secondAnimation" aria-label="TFS Media Works">
+          <div class="hover-card">
+            <img src="../photo/tfs media works3.jpg" alt="Media Works" loading="lazy">
+            <div class="card-title">TFS Media Works</div>
+            <div class="card-sub">Crafting Cinematic Stories that Move Brands.</div>
+          </div>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="BuyItonline.html" class="biz-card card-link secondAnimation" aria-label="BuyItonline">
+          <div class="hover-card">
+            <img src="../photo/buyitonline1.jpeg" alt="buyitonline" loading="lazy">
+            <div class="card-title">BuyItOnline</div>
+            <div class="card-sub">Online Shopping Platform.</div>
+          </div>
+        </a>
+
+        <!-- Card 5 -->
+        <a href="Soochh.html" class="biz-card card-link secondAnimation" aria-label="Soochh">
+          <div class="hover-card">
+            <img src="../photo/soochh.jpg" alt="Soochh" loading="lazy">
+            <div class="card-title">Soochh</div>
+            <div class="card-sub">Learning, Ideas & Creative Thinking.</div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- JOIN TFS Aliens BUTTON (SEPARATE) -->
+  <div style="text-align: center; margin: 40px 0;">
+    <a class="btn-uni" href="https://Googleformlink.openinapp.link/for-Internship-Program-2025">
+      Join The TFS Aliens<span></span>
+    </a>
+  </div>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- FOOTER -->
+  <footer class="simple-footer">
+    <div class="footer-inner footer-grid">
+
+      <!-- LEFT SIDE : CONTACT -->
+      <div class="footer-block">
+        <span class="footer-label">Phone</span>
+        <p class="footer-detail">
+          <a href="tel:+91 8320287732">+91 8320287732</a>
+        </p>
+      </div>
+
+      <div class="footer-block">
+        <span class="footer-label">Email</span>
+        <p class="footer-detail">
+          <a href="mailto:tfsfilmworks@gmail.com">tfsfilmworks@gmail.com</a>
+        </p>
+      </div>
+
+      <!-- RIGHT SIDE : FOUNDER -->
+      <div class="footer-block founder-block">
+        <span class="footer-label">The Founder</span>
+        <p class="footer-detail">Dhairya N. Oza</p>
+      </div>
+
+    </div>
+
+    <p class="copyright">
+      © 2025 TFS Universe.
+    </p>
+  </footer>
+
+  <!-- External JavaScript -->
+  <script src="../JS/main.js"></script>
+
+</body>
+
+</html>

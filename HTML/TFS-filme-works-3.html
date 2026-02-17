@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TFS 3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link href="../CSS/header.css" rel="stylesheet">
+  <link href="../CSS/Footer.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #020617;
+      --panel: #0b1020;
+      --line: #1e293b;
+      --accent: #38bdf8;
+      --green: #22c55e;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --max: 1200px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    body {
+      font-family: Inter, system-ui;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(56, 189, 248, .08), transparent 40%),
+        linear-gradient(180deg, #020617, #020617);
+      color: var(--text);
+    }
+
+
+    /* ===== LAYOUT ===== */
+    .container {
+      max-width: var(--max);
+      margin: auto;
+      padding: 64px 20px;
+    }
+
+    /* ===== INTRO ===== */
+    .intro {
+      max-width: 900px;
+    }
+
+    .intro h1 {
+      font-size: 32px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .intro p {
+      margin-top: 16px;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    /* ===== PROJECT LIST ===== */
+    .projects {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 46px;
+    }
+
+    /* ===== PROJECT ROW ===== */
+    .project {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    /* ===== LEFT PANEL ===== */
+    .side {
+      background: linear-gradient(180deg, #0b1020, #020617);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .index {
+      font-size: 12px;
+      letter-spacing: .2em;
+      color: var(--accent);
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* TECH STACK */
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .stack span {
+      font-size: 11px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, .4);
+      background: rgba(56, 189, 248, .12);
+    }
+
+    .stack span.green {
+      border-color: rgba(34, 197, 94, .45);
+      background: rgba(34, 197, 94, .15);
+    }
+
+    /* LINKS */
+    .links {
+      margin-top: auto;
+      display: flex;
+      gap: 12px;
+    }
+
+    .links a {
+      font-size: 12px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      transition: .25s;
+    }
+
+    .links a:hover {
+      background: rgba(56, 189, 248, .12);
+    }
+
+    /* ===== PREVIEW PANEL ===== */
+    .preview {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #000;
+      cursor: pointer;
+    }
+
+    .preview::before {
+      content: "PREVIEW";
+      position: absolute;
+      top: 12px;
+      left: 14px;
+      font-size: 11px;
+      letter-spacing: .2em;
+      color: #93c5fd;
+      z-index: 2;
+    }
+
+    .preview img,
+    .preview video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    /* ===== POPUP ===== */
+    .popup {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 6, 23, .95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: .3s;
+      z-index: 9999;
+    }
+
+    .popup.show {
+      opacity: 1;
+      pointer-events: auto
+    }
+
+    .popup-box {
+      width: 82vw;
+      height: 72vh;
+      max-width: 1200px;
+      background: #000;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    @media(max-width:900px) {
+      .project {
+        grid-template-columns: 1fr
+      }
+
+      .popup-box {
+        width: 100%;
+        height: 100%;
+        border-radius: 0
+      }
+    }
+
+    .popup img,
+    .popup video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* CLOSE */
+    .close {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      font-size: 12px;
+      letter-spacing: .2em;
+      cursor: pointer;
+      color: #fff;
+      opacity: .85;
+    }
+
+    .close:hover {
+      opacity: 1
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="tfs-header" role="banner">
+    <div class="header-inner">
+      <div class="brand">
+        <a href="Home1.html" class="brand-link" aria-label="TFS Universe home">
+          <img src="../photo/logo.png" alt="TFS logo" class="brand-logo">
+          <div class="brand-text"><i>TFS Universe</i></div>
+        </a>
+      </div>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <ul id="main-nav" class="nav-list">
+          <li><a href="Home1.html">Home</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-mobile-controls">
+        <button id="navToggle" class="hamburger" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileNav" class="mobile-nav" aria-hidden="true">
+      <ul class="mobile-nav-list">
+        <li><a href="Home1.html">Home</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+
+  <main class="container">
+    <!-- INTRO -->
+    <section class="intro">
+      <h1>Web Development</h1>
+      <p>
+        Our web development work focuses on building scalable, maintainable, and
+        performance-driven digital products. From structured corporate websites
+        to interactive dashboards, each project follows clean architecture,
+        modern frameworks, and industry best practices.
+      </p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects">
+
+      <!-- PROJECT 01 -->
+      <article class="project" data-type="image" data-src="../photo/web1.png">
+        <div class="side">
+          <div class="index">Website 1</div>
+          <div class="title">BuyItOnline</div>
+          <div class="desc">
+            A modern corporate website designed for brand communication,
+            service presentation, and lead generation.
+          </div>
+
+          <div class="stack">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span class="green">Responsive</span>
+          </div>
+
+          <div class="links">
+            <a href="https://example.com" target="_blank">Live Site</a>
+            <a href="https://github.com" target="_blank">GitHub</a>
+          </div>
+        </div>
+
+        <div class="preview">
+          <img src="../photo/web1.png" alt="">
+        </div>
+      </article>
+
+      <!-- PROJECT 02 -->
+      <article class="project" data-type="video" data-src="../video/dashboard.mp4">
+        <div class="side">
+          <div class="index">Website</div>
+          <div class="title">Oza Motorsports</div>
+          <div class="desc">
+            A data-driven dashboard with real-time analytics, role-based access,
+            and modular UI components.
+          </div>
+
+          <div class="stack">
+            <span>React</span>
+            <span>API</span>
+            <span class="green">Dashboard</span>
+          </div>
+
+          <div class="links">
+            <a href="https://example.com" target="_blank">Live Site</a>
+          </div>
+        </div>
+
+        <div class="preview">
+          <video autoplay muted loop playsinline>
+            <source src="../video/dashboard.mp4">
+          </video>
+        </div>
+      </article>
+
+      <!-- PROJECT 03 -->
+      <article class="project" data-type="video" data-src="../video/dashboard.mp4">
+        <div class="side">
+          <div class="index">Website</div>
+          <div class="title">TFS Universe</div>
+          <div class="desc">
+            A data-driven dashboard with real-time analytics, role-based access,
+            and modular UI components.
+          </div>
+
+          <div class="stack">
+            <span>React</span>
+            <span>API</span>
+            <span class="green">Dashboard</span>
+          </div>
+
+          <div class="links">
+            <a href="https://example.com" target="_blank">Live Site</a>
+          </div>
+        </div>
+
+        <div class="preview">
+          <video autoplay muted loop playsinline>
+            <source src="../video/dashboard.mp4">
+          </video>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- POPUP -->
+  <div class="popup" id="popup">
+    <div class="popup-box">
+      <div class="close" id="closePopup">CLOSE ✕</div>
+      <img id="popupImg" hidden>
+      <video id="popupVideo" controls autoplay muted playsinline hidden></video>
+    </div>
+  </div>
+
+  <!----------------------Footer-----------------  -->
+
+  <footer class="simple-footer">
+    <div class="footer-inner footer-grid">
+
+      <!-- LEFT SIDE : CONTACT -->
+      <div class="footer-block">
+        <span class="footer-label">Phone</span>
+        <p class="footer-detail">
+          <a href="tel:+918320287732">+91 8320287732</a>
+        </p>
+      </div>
+
+      <div class="footer-block">
+        <span class="footer-label">Email</span>
+        <p class="footer-detail">
+          <a href="mailto:tfsfilmworks@gmail.com">tfsfilmworks@gmail.com</a>
+        </p>
+      </div>
+
+      <!-- RIGHT SIDE : FOUNDER -->
+      <div class="footer-block founder-block">
+        <span class="footer-label">The Founder</span>
+        <p class="footer-detail">Dhairya N. Oza</p>
+      </div>
+
+    </div>
+
+    <p class="copyright">
+      © 2025 TFS Universe.
+    </p>
+  </footer>
+
+
+  <script>
+    const popup = document.getElementById('popup');
+    const img = document.getElementById('popupImg');
+    const vid = document.getElementById('popupVideo');
+
+    document.querySelectorAll('.project').forEach(p => {
+      p.addEventListener('click', e => {
+        if (e.target.closest('.links')) return;
+        popup.classList.add('show');
+
+        const type = p.dataset.type;
+        const src = p.dataset.src;
+
+        if (type === 'video') {
+          img.hidden = true;
+          vid.hidden = false;
+          vid.src = src;
+          vid.play();
+        } else {
+          vid.pause(); vid.src = '';
+          vid.hidden = true;
+          img.hidden = false;
+          img.src = src;
+        }
+      });
+    });
+
+    document.getElementById('closePopup').onclick = () => {
+      popup.classList.remove('show');
+      vid.pause(); vid.src = '';
+    };
+    popup.onclick = e => {
+      if (e.target === popup) {
+        popup.classList.remove('show');
+        vid.pause(); vid.src = '';
+      }
+    };
+  </script>
+
+</body>
+
+</html>

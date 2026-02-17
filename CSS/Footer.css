@@ -1,0 +1,73 @@
+/*----------------------- footer ---------------*/
+  .simple-footer {
+  margin-top: 40px;
+  padding: 26px 20px;
+  background: #020617;
+  border-top: 1px solid rgba(148, 163, 253, 0.4);
+}
+
+/* GRID LAYOUT */
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 30px;
+  align-items: start;
+}
+
+/* COMMON BLOCK */
+.footer-block {
+  display: flex;
+  flex-direction: column;
+}
+
+/* LABEL */
+.footer-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 253, 0.85);
+  margin-bottom: 6px;
+}
+
+/* DETAIL */
+.footer-detail {
+  font-size: 14px;
+  color: rgba(226, 232, 240, 0.95);
+}
+
+.footer-detail a {
+  color: #7fe9ff;
+  text-decoration: none;
+}
+
+.footer-detail a:hover {
+  text-decoration: underline;
+}
+
+/* FOUNDER RIGHT SIDE */
+.founder-block {
+  text-align: right;
+}
+
+/* COPYRIGHT */
+.copyright {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: rgba(209, 213, 219, 0.7);
+}
+
+/* 📱 MOBILE FIX */
+@media (max-width: 700px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .founder-block {
+    text-align: left;
+  }
+}

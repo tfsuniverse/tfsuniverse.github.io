@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Soochh </title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <link href="../CSS/header.css" rel="stylesheet">
+  <link href="../CSS/Footer.css" rel="stylesheet">
+  <style>
+    :root {
+      --max-width: 1200px;
+      --bg-1: #020617;
+      --bg-2: #1e1030;
+      --text: #e9f6ff;
+      --muted: rgba(226, 232, 240, 0.86);
+      --accent: #2dd4bf;
+      --accent-soft: rgba(45, 212, 191, 0.3);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Inter, system-ui, Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      animation: bgFloat 30s ease-in-out infinite alternate;
+      overflow-x: hidden;
+    }
+
+    @keyframes bgFloat {
+      0% {
+        background-position: 0 0, 0 0, 0 0
+      }
+
+      50% {
+        background-position: 18px -18px, -20px 16px, 0 0
+      }
+
+      100% {
+        background-position: -12px 8px, 20px -12px, 0 0
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    img {
+      max-width: 100%;
+      display: block
+    }
+
+    .page-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 26px 20px 40px;
+    }
+
+
+    /* ================== HERO ================== */
+    .hero {
+      margin-top: 80px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .hero-left {
+      flex: 1 1 260px;
+      padding: 20px 20px 22px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 64, 175, 0.92));
+      border: 1px solid rgba(148, 163, 253, 0.7);
+      box-shadow:
+        0 20px 40px rgba(15, 23, 42, 0.95),
+        0 0 40px rgba(37, 99, 235, 0.6);
+    }
+
+    .hero-left h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-left p {
+      color: var(--muted);
+      margin-bottom: 10px;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .hero-right {
+      flex: 1 1 260px;
+      min-width: 260px;
+    }
+
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      max-height: 320px;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 253, 0.7);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .section-title {
+      margin: 38px 0 10px;
+      font-size: 18px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .lead {
+      color: var(--muted);
+      margin-bottom: 18px;
+      font-size: 14px;
+    }
+
+    /* ================== PLATFORM GRID ================== */
+    .course-slider {
+      position: relative;
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 253, 0.6);
+      padding: 18px 18px 22px;
+      overflow: hidden;
+      box-shadow: 0 18px 48px rgba(15, 23, 42, 0.95);
+    }
+
+    .course-track {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px 20px;
+    }
+
+    .course-slide {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 8px 8px;
+      text-align: center;
+      min-width: 0;
+    }
+
+    .course-media {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 4px;
+      border: 2px solid rgba(45, 212, 191, 0.9);
+      box-shadow:
+        0 0 18px rgba(45, 212, 191, 0.75),
+        0 0 32px rgba(15, 23, 42, 0.95);
+      background:
+        radial-gradient(circle at 30% 10%, rgba(255, 255, 255, 0.35), transparent 55%),
+        radial-gradient(circle at 80% 90%, rgba(0, 0, 0, 0.9), #020a14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .course-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .course-content {
+      max-width: 260px;
+    }
+
+    .course-content h3 {
+      margin-bottom: 4px;
+      font-size: 15px;
+    }
+
+    .course-content p {
+      color: rgba(226, 232, 240, 0.82);
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .course-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #02141a;
+      font-weight: 700;
+      font-size: 12px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.6);
+      white-space: nowrap;
+    }
+
+    .course-link span {
+      font-size: 16px;
+      transform: translateX(0);
+      transition: transform .2s;
+    }
+
+    .course-link:hover span {
+      transform: translateX(3px);
+    }
+
+    /* ================== WHY BOX ================== */
+    .why-box {
+      background: rgba(15, 23, 42, 0.9);
+      padding: 18px;
+      border-radius: 14px;
+      line-height: 1.7;
+      border: 1px solid rgba(148, 163, 253, 0.6);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.95);
+      font-size: 14px;
+    }
+
+    /* light effect button */
+    .btn-uni {
+      position: relative;
+      display: inline-block;
+      padding: 10px 25px;
+      color: #ffffff;
+      font-size: 13px;
+      text-decoration: none;
+      text-transform: uppercase;
+      overflow: hidden;
+      transition: .5s;
+      letter-spacing: 3px;
+      background: transparent;
+      border: 1px solid #1303f4;
+      border-radius: 999px;
+      bottom: -30px;
+    }
+
+    .btn-uni:hover {
+      background: #034ff4;
+      color: #fff;
+      box-shadow:
+        0 0 5px #083deb,
+        0 0 25px #0317f4,
+        0 0 50px #033bf4,
+        0 0 100px #0327f4;
+    }
+
+    .btn-uni span {
+      position: absolute;
+      display: block;
+      bottom: 2px;
+      left: -100%;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #fcfcfc);
+      animation: btn-anim1 1s linear infinite;
+    }
+
+    @keyframes btn-anim1 {
+      0% {
+        left: -100%;
+      }
+
+      50%,
+      100% {
+        left: 100%;
+      }
+    }
+
+    /* Button arrow icon */
+    .btn-arrow {
+      font-style: normal;
+      color: #ffffff;
+      margin-left: 8px;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-uni:hover .btn-arrow {
+      transform: translateX(5px);
+    }
+
+    /* ------------------ view more Button----------------- */
+
+    .viewMoreBtn {
+      position: relative;
+      display: inline-block;
+      padding: 10px 25px;
+      color: #ffffff;
+      font-size: 13px;
+      text-decoration: none;
+      text-transform: uppercase;
+      overflow: hidden;
+      transition: .5s;
+      letter-spacing: 3px;
+      background: transparent;
+      border: 1px solid #1303f4;
+      border-radius: 999px;
+      bottom: 6px;
+      margin-top: 50px;
+      cursor: pointer;
+    }
+
+    .viewMoreBtn:hover {
+      background: #034ff4;
+      color: #fff;
+      box-shadow:
+        0 0 5px #083deb,
+        0 0 25px #0317f4,
+        0 0 50px #033bf4,
+        0 0 100px #0327f4;
+    }
+
+    .viewMoreBtn span {
+      position: absolute;
+      display: block;
+      bottom: 2px;
+      left: -100%;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #fcfcfc);
+      animation: btn-anim1 1s linear infinite;
+    }
+
+    .viewMoreBtn:hover .btn-arrow {
+      transform: translateX(5px);
+    }
+
+
+
+    /* ===== VIEW MORE FIX (SAFE – NO STYLE CHANGE) ===== */
+    .course-slide.is-hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="tfs-header" role="banner">
+    <div class="header-inner">
+      <div class="brand">
+        <a href="Home1.html" class="brand-link" aria-label="TFS Universe home">
+          <img src="../photo/logo.png" alt="TFS logo" class="brand-logo">
+          <div class="brand-text"><i>TFS Universe</i></div>
+        </a>
+      </div>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <ul id="main-nav" class="nav-list">
+          <li><a href="Home1.html">Home</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-mobile-controls">
+        <button id="navToggle" class="hamburger" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileNav" class="mobile-nav" aria-hidden="true">
+      <ul class="mobile-nav-list">
+        <li><a href="Home1.html">Home</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+
+
+  <div class="page-container">
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-left">
+        <h2>Where Music Meets Meaning.</h2>
+        <p>
+          Soochh is a platform for musicians and artists who create with depth, 
+          emotion, and purpose — celebrating sound, words, and stories that move hearts, not algorithms.
+        </p>
+        <!-- <p>His journey from childhood performances to his debut "Har Shaam Ki Tarha" defines his passion for music. </p> -->
+
+        <p><a class="btn-uni" href="https://medium.com/@vydsaawrites/melody-music-and-meaning-92d0834f3497">Article <i
+              class="btn-arrow">→</i><span></span></a></p>
+      </div>
+
+      <div class="hero-right">
+        <a href="https://www.youtube.com/@DearSoochh" target="_blank">
+          <img src="../photo/shoochh.png" alt="Soochh cover image">
+        </a>
+      </div>
+
+    </section>
+
+    <!-- PLATFORM (MUSIC PLATFORMS GRID) -->
+    <h2 class="section-title">Music Platforms</h2>
+    <p class="lead">Discover and Stream Soochh’s Songs seamlessly across Leading Music Platforms Worldwide.</p>
+
+    <div class="course-slider" id="courseSlider">
+      <div class="course-track">
+
+
+        <!-- Slide 1- YT Music -->
+        <article class="course-slide">
+          <a href="https://YTMUSIC.openinapp.link/BARSAAT-THEINCOMPLETEVERSION" class="course-media">
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/017/395/384/non_2x/youtube-music-icon-free-png.png"
+              alt="YT Music" onerror="this.src='../photo/shoochh.png'">
+          </a>
+          <div class="course-content">
+            <h3>YT Music</h3>
+          </div>
+        </article>
+
+
+        <!-- Slide 2 - Instagram -->
+        <article class="course-slide">
+          <a href="https://www.instagram.com/dearsoochh?igsh=MXY1ajg5Z2dsNmphMg==" class="course-media">
+            <img
+              src="https://cdn.logojoy.com/wp-content/uploads/20230511124058/instagram-new-gradient-logo-animation.gif"
+              alt="Instagram" onerror="this.src='../photo/shoochh.png'">
+          </a>
+          <div class="course-content">
+            <h3>Instagram</h3>
+          </div>
+        </article>
+
+
+        <!-- Slide 3 - Spotify -->
+        <article class="course-slide">
+          <a href="https://open.spotify.com/artist/4H8LsuXmagHw982crg5CKj?si=Ur1RHx5_ReObwZWL-VADjA"
+            class="course-media">
+            <img src="https://www.logo.wine/a/logo/Spotify/Spotify-Icon-White-Dark-Background-Logo.wine.svg"
+              alt="Spotify" onerror="this.src='../photo/shoochh.png'">
+          </a>
+          <div class="course-content">
+            <h3>Spotify</h3>
+          </div>
+        </article>
+
+        <!-- Slide 4 - Apple Music -->
+        <article class="course-slide">
+          <a href="https://music.apple.com/in/artist/soochh/1837695675" class="course-media">
+            <img
+              src="https://artists.apple.com/assets/artist-og-share-c766a5950ae664ea9073ede99da0df1094ae1a24bee32b86ab9e43e7e02bce2e.jpg"
+              alt="Apple Music" onerror="this.src='../photo/shoochh.png'">
+          </a>
+          <div class="course-content">
+            <h3>Apple Music</h3>
+          </div>
+        </article>
+
+        <!-- Slide 5 - JioSaavn -->
+        <article class="course-slide">
+          <a href="https://www.jiosaavn.com/artist/soochh/pZoW99v,ZPM_" class="course-media">
+            <img
+              src="https://media.newindianexpress.com/TNIE%2Fimport%2F2018%2F12%2F4%2Foriginal%2FJio_Saavn.JPG?w=1200&ar=40%3A21&auto=format%2Ccompress&ogImage=true&mode=crop&enlarge=true&overlay=false&overlay_position=bottom&overlay_width=100"
+              alt="JioSaavn" onerror="this.src='../photo/shoochh.png'">
+          </a>
+          <div class="course-content">
+            <h3>JioSaavn</h3>
+          </div>
+        </article>
+
+        <!-- Slide 6 - Amazon Music -->
+        <article class="course-slide">
+          <a href="https://amazon.com/music/player/artists/B0FQNQSLL3/soochh?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_svOgFCVQeAABuv61NX5li0Kzc"
+            class="course-media">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/b/be/Stacked_Amazon_Music_CyanOnCharcoal_Circle_RGB.png"
+              alt="Amazon Music" onerror="this.src='../photo/shoochh.png'">
+          </a>
+          <div class="course-content">
+            <h3>Amazon Music</h3>
+          </div>
+        </article>
+
+
+        <!-- Slide 7 - Gaana -->
+        <article class="course-slide">
+          <a href="https://gaana.com/artist/soochh" class="course-media">
+            <img
+              src="https://i0.wp.com/siliconspectra.com/wp-content/uploads/2020/01/dacefbddcecafa-1579137220pl8c4.jpg?fit=355%2C355&ssl=1"
+              alt="Gaana" onerror="this.src='../photo/shoochh.png'">
+          </a>
+          <div class="course-content">
+            <h3>Gaana</h3>
+          </div>
+        </article>
+
+
+        <!-- Slide 8 - WhatsApp -->
+        <article class="course-slide">
+          <a href="#" class="course-media">
+            <img src="https://www.logo.wine/a/logo/WhatsApp/WhatsApp-White-Dark-Background-Logo.wine.svg" alt="WhatsApp"
+              onerror="this.src='../photo/shoochh.png'">
+          </a>
+          <div class="course-content">
+            <h3>WhatsApp</h3>
+          </div>
+        </article>
+
+        <!-- Slide 9 - Snapchat -->
+        <article class="course-slide">
+          <a href="#" class="course-media">
+            <img
+              src="https://cdn.prod.website-files.com/666d73652dd00cac579627ec/67767f942c4928d932dc4f37_67767e2671f2ed8d606a3302_Icon.jpeg"
+              alt="Snapchat" onerror="this.src='../photo/shoochh.png'">
+          </a>
+          <div class="course-content">
+            <h3>Snapchat</h3>
+          </div>
+        </article>
+
+        <!-- Slide 10 - Musi -->
+        <article class="course-slide">
+          <a href="#" class="course-media">
+            <img src="https://undergroundsound.eu/wp-content/uploads/2024/08/Untitled-design-758x505.png" alt="Musi"
+              onerror="this.src='../photo/shoochh.png'">
+          </a>
+          <div class="course-content">
+            <h3>Musi</h3>
+          </div>
+        </article>
+
+        <!-- Slide 11 - SoundCloud -->
+        <article class="course-slide">
+          <a href="https://soundcloud.com/soochh?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+            class="course-media">
+            <img
+              src="https://e7.pngegg.com/pngimages/41/942/png-clipart-soundcloud-logo-square-soundcloud-icon-icons-logos-emojis-social-media-icons.png"
+              alt="SoundCloud" onerror="this.src='../photo/shoochh.png'">
+          </a>
+          <div class="course-content">
+            <h3>SoundCloud</h3>
+          </div>
+        </article>
+
+        <!-- Slide 12 - Pandora -->
+        <article class="course-slide">
+          <a href="#" class="course-media">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdKqtPL892PzoWHeWlMBUXwx4cVTehtkNNsA&s"
+              alt="Pandora" onerror="this.src='../photo/shoochh.png'">
+          </a>
+          <div class="course-content">
+            <h3>Pandora</h3>
+          </div>
+        </article>
+
+        <!-- Slide 13 - Boomplay -->
+        <article class="course-slide">
+          <a href="#" class="course-media">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkXjpfZnc4VOCkjwjiJdYPsxrg-QGywW6XWQ&s"
+              alt="Boomplay" onerror="this.src='../photo/shoochh.png'">
+          </a>
+          <div class="course-content">
+            <h3>Boomplay</h3>
+          </div>
+        </article>
+
+
+        <!-- Slide 14 - Tidal -->
+        <article class="course-slide">
+          <a href="#" class="course-media">
+            <img src="https://tidal.com/img/tidal_square_logo.png" alt="Tidal"
+              onerror="this.src='../photo/shoochh.png'">
+          </a>
+          <div class="course-content">
+            <h3>Tidal</h3>
+          </div>
+        </article>
+
+
+        <!-- Slide 15 - iHeart -->
+        <article class="course-slide">
+          <a href="#" class="course-media">
+            <img
+              src="https://iheart.forwardmerch.com/cdn/shop/collections/iheart_collection-image_all_1200x1200_f3094eff-7638-404a-9fbf-e35d64c88f92.jpg?v=1674774238"
+              alt="iHeart" onerror="this.src='../photo/shoochh.png'">
+          </a>
+          <div class="course-content">
+            <h3>iHeart<h3>
+          </div>
+        </article>
+
+        <!-- Slide 16 - Deezer -->
+        <article class="course-slide">
+          <a href="#" class="course-media">
+            <img src="https://brandingstyleguides.com/wp-content/guidelines/2024/06/deezer-web.jpg" alt="Deezer"
+              onerror="this.src='../photo/shoochh.png'">
+          </a>
+          <div class="course-content">
+            <h3>Deezer</h3>
+          </div>
+        </article>
+
+        <!-- Slide 17 - Triller -->
+        <article class="course-slide">
+          <a href="#" class="course-media">
+            <img src="https://res.cloudinary.com/jerrick/image/upload/v1609250101/5feb3535a2c9a3001cf30087.jpg"
+              alt="Triller" onerror="this.src='../photo/shoochh.png'">
+          </a>
+          <div class="course-content">
+            <h3>Triller</h3>
+          </div>
+        </article>
+
+        <!-- Slide 18 - KKBOX -->
+        <article class="course-slide">
+          <a href="#" class="course-media">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2I7UkyGjbgW5vbkNyCHW5AHjZhHWOJLTnnw&s"
+              alt="KKBOX" onerror="this.src='../photo/shoochh.png'">
+          </a>
+          <div class="course-content">
+            <h3>KKBOX</h3>
+          </div>
+        </article>
+
+        <!-- Slide 19 - TikTok -->
+        <article class="course-slide">
+          <a href="#" class="course-media">
+            <img src="https://www.hatchwise.com/wp-content/uploads/2024/04/image-20.png" alt="TikTok"
+              onerror="this.src='../photo/shoochh.png'">
+          </a>
+          <div class="course-content">
+            <h3>TikTok</h3>
+          </div>
+        </article>
+
+        <!-- Slide 20 - Deezer -->
+        <article class="course-slide">
+          <a href="#" class="course-media">
+            <img
+              src="https://img.freepik.com/premium-vector/facebook-logo-vector-facebook-official-logo-vector-facebook-logo-illustrator_1002350-1803.jpg?semt=ais_hybrid&w=740&q=80"
+              alt="facebook" onerror="this.src='../photo/shoochh.png'">
+          </a>
+          <div class="course-content">
+            <h3>Facebook</h3>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- View More Button -->
+      <div style="text-align: center; margin-top: 24px;">
+        <button id="viewMoreBtn" class="viewMoreBtn">
+          View More <i class="btn-arrow">→</i><span></span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <footer class="simple-footer">
+    <div class="footer-inner footer-grid">
+
+      <!-- LEFT SIDE : CONTACT -->
+      <div class="footer-block">
+        <span class="footer-label">Phone</span>
+        <p class="footer-detail">
+          <a href="tel:+918320287732">+91 8320287732</a>
+        </p>
+      </div>
+
+      <div class="footer-block">
+        <span class="footer-label">Email</span>
+        <p class="footer-detail">
+          <a href="mailto:tfsfilmworks@gmail.com">tfsfilmworks@gmail.com</a>
+        </p>
+      </div>
+
+      <!-- RIGHT SIDE : FOUNDER -->
+      <div class="footer-block founder-block">
+        <span class="footer-label">The Founder</span>
+        <p class="footer-detail">Dhairya N. Oza</p>
+      </div>
+
+    </div>
+
+    <p class="copyright">
+      © 2025 TFS Universe.
+    </p>
+  </footer>
+
+
+  <div id="modal-root" aria-hidden="true"></div>
+
+  <script>
+    // Header JS (mobile toggle, compact on scroll)
+    (function () {
+      const toggle = document.getElementById('navToggle');
+      const mobile = document.getElementById('mobileNav');
+      const header = document.querySelector('.tfs-header');
+      if (!toggle || !mobile || !header) return;
+
+      function closeMenu() {
+        toggle.classList.remove('open');
+        mobile.classList.remove('show');
+        toggle.setAttribute('aria-expanded', 'false');
+        mobile.setAttribute('aria-hidden', 'true');
+      }
+
+      toggle.addEventListener('click', () => {
+        const open = !toggle.classList.contains('open');
+        if (open) {
+          toggle.classList.add('open');
+          mobile.classList.add('show');
+          toggle.setAttribute('aria-expanded', 'true');
+          mobile.setAttribute('aria-hidden', 'false');
+        } else {
+          closeMenu();
+        }
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!mobile.classList.contains('show')) return;
+        const inside = mobile.contains(e.target) || toggle.contains(e.target);
+        if (!inside) closeMenu();
+      });
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobile.classList.contains('show')) {
+          closeMenu();
+          toggle.focus();
+        }
+      });
+
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY || 0;
+        if (y > 40) header.classList.add('compact');
+        else header.classList.remove('compact');
+      }, { passive: true });
+    })();
+
+
+    /* ===== MUSIC PLATFORM VIEW MORE (NO STYLE CHANGE) ===== */
+    (function () {
+      const items = document.querySelectorAll('.course-slide');
+      const btn = document.getElementById('viewMoreBtn');
+      const limit = 6;
+      let expanded = false;
+
+      // Initial hide
+      items.forEach((item, i) => {
+        if (i >= limit) item.classList.add('is-hidden');
+      });
+
+      btn.addEventListener('click', () => {
+        expanded = !expanded;
+
+        items.forEach((item, i) => {
+          if (expanded || i < limit) {
+            item.classList.remove('is-hidden');
+          } else {
+            item.classList.add('is-hidden');
+          }
+        });
+
+        btn.innerHTML = expanded
+          ? 'View Less <i class="btn-arrow">←</i><span></span>'
+          : 'View More <i class="btn-arrow">→</i><span></span>';
+      });
+    })();
+
+
+  </script>
+
+</body>
+
+</html>

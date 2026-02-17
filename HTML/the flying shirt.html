@@ -1,0 +1,872 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TFS — Alternating Media Info (Updated Header)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link href="../CSS/header.css" rel="stylesheet">
+  <link href="../CSS/Footer.css" rel="stylesheet">
+  <style>
+    /* Root variables */
+    :root {
+      --max-width: 1200px;
+      --bg-1: #06092d;
+      --bg-2: #300e30;
+      --text: #e9f6ff;
+      --muted: rgba(181, 204, 230, 0.85);
+      --accent: #7fe9ff;
+      --gap: 28px;
+    }
+
+    /* Reset / base */
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    img {
+      max-width: 100%;
+      display: block
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 28px
+    }
+
+
+    /* ------------------------ PAGE TITLE / Intro ------------------------ */
+
+    h1.page-title {
+      margin: 60px 0 2px;
+      font-size: 28px;
+      text-align: center;
+    }
+
+    p.lead {
+      color: var(--muted);
+      margin: 0 0 18px
+    }
+
+    /* ------------------------ Alternating media rows ------------------------ */
+
+    .media-row {
+      display: flex;
+      gap: var(--gap);
+      align-items: center;
+      margin: 28px 0;
+      padding: 18px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(0, 0, 0, 0.06));
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+    }
+
+    .media-row.alt {
+      flex-direction: row-reverse
+    }
+
+    .media-image {
+      flex: 1 1 44%;
+      min-width: 240px;
+      height: 260px;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      background: #0b1220;
+    }
+
+    .media-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block
+    }
+
+    .media-info {
+      flex: 1 1 52%;
+      min-width: 260px;
+      padding: 6px 12px
+    }
+
+    .media-info h3 {
+      margin: 0 0 8px;
+      font-size: 20px
+    }
+
+    .media-info p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      line-height: 1.6
+    }
+
+    .meta {
+      font-size: 13px;
+      color: var(--muted)
+    }
+
+    .caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    /* ------------------------ Image left and right Animations ------------------------ */
+    @keyframes img-from-left {
+      from {
+        transform: translateX(-120%);
+        opacity: 0
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1
+      }
+    }
+
+    @keyframes img-from-right {
+      from {
+        transform: translateX(120%);
+        opacity: 0
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1
+      }
+    }
+
+    @keyframes info-from-right {
+      from {
+        transform: translateX(40px);
+        opacity: 0
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1
+      }
+    }
+
+    @keyframes info-from-left {
+      from {
+        transform: translateX(-40px);
+        opacity: 0
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1
+      }
+    }
+
+    .img-left-enter {
+      animation: img-from-left var(--dur, 700ms) cubic-bezier(.2, .9, .25, 1) both;
+    }
+
+    .img-right-enter {
+      animation: img-from-right var(--dur, 700ms) cubic-bezier(.2, .9, .25, 1) both;
+    }
+
+    .info-from-right {
+      animation: info-from-right var(--dur, 650ms) ease both;
+    }
+
+    .info-from-left {
+      animation: info-from-left var(--dur, 650ms) ease both;
+    }
+
+    /* ----------------- acquire section ----------------- */
+
+    .acquire-horizontal {
+      display: flex;
+      gap: 22px;
+      padding: 20px 0;
+    }
+
+    /* Card */
+    .acquire-box {
+      display: flex;
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 253, 0.35);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+      padding: 18px;
+      width: 100%;
+      transition: 0.3s;
+    }
+
+    .acquire-box:hover {
+      border-color: var(--accent);
+      transform: translateY(-5px);
+      box-shadow:
+        0 22px 46px rgba(14, 165, 233, 0.45),
+        0 0 32px rgba(45, 212, 191, 0.5);
+    }
+
+    /* Left block */
+    .acq-left {
+      width: 130px;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 14px;
+      margin-right: 18px;
+    }
+
+    /* Right content */
+    .acq-right h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    .acq-right p {
+      color: var(--muted);
+      margin: 0 0 10px;
+      font-size: 14px;
+    }
+
+    /* ----------------- BUTTON (SAME STYLE) ----------------- */
+
+    .btn-uni {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 1px solid rgb(61, 106, 255);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ffffff;
+      background: transparent;
+      text-decoration: none;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.18s ease-in;
+
+      /* 🔥 FIX: button ko normal position pe rakha */
+      bottom: auto;
+      margin-top: 18px;
+    }
+
+    /* Hover */
+    .btn-uni:hover {
+      background: rgb(61, 106, 255);
+      color: #fff;
+      box-shadow:
+        0 0 5px #083deb,
+        0 0 25px #0317f4,
+        0 0 50px #033bf4,
+        0 0 100px #0327f4;
+    }
+
+    /* Moving light line */
+    .btn-uni span {
+      position: absolute;
+      bottom: 2px;
+      left: -100%;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #ffffff);
+      animation: btn-anim1 1s linear infinite;
+    }
+
+    @keyframes btn-anim1 {
+      0% {
+        left: -100%;
+      }
+
+      50%,
+      100% {
+        left: 100%;
+      }
+    }
+
+    /* Arrow animation */
+    .btn-arrow {
+      margin-left: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-uni:hover .btn-arrow {
+      transform: translateX(5px);
+    }
+
+    /* ----------------- Responsive ----------------- */
+
+    @media (max-width: 900px) {
+      .acquire-horizontal {
+        flex-direction: column;
+      }
+
+      .acq-left {
+        width: 100px;
+      }
+    }
+
+
+    /* focus visible */
+    :focus {
+      outline-offset: 3px
+    }
+
+    a:focus,
+    button:focus {
+      outline: 3px solid rgba(127, 233, 255, 0.12);
+      border-radius: 8px
+    }
+
+    /* reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+
+      .img-left-enter,
+      .img-right-enter,
+      .info-from-right,
+      .info-from-left {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    /* responsive rows */
+    @media(max-width:900px) {
+      .media-row {
+        flex-direction: column
+      }
+
+      .media-row.alt {
+        flex-direction: column
+      }
+
+      .media-image {
+        width: 100%;
+        height: 200px
+      }
+
+      .media-info {
+        width: 100%
+      }
+    }
+
+    @media(max-width:620px) {
+      .container {
+        padding: 18px
+      }
+
+      h1.page-title {
+        font-size: 22px
+      }
+    }
+
+
+    /* Social icons horizontal row */
+    .social-icons-row {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      margin: 40px 0;
+    }
+
+    /* Icon container */
+    .course-media {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.95);
+      border: 2px solid rgba(45, 212, 191, 0.6);
+      box-shadow: 0 0 20px rgba(45, 212, 191, 0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    /* Floating animation - each icon moves differently */
+    .course-media:nth-child(1) {
+      animation: float1 3s ease-in-out infinite;
+    }
+
+    .course-media:nth-child(2) {
+      animation: float2 3.5s ease-in-out infinite;
+    }
+
+    .course-media:nth-child(3) {
+      animation: float3 4s ease-in-out infinite;
+    }
+
+    .course-media:nth-child(4) {
+      animation: float4 3.2s ease-in-out infinite;
+    }
+
+    /* Different floating patterns */
+    @keyframes float1 {
+
+      0%,
+      100% {
+        transform: translateY(0) translateX(0);
+      }
+
+      50% {
+        transform: translateY(-12px) translateX(5px);
+      }
+    }
+
+    @keyframes float2 {
+
+      0%,
+      100% {
+        transform: translateY(0) translateX(0);
+      }
+
+      50% {
+        transform: translateY(-10px) translateX(-6px);
+      }
+    }
+
+    @keyframes float3 {
+
+      0%,
+      100% {
+        transform: translateY(0) translateX(0);
+      }
+
+      50% {
+        transform: translateY(-14px) translateX(4px);
+      }
+    }
+
+    @keyframes float4 {
+
+      0%,
+      100% {
+        transform: translateY(0) translateX(0);
+      }
+
+      50% {
+        transform: translateY(-8px) translateX(-5px);
+      }
+    }
+
+    /* Images */
+    .course-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    /* Hover - glow effect */
+    .course-media:hover {
+      transform: scale(1.15) translateY(-5px);
+      box-shadow: 0 0 35px rgba(45, 212, 191, 0.9), 0 0 60px rgba(42, 32, 191, 0.6);
+      border-color: #7fe9ff;
+      animation-play-state: paused;
+    }
+
+    /* Glow pulse ring */
+    .course-media::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 1px solid rgba(45, 212, 191, 0.3);
+      animation: iconGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes iconGlow {
+
+      0%,
+      100% {
+        opacity: 0.3;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.7;
+        transform: scale(1.08);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .social-icons-row {
+        gap: 30px;
+      }
+
+      .course-media {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="tfs-header">
+    <div class="header-inner container">
+
+      <!-- Brand -->
+      <div class="brand">
+        <a href="Home1.html" class="brand-link" aria-label="TFS Universe home">
+          <img src="../photo/logo.png" alt="TFS logo" class="brand-logo">
+          <div class="brand-text"><i>TFS Universe</i></div>
+        </a>
+      </div>
+
+      <!-- Desktop nav (extended, same as other pages) -->
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <ul id="main-nav" class="nav-list">
+          <li><a href="Home1.html">Home</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile hamburger -->
+      <div class="nav-mobile-controls">
+        <button id="navToggle" class="hamburger" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile nav dropdown -->
+    <div id="mobileNav" class="mobile-nav" aria-hidden="true">
+      <ul class="mobile-nav-list">
+        <li><a href="Home1.html">Home</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container" role="main" aria-labelledby="pageTitle">
+    <h1 id="pageTitle" class="page-title">The Flying Shirt</h1>
+    <p class="lead"> </p>
+
+    <section id="rows" aria-label="Project rows" style="margin-top:22px">
+
+      <article class="media-row" data-src="../photo/the fling shirt.jpg" data-title="Mountain Cinematic Frame"
+        data-desc="Wide cinematic mountain frame shot at golden hour.">
+
+        <!-- IMAGE -->
+        <div class="media-image"
+          onclick="window.open('https://youtube.com/@theflyingshirt?si=Dqj3vfyyr0rG8-Kr','_blank')"
+          style="cursor:pointer;">
+        </div>
+
+        <div class="media-info">
+          <h3>The Flying Shirt</h3>
+          <p class="meta">TFS – Motorcycle Stories, Reviews, Events & Podcasts</p>
+          <p>
+            TFS is a Content-driven Platform delivering honest Motorcycle Reviews,
+             Real-world Riding Experiences, Event Coverage, and Meaningful Conversations 
+             through the TFT Podcast. Built for Riders, Enthusiasts, and the Motorcycling Community.
+          </p>
+        </div>
+
+      </article>
+
+    </section>
+
+
+    <!-- Social Icons Row - Horizontal -->
+    <div class="social-icons-row">
+      <a href="https://spotify.openinapp.co/TFT-THE-FLYING-TALKS" class="course-media">
+        <img src="https://www.musicguymixing.com/wp-content/uploads/2024/07/spotify-logo.png" alt="Spotify">
+      </a>
+      <a href="https://youtube.com/@theflyingshirt?si=i3pNU1riZ-oXrD0M" class="course-media">
+        <img
+          src="https://img.freepik.com/premium-vector/red-youtube-logo-social-media-logo_197792-1803.jpg?semt=ais_hybrid&w=740&q=80"
+          alt="YouTube">
+      </a>
+      <a href="https://insta.openinapp.co/THE-FLYING-SHIRT" class="course-media">
+        <img src="https://img.freepik.com/free-vector/instagram-logo_1199-122.jpg?semt=ais_hybrid&w=740&q=80"
+          alt="Instagram">
+      </a>
+      <a href="https://fb.openinapp.co/THE-FLYING-SHIRT" class="course-media">
+        <img src="https://files.idyllic.app/files/static/2359584?width=256&optimizer=image" alt="Facebook">
+      </a>
+    </div>
+    <!-- Motorcycle reviews -->
+    <article class="media-row alt" data-src="../photo/F-1.jpg" data-title="Motorcycle reviews"
+      data-desc="Smooth aerial sweep over coastline.">
+      <a href="https://yt.openinapp.co/TFS-MOTORCYCLE-REVIEW" target="_blank" rel="noopener noreferrer"
+        style="text-decoration: none; display: block;">
+        <div class="media-image" aria-hidden="false" style="cursor: pointer;"></div>
+      </a>
+      <div class="media-info">
+        <h3>Motorcycle reviews</h3>
+        <p class="meta">Honest Motorcycle Reviews That Riders Trust.</p>
+        <p>In-depth Motorcycle Reviews Covering Performance, 
+          comfort, technology, and Real Riding Experience — Made 
+          Simple for Beginners and Valuable for Seasoned Riders.</p>
+        <div class="caption"></div>
+        <a class="btn-uni" href="https://yt.openinapp.co/TFS-MOTORCYCLE-REVIEW">See More
+          <i class="btn-arrow">→</i><span></span></a>
+      </div>
+    </article>
+    <!-- IBW 2023 -->
+    <article class="media-row" data-src="../photo/IBW.jpg" data-title="Portrait — Low Light"
+      data-desc="Moody portrait with natural window light.">
+      <a href="https://yt.openinapp.co/TFS-IBW2023-playlist" target="_blank" rel="noopener noreferrer"
+        style="text-decoration: none; display: block;">
+        <div class="media-image" aria-hidden="false" style="cursor: pointer;"></div>
+      </a>
+      <div class="media-info">
+        <h3>Motorcycling Events</h3>
+        <p class="meta">Where Motorcycling Culture Comes Alive.</p>
+        <p>From local rides to major Motorcycle Events, we capture 
+          the energy, stories, and people that define Riding Culture.
+           </p>
+        <div class="caption"></div>
+        <a class="btn-uni" href="https://yt.openinapp.co/TFS-IBW2023-playlist">See More
+          <i class="btn-arrow">→</i><span></span></a>
+      </div>
+    </article>
+
+    <article class="media-row alt" data-src="../photo/podcast_2.2.jpg" data-title="Drone Aerial Visual"
+      data-desc="Smooth aerial sweep over coastline.">
+      <a href="https://yt.openinapp.co/TFS-THEFLYINGTALKS-PODCAST-playlist" target="_blank" rel="noopener noreferrer"
+        style="text-decoration: none; display: block;">
+        <div class="media-image" aria-hidden="false" style="cursor: pointer;"></div>
+      </a>
+      <div class="media-info">
+        <h3>The Flying Talks Podcast</h3>
+        <p class="meta">Conversations That Ride Beyond the Road.</p>
+        <p>The TFS Podcast features awareness-driven discussions on Motorcycles, Safety, Lifestyle, 
+          and the evolving Riding Culture — honest, informative, and relatable.</p>
+        <div class="caption"></div>
+        <a class="btn-uni" href="https://yt.openinapp.co/TFS-THEFLYINGTALKS-PODCAST-playlist">See More
+          <i class="btn-arrow">→</i><span></span></a>
+      </div>
+    </article>
+
+    <section>
+      <div class="acquire-horizontal">
+
+        <!-- CARD 1 -->
+        <div class="acquire-box">
+          <div class="acq-left"></div>
+
+          <div class="acq-right">
+            <h3>Collaboration</h3>
+            <p class="meta">Collaborations Built on Shared Vision.</p>
+            <p>We Collaborate with Brands, Creators, and Communities that Align with Our Values.
+               At TFS, Collaborations are not Transactions — they are Partnerships built
+                 on Trust, Creativity, and Meaningful Storytelling that Resonates with R eal Audiences.</p>
+            <a class="btn-uni" href="#">Join <i class="btn-arrow">→</i><span></span></a>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="acquire-box">
+          <div class="acq-left"></div>
+
+          <div class="acq-right">
+            <h3>Brand Promotion</h3>
+            <p class="meta">Promotion That Feels Real.</p>
+            <p>TFS offers authentic brand promotion through Content, Experiences, and Culture-Driven Narratives.
+               We don’t push Products — we place Brands naturally within Stories that People Care About, 
+               Creating Awareness that Lasts Beyond Impressions.</p>
+            <a class="btn-uni" href="#">Apply <i class="btn-arrow">→</i><span></span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="simple-footer">
+    <div class="footer-inner footer-grid">
+
+      <!-- LEFT SIDE : CONTACT -->
+      <div class="footer-block">
+        <span class="footer-label">Phone</span>
+        <p class="footer-detail">
+          <a href="tel:+918320287732">+91 8320287732</a>
+        </p>
+      </div>
+
+      <div class="footer-block">
+        <span class="footer-label">Email</span>
+        <p class="footer-detail">
+          <a href="mailto:tfsfilmworks@gmail.com">tfsfilmworks@gmail.com</a>
+        </p>
+      </div>
+
+      <!-- RIGHT SIDE : FOUNDER -->
+      <div class="footer-block founder-block">
+        <span class="footer-label">The Founder</span>
+        <p class="footer-detail">Dhairya N. Oza</p>
+      </div>
+
+    </div>
+
+    <p class="copyright">
+      © 2025 TFS Universe.
+    </p>
+  </footer>
+
+  <div id="modal-root" aria-hidden="true"></div>
+
+  <script>
+
+
+    // setup alternating images + animations
+    const rows = Array.from(document.querySelectorAll('.media-row'));
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function setupRows() {
+      rows.forEach((row, idx) => {
+        const imgWrap = row.querySelector('.media-image');
+        const info = row.querySelector('.media-info');
+        const src = row.dataset.src;
+        const title = row.dataset.title || '';
+
+        imgWrap.innerHTML = '';
+
+        const a = document.createElement('a');
+        a.href = src || '#';
+        a.target = '_blank';
+        a.rel = 'noopener';
+
+        const img = document.createElement('img');
+        img.src = src || `https://picsum.photos/seed/${idx}/1200/800`;
+        img.alt = title || 'Project image';
+        img.loading = 'lazy';
+        a.appendChild(img);
+        imgWrap.appendChild(a);
+
+        imgWrap.classList.remove('img-left-enter', 'img-right-enter');
+        info.classList.remove('info-from-left', 'info-from-right');
+        imgWrap.style.opacity = 0;
+        info.style.opacity = 0;
+
+        if (reduced) {
+          imgWrap.style.opacity = 1;
+          info.style.opacity = 1;
+          return;
+        }
+
+        const isAlt = row.classList.contains('alt');
+        const baseDelay = idx * 120;
+        const jitter = Math.floor(Math.random() * 140);
+        const delay = baseDelay + jitter;
+        const dur = 700 + Math.floor(Math.random() * 250);
+
+        imgWrap.style.setProperty('--dur', dur + 'ms');
+        info.style.setProperty('--dur', (dur - 80) + 'ms');
+
+        setTimeout(() => {
+          if (isAlt) {
+            imgWrap.classList.add('img-right-enter');
+            info.classList.add('info-from-left');
+          } else {
+            imgWrap.classList.add('img-left-enter');
+            info.classList.add('info-from-right');
+          }
+        }, delay);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', setupRows);
+    window.addEventListener('focus', () => { setTimeout(setupRows, 120); });
+
+
+    // MOBILE NAV + compact header JS
+    (function () {
+      const toggle = document.getElementById('navToggle');
+      const mobile = document.getElementById('mobileNav');
+      const header = document.querySelector('.tfs-header');
+
+      if (!toggle || !mobile || !header) return;
+
+      function closeMenu() {
+        toggle.classList.remove('open');
+        mobile.classList.remove('show');
+        toggle.setAttribute('aria-expanded', 'false');
+        mobile.setAttribute('aria-hidden', 'true');
+      }
+
+      toggle.addEventListener('click', () => {
+        const open = !toggle.classList.contains('open');
+        if (open) {
+          toggle.classList.add('open');
+          mobile.classList.add('show');
+        } else {
+          mobile.classList.remove('show');
+          toggle.classList.remove('open');
+        }
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        mobile.setAttribute('aria-hidden', open ? 'false' : 'true');
+      });
+
+      // close when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!mobile.classList.contains('show')) return;
+        const inside = mobile.contains(e.target) || toggle.contains(e.target);
+        if (!inside) closeMenu();
+      });
+
+      // close on Esc
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobile.classList.contains('show')) {
+          closeMenu();
+          toggle.focus();
+        }
+      });
+
+      // close menu when a mobile link is clicked
+      mobile.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          if (mobile.classList.contains('show')) closeMenu();
+        });
+      });
+
+      // compact header on scroll
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY || 0;
+        if (y > 40) header.classList.add('compact');
+        else header.classList.remove('compact');
+      }, { passive: true });
+    })();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TFS 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <link href="../CSS/header.css" rel="stylesheet">
+  <link href="../CSS/Footer.css" rel="stylesheet">
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Custom cursor styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+
+      /* Glowing cursor */
+      cursor: none;
+      /* hide default cursor */
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      top: var(--cursorY, 50%);
+      left: var(--cursorX, 50%);
+      width: 20px;
+      height: 20px;
+      background: rgba(11, 17, 138, 0.934);
+      border-radius: 50%;
+      box-shadow: 0 0 15px 5px rgb(49, 104, 207);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: all 0.1s ease;
+      z-index: 9999;
+    }
+
+    /* On click glow effect for cursor */
+    body.glow-cursor::after {
+      box-shadow: 0 0 30px 10px rgb(147, 22, 22);
+      background: rgb(9, 20, 145);
+    }
+
+
+    /* main header finish */
+
+    .tfs-page-header {
+      position: sticky;
+      padding: 70px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    .tfs-page-title {
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      animation: pulse 2s infinite;
+
+
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.02);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Gallery grid with animations */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      perspective: 1000px;
+    }
+
+    /* Each item style with hover animations and light border */
+    .item {
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgb(38, 18, 222), 0 0 10px rgb(163, 17, 34);
+      /* added glow */
+      cursor: pointer;
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      /* Light border on all sides */
+      transition: all 0.4s ease, box-shadow 0.3s ease, border 0.3s ease;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Hover effects for items */
+    .item:hover {
+      transform: scale(1.05) translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+      z-index: 10;
+    }
+
+    /* Media inside items */
+    .item img,
+    .item video {
+      width: 100%;
+      display: block;
+      transition: transform 0.5s ease, filter 0.3s ease;
+    }
+
+    /* Hover effect for media */
+    .item:hover img,
+    .item:hover video {
+      transform: scale(1.1);
+      filter: brightness(1.2);
+    }
+
+    /* Overlay for video thumbnails on hover */
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .item:hover .video-overlay {
+      opacity: 1;
+    }
+
+    /* Modal styles with animations */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      align-items: center;
+      justify-content: center;
+      overflow: auto;
+      padding: 40px;
+      animation: fadeIn 0.5s forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .modal-active {
+      display: flex;
+    }
+
+    /* Content inside modal with zoom and fade */
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    /* Close button styles with hover */
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 3rem;
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .close:hover {
+      transform: rotate(15deg);
+      color: #ff4b2b;
+    }
+
+    /* Animations for images and videos in modal */
+    .modal-media {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      animation: zoomIn 0.4s;
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!----------------- HEADER ----------------------->
+  <header class="tfs-header" role="banner">
+    <div class="header-inner">
+      <div class="brand">
+        <a href="Home1.html" class="brand-link" aria-label="TFS Universe home">
+          <img src="../photo/logo.png" alt="TFS logo" class="brand-logo">
+          <div class="brand-text"><i>TFS Universe</i></div>
+        </a>
+      </div>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <ul id="main-nav" class="nav-list">
+          <li><a href="Home1.html">Home</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-mobile-controls">
+        <button id="navToggle" class="hamburger" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileNav" class="mobile-nav" aria-hidden="true">
+      <ul class="mobile-nav-list">
+        <li><a href="Home1.html">Home</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+
+  <header class="tfs-page-header">
+    <h1 class="tfs-page-title">TFS Film Works Video and Image Gallery</h1>
+  </header>
+
+
+  <div class="gallery" id="gallery">
+    <!-- 15 Images -->
+    <div class="item" data-type="image" data-src="../photo/EU.jpg">
+      <img src="../photo/EU.jpg" alt="Landscape 1" />
+    </div>
+    <div class="item" data-type="image"
+      data-src="https://images.unsplash.com/photo-1491553892407-7903a4d92e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+      <img
+        src="https://images.unsplash.com/photo-1491553892407-7903a4d92e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+        alt="Nature 1" />
+    </div>
+    <div class="item" data-type="image" data-src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6">
+      <img
+        src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+        alt="Landscape 2" />
+    </div>
+    <div class="item" data-type="image" data-src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d">
+      <img
+        src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+        alt="Nature 2" />
+    </div>
+    <div class="item" data-type="image" data-src="https://images.unsplash.com/photo-1549887534-7c680844a41c">
+      <img src="../photo/10.png" alt="Mountain" />
+    </div>
+    <div class="item" data-type="image" data-src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
+      <img
+        src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+        alt="Landscape 3" />
+    </div>
+    <div class="item" data-type="image" data-src="https://images.unsplash.com/photo-1549924231-f129b911e442">
+      <img
+        src="https://images.unsplash.com/photo-1549924231-f129b911e442?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+        alt="Beach" />
+    </div>
+    <div class="item" data-type="image" data-src="https://images.unsplash.com/photo-1519985176271-adb1088fa94c">
+      <img
+        src="https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+        alt="Sunset" />
+    </div>
+    <div class="item" data-type="image" data-src="https://images.unsplash.com/photo-1532619187604-1d2f5d0b4d7f">
+      <img
+        src="https://images.unsplash.com/photo-1532619187604-1d2f5d0b4d7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+        alt="Forest" />
+    </div>
+    <div class="item" data-type="image" data-src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
+      <img
+        src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+        alt="Mountain" />
+    </div>
+    <div class="item" data-type="image" data-src="https://images.unsplash.com/photo-1549887534-7c680844a41c">
+      <img
+        src="https://images.unsplash.com/photo-1549887534-7c680844a41c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+        alt="Beach" />
+    </div>
+    <div class="item" data-type="image" data-src="https://images.unsplash.com/photo-1519985176271-adb1088fa94c">
+      <img
+        src="https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+        alt="Sunset" />
+    </div>
+    <div class="item" data-type="image" data-src="https://images.unsplash.com/photo-1532619187604-1d2f5d0b4d7f">
+      <img
+        src="https://images.unsplash.com/photo-1532619187604-1d2f5d0b4d7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+        alt="Forest" />
+    </div>
+
+    <!-- 8 Videos -->
+    <div class="item" data-type="video" data-src="https://www.w3schools.com/html/mov_bbb.mp4">
+      <video src="https://www.w3schools.com/html/mov_bbb.mp4" muted></video>
+      <div class="video-overlay"><span style="color:#411bee;font-size:2rem;">▶</span></div>
+    </div>
+    <div class="item" data-type="video" data-src="https://www.w3schools.com/html/movie.mp4">
+      <video src="https://www.w3schools.com/html/movie.mp4" muted></video>
+      <div class="video-overlay"><span style="color:#532bd7;font-size:2rem;">▶</span></div>
+    </div>
+    <div class="item" data-type="video"
+      data-src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4">
+      <video src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4" muted></video>
+      <div class="video-overlay"><span style="color:#2938d8;font-size:2rem;">▶</span></div>
+    </div>
+    <div class="item" data-type="video"
+      data-src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4">
+      <video src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4" muted></video>
+      <div class="video-overlay"><span style="color:#3636e2;font-size:2rem;">▶</span></div>
+    </div>
+    <div class="item" data-type="video" data-src="https://www.w3schools.com/html/mov_bbb.mp4">
+      <video src="https://www.w3schools.com/html/mov_bbb.mp4" muted></video>
+      <div class="video-overlay"><span style="color:#252bcc;font-size:2rem;">▶</span></div>
+    </div>
+    <div class="item" data-type="video" data-src="https://www.w3schools.com/html/movie.mp4">
+      <video src="https://www.w3schools.com/html/movie.mp4" muted></video>
+      <div class="video-overlay"><span style="color:#241bca;font-size:2rem;">▶</span></div>
+    </div>
+    <div class="item" data-type="video"
+      data-src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4">
+      <video src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4" muted></video>
+      <div class="video-overlay"><span style="color:#2a35d3;font-size:2rem;">▶</span></div>
+    </div>
+    <div class="item" data-type="video"
+      data-src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4">
+      <video src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4" muted></video>
+      <div class="video-overlay"><span style="color:#3329c2;font-size:2rem;">▶</span></div>
+    </div>
+  </div>
+
+  <!-- Modal for viewing media -->
+  <div class="modal" id="modal">
+    <div class="modal-content" id="modalContent">
+      <span class="close" id="close">&times;</span>
+    </div>
+  </div>
+
+
+  <footer class="simple-footer">
+    <div class="footer-inner footer-grid">
+
+      <!-- LEFT SIDE : CONTACT -->
+      <div class="footer-block">
+        <span class="footer-label">Phone</span>
+        <p class="footer-detail">
+          <a href="tel:+918320287732">+91 8320287732</a>
+        </p>
+      </div>
+
+      <div class="footer-block">
+        <span class="footer-label">Email</span>
+        <p class="footer-detail">
+          <a href="mailto:tfsfilmworks@gmail.com">tfsfilmworks@gmail.com</a>
+        </p>
+      </div>
+
+      <!-- RIGHT SIDE : FOUNDER -->
+      <div class="footer-block founder-block">
+        <span class="footer-label">The Founder</span>
+        <p class="footer-detail">Dhairya N. Oza</p>
+      </div>
+
+    </div>
+
+    <p class="copyright">
+      © 2025 TFS Universe.
+    </p>
+  </footer>
+  <div id="modal-root" aria-hidden="true"></div>
+
+  <script>
+    const gallery = document.getElementById('gallery');
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modalContent');
+    const closeBtn = document.getElementById('close');
+
+    // Function to open modal
+    function openModal(type, src) {
+      modal.classList.add('modal-active');
+      if (type === 'image') {
+        modalContent.innerHTML = '<img src="' + src + '" class="modal-media" />';
+      } else if (type === 'video') {
+        modalContent.innerHTML = '<video src="' + src + '" controls autoplay class="modal-media"></video>';
+      }
+    }
+
+    // Event delegation for gallery items
+    gallery.addEventListener('click', function (e) {
+      const item = e.target.closest('.item');
+      if (!item) return;
+      const type = item.getAttribute('data-type');
+      const src = item.getAttribute('data-src');
+      openModal(type, src);
+    });
+
+    // Close modal
+    document.getElementById('close').onclick = () => {
+      modal.classList.remove('modal-active');
+      modalContent.innerHTML = '';
+    };
+
+    window.onclick = (e) => {
+      if (e.target == modal) {
+        modal.classList.remove('modal-active');
+        modalContent.innerHTML = '';
+      }
+    };
+
+    // Cursor glow effects
+    document.addEventListener('mousemove', e => {
+      document.documentElement.style.setProperty('--cursorX', e.clientX + 'px');
+      document.documentElement.style.setProperty('--cursorY', e.clientY + 'px');
+    });
+
+    document.addEventListener('mousedown', () => {
+      document.body.classList.add('glow-cursor');
+    });
+
+    document.addEventListener('mouseup', () => {
+      document.body.classList.remove('glow-cursor');
+    });
+  </script>
+
+</body>
+
+</html>

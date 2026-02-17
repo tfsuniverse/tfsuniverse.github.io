@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TFS 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link href="../CSS/header.css" rel="stylesheet">
+  <link href="../CSS/Footer.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg1: #020617;
+      --bg2: #1e1030;
+      --accent: #00e5ff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    body {
+      font-family: Inter, system-ui;
+      background: linear-gradient(180deg, var(--bg1), var(--bg2));
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    /* ===== GALLERY ===== */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 80px 20px;
+    }
+
+    h1 {
+      font-size: 22px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    .gallery {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    @media(max-width:900px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media(max-width:600px) {
+      .gallery {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* ===== CARD ===== */
+    .card {
+      cursor: pointer;
+      border-radius: 22px;
+      padding: 1px;
+      background: conic-gradient(#7f5dff, #00e5ff, #7f5dff);
+    }
+
+    .card-inner {
+      background: #0b1020;
+      border-radius: inherit;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, .85);
+    }
+
+    .frame {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+
+    .frame img,
+    .frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+      /* desktop bug fix */
+      transition: .6s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .card:hover img,
+    .card:hover video {
+      transform: scale(1.08);
+    }
+
+    .info {
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .8rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .badge {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .3);
+    }
+
+    .badge.video {
+      background: rgba(0, 229, 255, .25);
+    }
+
+    /* ===== POPUP BASE ===== */
+    .popup {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .88);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: .3s ease;
+      z-index: 9999;
+    }
+
+    .popup.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ===== DESKTOP CINEMA ===== */
+    .popup.desktop .popup-content {
+      width: 72vw;
+      max-width: 1200px;
+      height: 72vh;
+      max-height: 700px;
+      background: #000;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 0 70px rgba(0, 229, 255, .45);
+      position: relative;
+    }
+
+    /* ===== MOBILE FULLSCREEN ===== */
+    .popup.mobile {
+      background: #000;
+    }
+
+    .popup.mobile .popup-content {
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ===== MEDIA (NO BLACK BARS) ===== */
+    .popup img,
+    .popup video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* 🔥 no black bars */
+      background: #000;
+    }
+
+    /* ===== CLOSE ===== */
+    .close {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      font-size: 12px;
+      letter-spacing: .2em;
+      cursor: pointer;
+      z-index: 10;
+      opacity: .85;
+    }
+
+    .close:hover {
+      opacity: 1
+    }
+
+    .popup.mobile .close {
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="tfs-header" role="banner">
+    <div class="header-inner">
+      <div class="brand">
+        <a href="Home1.html" class="brand-link" aria-label="TFS Universe home">
+          <img src="../photo/logo.png" alt="TFS logo" class="brand-logo">
+          <div class="brand-text"><i>TFS Universe</i></div>
+        </a>
+      </div>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <ul id="main-nav" class="nav-list">
+          <li><a href="Home1.html">Home</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-mobile-controls">
+        <button id="navToggle" class="hamburger" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileNav" class="mobile-nav" aria-hidden="true">
+      <ul class="mobile-nav-list">
+        <li><a href="Home1.html">Home</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+
+
+  <div class="container">
+    <h1>TFS Gallery</h1>
+
+    <div class="gallery">
+
+      <!-- IMAGE -->
+      <div class="card" data-type="image" data-src="../photo/4.png">
+        <div class="card-inner">
+          <div class="frame">
+            <img src="../photo/4.png" alt="">
+          </div>
+          <div class="info">
+            <span>Neon Portrait</span>
+            <span class="badge">Image</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIDEO (REEL / ANY FORMAT) -->
+      <div class="card" data-type="video" data-src="../video/video1.mp4">
+        <div class="card-inner">
+          <div class="frame">
+            <video autoplay muted loop playsinline>
+              <source src="../video/video1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="info">
+            <span>Neon Reel</span>
+            <span class="badge video">Video</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- IMAGE -->
+      <div class="card" data-type="image" data-src="../photo/5.png">
+        <div class="card-inner">
+          <div class="frame">
+            <img src="../photo/5.png" alt="">
+          </div>
+          <div class="info">
+            <span>City Glow</span>
+            <span class="badge">Image</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== POPUP ===== -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <div class="close" id="closePopup">CLOSE ✕</div>
+      <img id="popupImg" hidden>
+      <video id="popupVideo" controls autoplay muted playsinline preload="metadata" hidden>
+      </video>
+    </div>
+  </div>
+
+  <footer class="simple-footer">
+    <div class="footer-inner footer-grid">
+
+      <!-- LEFT SIDE : CONTACT -->
+      <div class="footer-block">
+        <span class="footer-label">Phone</span>
+        <p class="footer-detail">
+          <a href="tel:+918320287732">+91 8320287732</a>
+        </p>
+      </div>
+
+      <div class="footer-block">
+        <span class="footer-label">Email</span>
+        <p class="footer-detail">
+          <a href="mailto:tfsfilmworks@gmail.com">tfsfilmworks@gmail.com</a>
+        </p>
+      </div>
+
+      <!-- RIGHT SIDE : FOUNDER -->
+      <div class="footer-block founder-block">
+        <span class="footer-label">The Founder</span>
+        <p class="footer-detail">Dhairya N. Oza</p>
+      </div>
+
+    </div>
+
+    <p class="copyright">
+      © 2025 TFS Universe.
+    </p>
+  </footer>
+  <script>
+
+    /* Header JS: mobile toggle + compact on scroll */
+    (function () {
+      const toggle = document.getElementById('navToggle');
+      const mobile = document.getElementById('mobileNav');
+      const header = document.querySelector('.tfs-header');
+      if (!toggle || !mobile || !header) return;
+
+      function closeMenu() {
+        toggle.classList.remove('open');
+        mobile.classList.remove('show');
+        toggle.setAttribute('aria-expanded', 'false');
+        mobile.setAttribute('aria-hidden', 'true');
+      }
+
+      toggle.addEventListener('click', () => {
+        const open = !toggle.classList.contains('open');
+        if (open) {
+          toggle.classList.add('open');
+          mobile.classList.add('show');
+          toggle.setAttribute('aria-expanded', 'true');
+          mobile.setAttribute('aria-hidden', 'false');
+        } else {
+          closeMenu();
+        }
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!mobile.classList.contains('show')) return;
+        const inside = mobile.contains(e.target) || toggle.contains(e.target);
+        if (!inside) closeMenu();
+      });
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobile.classList.contains('show')) {
+          closeMenu();
+          toggle.focus();
+        }
+      });
+
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY || 0;
+        if (y > 40) header.classList.add('compact');
+        else header.classList.remove('compact');
+      }, { passive: true });
+    })();
+
+
+
+    const popup = document.getElementById('popup');
+    const img = document.getElementById('popupImg');
+    const vid = document.getElementById('popupVideo');
+
+    function isMobile() {
+      return window.matchMedia('(max-width:768px)').matches;
+    }
+
+    /* OPEN */
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        popup.classList.remove('mobile', 'desktop');
+        popup.classList.add(isMobile() ? 'mobile' : 'desktop');
+        popup.classList.add('show');
+
+        const type = card.dataset.type;
+        const src = card.dataset.src;
+
+        if (type === 'video') {
+          img.hidden = true;
+          vid.hidden = false;
+          vid.src = src;
+          vid.currentTime = 0;
+          vid.play();
+        } else {
+          vid.pause();
+          vid.src = "";
+          vid.hidden = true;
+          img.hidden = false;
+          img.src = src;
+        }
+      });
+    });
+
+    /* CLOSE */
+    function closePopup() {
+      popup.classList.remove('show');
+      vid.pause();
+      vid.src = "";
+    }
+
+    document.getElementById('closePopup').onclick = closePopup;
+    popup.addEventListener('click', e => {
+      if (e.target === popup) closePopup();
+    });
+
+    /* ESC KEY (DESKTOP) */
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && popup.classList.contains('show')) {
+        closePopup();
+      }
+    });
+  </script>
+
+</body>
+
+</html>

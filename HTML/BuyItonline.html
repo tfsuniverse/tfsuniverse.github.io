@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shopping Brands</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="../CSS/header.css" rel="stylesheet">
+  <link href="../CSS/Footer.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg1: #020617;
+      --bg2: #1e1030;
+      --accent: #00e5ff;
+      --card: #0b1020;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, var(--bg1), var(--bg2));
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 70px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      margin-bottom: 50px;
+    }
+
+    /* TOP CARD */
+    .top-card {
+      max-width: 600px;
+      margin: 0 auto 60px;
+    }
+
+    /* BOTTOM GRID */
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    /* CARD */
+    .brand-card {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 30px;
+      text-align: center;
+      border: 1px solid rgba(0, 229, 255, .35);
+      transition: .35s;
+    }
+
+    .brand-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 40px rgba(0, 229, 255, .6);
+    }
+
+    /* LOGO */
+    .brand-card img {
+      width: 300px;
+      height: auto;
+      margin-bottom: 18px;
+      border-radius: 12px;
+    }
+
+    /* TITLE */
+    .brand-card h2 {
+      font-size: 18px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    /* TEXT */
+    .brand-card p {
+      font-size: 14px;
+      line-height: 1.6;
+      opacity: .9;
+    }
+
+    /* BUTTON */
+    .brand-btn {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 12px 30px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-size: 12px;
+      transition: .3s;
+    }
+
+    .brand-btn:hover {
+      background: var(--accent);
+      color: #000;
+    }
+
+    /* MOBILE */
+    @media(max-width:900px) {
+      .bottom-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .top-card {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="tfs-header" role="banner">
+    <div class="header-inner">
+      <div class="brand">
+        <a href="Home1.html" class="brand-link" aria-label="TFS Universe home">
+          <img src="../photo/logo.png" alt="TFS logo" class="brand-logo">
+          <div class="brand-text"><i>TFS Universe</i></div>
+        </a>
+      </div>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <ul id="main-nav" class="nav-list">
+          <li><a href="Home1.html">Home</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-mobile-controls">
+        <button id="navToggle" class="hamburger" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileNav" class="mobile-nav" aria-hidden="true">
+      <ul class="mobile-nav-list">
+        <li><a href="Home1.html">Home</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+
+
+
+  <div class="container">
+    <h1>Our Shopping Partners</h1>
+
+    <!-- TOP FIRST CARD -->
+    <div class="top-card">
+      <div class="brand-card">
+        <img
+          src="https://files.ecomsend.com/prod/78422f89c4684cce1023eef803cde140/202508/431b55bf43a7f0af0977d8e991dbe0bc/logo%20bio%20234.png"
+          alt="BuyItOnline">
+        <h2>Buyitonline</h2>
+        <p>
+          BuyItOnline is a smart e-commerce platform offering quality products
+          at competitive prices with a simple, secure shopping experience.
+        </p>
+        <a href="https://buyitonline.org/" class="brand-btn">
+          Visit BuyItOnline
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- BOTTOM THREE CARDS -->
+  <div class="bottom-grid">
+
+    <div class="brand-card">
+      <img
+        src="https://i0.wp.com/www.financeveda.com/wp-content/uploads/2022/06/25071-flipkart1.jpg?fit=1920%2C1080&ssl=1"
+        alt="Flipkart">
+      <h2>Flipkart</h2>
+      <p>
+        Flipkart is a leading Indian e-commerce platform known for mobiles,
+        electronics, appliances and attractive discount offers.
+      </p>
+      <a href="https://www.flipkart.com" target="_blank" class="brand-btn">
+        Visit Flipkart
+      </a>
+    </div>
+
+    <div class="brand-card">
+      <img
+        src="https://images.moneycontrol.com/static-mcnews/2023/06/Meesho-682x435.jpg?impolicy=website&width=1600&height=900"
+        alt="Meesho">
+      <h2>Meesho</h2>
+      <p>
+        Meesho provides affordable products and supports small sellers
+        and resellers with easy online shopping experience.
+      </p>
+      <a href="https://www.meesho.com" target="_blank" class="brand-btn">
+        Visit Meesho
+      </a>
+    </div>
+
+    <div class="brand-card">
+      <img src="https://1000logos.net/wp-content/uploads/2016/10/Amazon-logo-meaning.jpg" alt="Amazon">
+      <h2>Amazon</h2>
+      <p>
+        Amazon is one of the world’s largest online shopping platforms,
+        offering electronics, fashion, home essentials and fast delivery
+        with secure payment options.
+      </p>
+      <a href="https://www.amazon.in" target="_blank" class="brand-btn">
+        Visit Amazon
+      </a>
+    </div>
+  </div>
+  <footer class="simple-footer">
+    <div class="footer-inner footer-grid">
+
+      <!-- LEFT SIDE : CONTACT -->
+      <div class="footer-block">
+        <span class="footer-label">Phone</span>
+        <p class="footer-detail">
+          <a href="tel:+918320287732">+91 83202 87732</a>
+        </p>
+      </div>
+
+      <div class="footer-block">
+        <span class="footer-label">Email</span>
+        <p class="footer-detail">
+          <a href="mailto:thefilmworks@gmail.com">tfsfilmworks@gmail.com</a>
+        </p>
+      </div>
+
+      <!-- RIGHT SIDE : FOUNDER -->
+      <div class="footer-block founder-block">
+        <span class="footer-label">The Founder</span>
+        <p class="footer-detail">Dhairya N. Oza</p>
+      </div>
+
+    </div>
+
+    <p class="copyright">
+      © 2025 TFS Universe.
+    </p>
+  </footer>
+
+
+
+
+</body>
+
+</html>
