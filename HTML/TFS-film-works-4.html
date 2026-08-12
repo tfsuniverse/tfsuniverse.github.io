@@ -1,0 +1,1527 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Music Videos — TFS Film Works</title>
+  <meta name="description"
+    content="Explore the music video productions by TFS Film Works and SOOCHH — cinematic visuals meeting soulful sound." />
+  <meta name="keywords" content="Indian bike podcast, Bike podcast, Motorcycle podcast, Superbike podcast, Budget bikes in india , Best bikes in india, Bike riding experience, Biker lifestyle india, Indian podcast, Real talk podcast, Storytelling podcast, Trending podcasts in india, Podcast for riders, Trending podcasts in india, Podcast for riders, Bike modification podcast, Biker motivation podcast, Superbike discussion podcast, Superbike maintenance cost india podcast, Life with superbike india, First superbike journey podcast, Indian superbike rider truth/guest podcast, motorcycle tips , motorcycle tips for beginners , motorcycle tips and techniques, riding gear, harley davidson , best motorcycle in india, motorcycle racing, best motorcycle helmet 2026, best motorcycle under 1 lakh">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <link href="../CSS/header.css" rel="stylesheet">
+  <link href="../CSS/Footer.css" rel="stylesheet">
+
+  <style>
+    /* ===================== ROOT TOKENS ===================== */
+    :root {
+      --max-width: 1200px;
+      --bg: #0c0e18;
+      --bg-surface: #171925;
+      --bg-surface-high: #1c1f2c;
+      --bg-surface-highest: #222534;
+      --primary: #91abff;
+      --primary-dim: #3a6bed;
+      --secondary: #d078ff;
+      --secondary-dim: #ad37eb;
+      --tertiary: #ff7346;
+      --on-surface: #ededfc;
+      --on-surface-variant: #a9aab8;
+      --outline-variant: #464753;
+      --text: #ededfc;
+      --muted: rgba(169, 170, 184, 0.9);
+    }
+
+    /* ===================== RESET ===================== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Manrope', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    .font-display {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ===================== AMBIENT GLOW ===================== */
+    .bg-glow {
+      position: fixed;
+      width: 60vw;
+      height: 60vw;
+      border-radius: 50%;
+      filter: blur(120px);
+      z-index: 0;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    .bg-glow--primary {
+      background: var(--primary);
+      top: -25%;
+      left: -25%;
+    }
+
+    .bg-glow--secondary {
+      background: var(--secondary);
+      bottom: -25%;
+      right: -25%;
+    }
+
+    /* ===================== GLASS CARD ===================== */
+    .glass-card {
+      background: rgba(28, 31, 44, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(145, 171, 255, 0.15);
+      border-radius: 16px;
+    }
+
+    .glow-primary {
+      box-shadow: 0 0 40px rgba(145, 171, 255, 0.1);
+    }
+
+    /* ===================== MAIN CONTAINER ===================== */
+    .page-main {
+      position: relative;
+      z-index: 1;
+      padding-top: 96px;
+      padding-bottom: 48px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .page-main {
+        padding-left: 48px;
+        padding-right: 48px;
+      }
+    }
+
+    /* ===================== SECTION SPACING ===================== */
+    .section-gap {
+      margin-bottom: 128px;
+    }
+
+    /* ===================== HERO / FEATURED RELEASE ===================== */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .hero-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(40px, 7vw, 72px);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+
+    .hero-desc-card {
+      padding: 32px;
+    }
+
+    .hero-desc-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(145, 171, 255, 0.6);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .hero-desc-text {
+      color: var(--on-surface-variant);
+      font-size: 17px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* Video thumbnail */
+    .video-thumb-wrap {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .video-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(0.2);
+      transition: filter 0.7s ease, transform 0.7s ease;
+    }
+
+    .video-thumb-wrap:hover img {
+      filter: grayscale(0);
+      transform: scale(1.03);
+    }
+
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .video-thumb-wrap:hover .video-overlay {
+      opacity: 1;
+    }
+
+    .play-btn {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .play-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .play-btn .material-symbols-outlined {
+      color: #fff;
+      font-size: 48px;
+      font-variation-settings: 'FILL' 1;
+    }
+
+    .thumb-glow {
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      z-index: -1;
+      filter: blur(24px);
+      opacity: 0.1;
+    }
+
+    .thumb-glow--primary {
+      background: var(--primary);
+    }
+
+    .thumb-glow--secondary {
+      background: var(--secondary);
+      left: -16px;
+      right: auto;
+    }
+
+    /* ===================== CTA BUTTONS ===================== */
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 40px;
+      border-radius: 999px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      margin-top: 24px;
+    }
+
+    .btn-cta--filled {
+      background: var(--primary);
+      color: #002775;
+      box-shadow: 0 0 30px rgba(145, 171, 255, 0.4);
+    }
+
+    .btn-cta--filled:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 50px rgba(145, 171, 255, 0.6);
+    }
+
+    .btn-cta--outline {
+      background: transparent;
+      color: var(--secondary);
+      border: 2px solid var(--secondary);
+      box-shadow: 0 0 30px rgba(208, 120, 255, 0.2);
+    }
+
+    .btn-cta--outline:hover {
+      background: var(--secondary);
+      color: #fff;
+      box-shadow: 0 0 50px rgba(208, 120, 255, 0.5);
+    }
+
+    .btn-cta .material-symbols-outlined {
+      transition: transform 0.3s ease;
+    }
+
+    .btn-cta:hover .material-symbols-outlined {
+      transform: translateX(4px);
+    }
+
+    /* ===================== TRACK 2 — ALTERNATE LAYOUT ===================== */
+    .track2-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .track2-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .track2-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--secondary);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .track2-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(40px, 7vw, 72px);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+
+    .track2-desc-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(208, 120, 255, 0.6);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    /* ===================== SOUNDSCAPE SECTION ===================== */
+    .soundscape-section {
+      padding: 80px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(17, 19, 30, 0.2);
+    }
+
+    .soundscape-header {
+      max-width: 800px;
+      margin: 0 auto 64px;
+      text-align: center;
+    }
+
+    .soundscape-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--tertiary);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .soundscape-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      margin-bottom: 24px;
+    }
+
+    .soundscape-subtitle {
+      color: var(--on-surface-variant);
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .soundscape-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    @media (min-width: 768px) {
+      .soundscape-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .soundscape-card {
+      padding: 40px;
+      border-radius: 24px;
+      transition: border-color 0.3s ease;
+    }
+
+    .soundscape-card--primary {
+      border-color: rgba(145, 171, 255, 0.2);
+    }
+
+    .soundscape-card--primary:hover {
+      border-color: rgba(145, 171, 255, 0.4);
+    }
+
+    .soundscape-card--secondary {
+      border-color: rgba(208, 120, 255, 0.2);
+    }
+
+    .soundscape-card--secondary:hover {
+      border-color: rgba(208, 120, 255, 0.4);
+    }
+
+    .soundscape-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .soundscape-icon--primary {
+      background: rgba(145, 171, 255, 0.2);
+    }
+
+    .soundscape-icon--primary .material-symbols-outlined {
+      color: var(--primary);
+    }
+
+    .soundscape-icon--secondary {
+      background: rgba(208, 120, 255, 0.2);
+    }
+
+    .soundscape-icon--secondary .material-symbols-outlined {
+      color: var(--secondary);
+    }
+
+    .soundscape-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .soundscape-card p {
+      color: var(--on-surface-variant);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ===================== FOUNDER SPOTLIGHT ===================== */
+    .founder-section {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .founder-section {
+        grid-template-columns: 5fr 7fr;
+      }
+    }
+
+    .founder-img-wrap {
+      position: relative;
+    }
+
+    .founder-img-frame {
+      aspect-ratio: 4 / 5;
+      border-radius: 24px;
+      overflow: hidden;
+      padding: 8px;
+      transform: rotate(-2deg);
+      position: relative;
+      z-index: 2;
+    }
+
+    .founder-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+      filter: grayscale(1);
+      transition: filter 0.6s ease;
+    }
+
+    .founder-img-frame:hover img {
+      filter: grayscale(0);
+    }
+
+    .founder-glow {
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      filter: blur(48px);
+      z-index: 1;
+    }
+
+    .founder-glow--tl {
+      top: -40px;
+      left: -40px;
+      background: rgba(145, 171, 255, 0.2);
+    }
+
+    .founder-glow--br {
+      bottom: -40px;
+      right: -40px;
+      background: rgba(208, 120, 255, 0.2);
+    }
+
+    .founder-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .founder-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 32px;
+    }
+
+    .founder-bio {
+      color: var(--on-surface-variant);
+      font-size: 17px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .founder-bio p {
+      margin-bottom: 24px;
+    }
+
+    .founder-quote {
+      padding: 24px 0 24px 32px;
+      border-left: 4px solid var(--primary);
+      font-family: 'Space Grotesk', sans-serif;
+      font-style: italic;
+      font-size: 22px;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.5;
+      margin: 24px 0;
+    }
+
+    /* ===================== BEYOND THE SOUND ===================== */
+    .beyond-section {
+      padding: 96px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      background: linear-gradient(180deg, var(--bg), var(--bg));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .beyond-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80vw;
+      height: 80vw;
+      border-radius: 50%;
+      background: rgba(145, 171, 255, 0.06);
+      filter: blur(120px);
+      pointer-events: none;
+    }
+
+    .beyond-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .beyond-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .beyond-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .beyond-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(40px, 7vw, 72px);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      margin-bottom: 32px;
+      background: linear-gradient(to right, #fff, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .beyond-desc {
+      font-size: 18px;
+      color: var(--on-surface-variant);
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 720px;
+      margin: 0 auto 40px;
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 32px;
+      border-radius: 999px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--primary);
+      background: rgba(145, 171, 255, 0.1);
+      border: 1px solid rgba(145, 171, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(77, 124, 254, 0.1);
+    }
+
+    .btn-ghost:hover {
+      background: var(--primary);
+      color: #002775;
+      box-shadow: 0 0 30px rgba(77, 124, 254, 0.4);
+      transform: scale(1.05);
+    }
+
+    .btn-ghost .material-symbols-outlined {
+      font-size: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-ghost:hover .material-symbols-outlined {
+      transform: translateX(4px);
+    }
+
+    /* Timeline cards */
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    @media (min-width: 768px) {
+      .timeline-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .timeline-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .timeline-card {
+      padding: 32px;
+      border-radius: 16px;
+      transition: border-color 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .timeline-card:hover {
+      border-color: rgba(145, 171, 255, 0.4);
+    }
+
+    .timeline-date {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .timeline-date--primary {
+      color: var(--primary);
+    }
+
+    .timeline-date--secondary {
+      color: var(--secondary);
+    }
+
+    .timeline-date--tertiary {
+      color: var(--tertiary);
+    }
+
+    .timeline-card h4 {
+      color: #fff;
+      font-size: 18px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .timeline-card p {
+      color: var(--on-surface-variant);
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    .timeline-card .btn-ghost {
+      padding: 12px 24px;
+      font-size: 11px;
+    }
+
+    /* ===================== BACK LINK ===================== */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 48px;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: #fff;
+    }
+
+    .back-link .material-symbols-outlined {
+      font-size: 18px;
+      transition: transform 0.3s;
+    }
+
+    .back-link:hover .material-symbols-outlined {
+      transform: translateX(-4px);
+    }
+
+    /* ===================== SCROLL ANIMATIONS ===================== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.25, 1),
+        transform 0.8s cubic-bezier(0.2, 0.9, 0.25, 1);
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-left {
+      opacity: 0;
+      transform: translateX(-60px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.25, 1),
+        transform 0.8s cubic-bezier(0.2, 0.9, 0.25, 1);
+    }
+
+    .fade-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .fade-right {
+      opacity: 0;
+      transform: translateX(60px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.25, 1),
+        transform 0.8s cubic-bezier(0.2, 0.9, 0.25, 1);
+    }
+
+    .fade-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 1023px) {
+      .hero-grid .order-text {
+        order: 2;
+      }
+
+      .hero-grid .order-img {
+        order: 1;
+      }
+
+      .founder-section .order-img-mobile {
+        order: 1;
+      }
+
+      .founder-section .order-text-mobile {
+        order: 2;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .section-gap {
+        margin-bottom: 80px;
+      }
+
+      .hero-desc-card {
+        padding: 24px;
+      }
+
+      .soundscape-card {
+        padding: 24px;
+      }
+
+      .founder-quote {
+        font-size: 18px;
+        padding-left: 20px;
+      }
+
+      .beyond-section {
+        padding: 60px 0;
+      }
+
+      .video-container {
+        max-width: 100%;
+        border-radius: 12px;
+      }
+
+      .video-mute-btn {
+        width: 36px;
+        height: 36px;
+        bottom: 10px;
+        right: 10px;
+      }
+
+      .video-mute-btn .material-symbols-outlined {
+        font-size: 18px;
+      }
+
+      .video-play-overlay .play-icon {
+        width: 56px;
+        height: 56px;
+      }
+
+      .video-play-overlay .play-icon .material-symbols-outlined {
+        font-size: 32px;
+      }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+
+      .fade-up,
+      .fade-left,
+      .fade-right {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* ===================== VIDEO PLAYER ===================== */
+    .video-container {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #000;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.35);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .video-container.paused .video-play-overlay {
+      opacity: 1;
+    }
+
+    .video-play-overlay .play-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .video-play-overlay .play-icon .material-symbols-outlined {
+      color: #fff;
+      font-size: 40px;
+      font-variation-settings: 'FILL' 1;
+    }
+
+    .video-mute-btn {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 3;
+      transition: background 0.2s;
+    }
+
+    .video-mute-btn:hover {
+      background: rgba(0, 0, 0, 0.75);
+    }
+
+    .video-mute-btn .material-symbols-outlined {
+      color: #fff;
+      font-size: 22px;
+      font-variation-settings: 'FILL' 1;
+    }
+  </style>
+
+  <link rel="icon" type="image/png" href="../photo/logo.png">
+</head>
+
+<body>
+  <!-- Ambient Background Lighting -->
+  <div class="bg-glow bg-glow--primary"></div>
+  <div class="bg-glow bg-glow--secondary"></div>
+
+  <!-- HEADER -->
+  <header class="tfs-header" role="banner">
+    <div class="header-inner">
+      <div class="brand">
+        <a href="Home1.html" class="brand-link" aria-label="TFS Universe home">
+          <img src="../photo/logo.png" alt="TFS logo" class="brand-logo">
+        </a>
+      </div>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <ul id="main-nav" class="nav-list">
+          <li><a href="Home1.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#cosmos-section">Our Brands ▼</a>
+            <ul class="dropdown-menu">
+              <li><a href="the-flying-shirt.html">The Flying Shirt</a></li>
+              <li><a href="TFS-Film-Works.html">TFS Film Works</a></li>
+              <li><a href="TFS-media-works.html">TFS Media Works</a></li>
+              <li><a href="BuyItonline.html">BuyItOnline</a></li>
+              <li><a href="Soochh.html">Soochh</a></li>
+            </ul>
+          </li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="career.html">Career</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-mobile-controls">
+        <button id="navToggle" class="hamburger" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileNav" class="mobile-nav" aria-hidden="true">
+      <ul class="mobile-nav-list">
+        <li><a href="Home1.html">Home</a></li>
+        <li class="mobile-dropdown">
+          <a href="#cosmos-section">Our Brands ▼</a>
+          <ul class="mobile-dropdown-menu">
+            <li><a href="the-flying-shirt.html">The Flying Shirt</a></li>
+            <li><a href="TFS-Film-Works.html">TFS Film Works</a></li>
+            <li><a href="TFS-media-works.html">TFS Media Works</a></li>
+            <li><a href="BuyItonline.html">BuyItOnline</a></li>
+            <li><a href="Soochh.html">Soochh</a></li>
+          </ul>
+        </li>
+        <li><a href="Contact.html">Contact</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="career.html">Career</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="page-main" role="main">
+
+    <!-- Back link -->
+    <a href="TFS-Film Works.html" class="back-link">
+      <span class="material-symbols-outlined">arrow_back</span>
+      Back to TFS Film Works
+    </a>
+
+    <!-- ========== FEATURED RELEASE: BARSAAT ========== -->
+    <section class="hero-grid section-gap" id="featured">
+      <div class="order-text fade-up">
+        <span class="hero-label">Featured Release</span>
+        <h1 class="hero-title">Barsaat</h1>
+        <div class="hero-desc-card glass-card">
+          <div>
+            <h4 class="hero-desc-label">Behind the Music</h4>
+            <p class="hero-desc-text">
+              "Barsaat — The Incomplete Version" was born from the raw emotions of unfinished stories and unsaid words.
+              It captures the bittersweet essence of rain—each drop carrying a memory, each melody reflecting an emotion
+              left incomplete. The track weaves together acoustic warmth and cinematic depth, creating a sonic landscape
+              where vulnerability meets art.
+            </p>
+          </div>
+          <div style="padding-top: 16px;">
+            <a class="btn-cta btn-cta--filled" href="https://music.youtube.com/watch?v=JS9CMhiqluA" target="_blank"
+              rel="noopener noreferrer">
+              Play Full Track
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-img fade-right" style="position: relative;">
+        <div class="video-container glass-card glow-primary paused" data-video="barsaat">
+          <video src="../video/Reels/BARSAAT_landscape.mp4#t=0.5" muted loop playsinline preload="metadata"></video>
+          <div class="video-play-overlay">
+            <div class="play-icon"><span class="material-symbols-outlined">play_arrow</span></div>
+          </div>
+          <button class="video-mute-btn" aria-label="Unmute video">
+            <span class="material-symbols-outlined">volume_off</span>
+          </button>
+        </div>
+        <div class="thumb-glow thumb-glow--primary"></div>
+      </div>
+    </section>
+
+    <!-- ========== TRACK 2: BARSON SEH ========== -->
+    <section class="track2-grid section-gap" id="track2">
+      <div class="fade-left" style="position: relative; order: 1;">
+        <div class="video-container glass-card glow-primary paused" data-video="barson-seh">
+          <video src="../video/Reels/maanzil%20new%20reel%20.mp4#t=0.5" muted loop playsinline preload="metadata"></video>
+          <div class="video-play-overlay">
+            <div class="play-icon"><span class="material-symbols-outlined">play_arrow</span></div>
+          </div>
+          <button class="video-mute-btn" aria-label="Unmute video">
+            <span class="material-symbols-outlined">volume_off</span>
+          </button>
+        </div>
+        <div class="thumb-glow thumb-glow--secondary"></div>
+      </div>
+
+      <div class="fade-up" style="order: 2;">
+        <span class="track2-label">Manzil EP • 2026</span>
+        <h2 class="track2-title">Barson Seh</h2>
+        <div class="hero-desc-card glass-card">
+          <div>
+            <h4 class="track2-desc-label">Behind the Music</h4>
+            <p class="hero-desc-text">
+              "Barson Seh" opens the MANZIL EP — a poetic meditation on years of longing. The three track titles
+              together form a sentence: "Barson Seh Har Shaam Ki Tarha Tera Intezaar Rahaa" — for years, like every
+              evening, I've been waiting for you. This track captures the weight of time and the quiet ache of
+              unfulfilled desire.
+            </p>
+          </div>
+          <div style="padding-top: 16px;">
+            <a class="btn-cta btn-cta--outline" href="https://music.youtube.com/watch?v=qXZW5ZGa7kE" target="_blank"
+              rel="noopener noreferrer">
+              Listen on YouTube Music
+              <span class="material-symbols-outlined">play_arrow</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TRACK 3: HAR SHAAM KI TARHA ========== -->
+    <section class="hero-grid section-gap" id="track3">
+      <div class="order-text fade-up">
+        <span class="hero-label" style="color: var(--tertiary);">Manzil EP • 2026</span>
+        <h2 class="hero-title">Har Shaam<br>Ki Tarha</h2>
+        <div class="hero-desc-card glass-card">
+          <div>
+            <h4 class="hero-desc-label" style="color: rgba(255, 115, 70, 0.6);">Behind the Music</h4>
+            <p class="hero-desc-text">
+              "Har Shaam Ki Tarha" is the heart of the MANZIL EP — the bridge between longing and acceptance.
+              It paints every evening as a ritual of remembrance, where the fading light carries the weight of
+              unspoken words. The track captures that timeless moment when dusk meets memory, and every sunset
+              becomes a verse in an endless poem of waiting.
+            </p>
+          </div>
+          <div style="padding-top: 16px;">
+            <a class="btn-cta btn-cta--filled"
+              style="background: var(--tertiary); color: #3a1500; box-shadow: 0 0 30px rgba(255, 115, 70, 0.4);"
+              href="https://youtu.be/bcE2EFUsW3o?si=nlVKnLYSQeFu5Pzy" target="_blank" rel="noopener noreferrer">
+              Play Full Track
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-img fade-right" style="position: relative;">
+        <div class="video-container glass-card glow-primary paused" data-video="har-shaam">
+          <video src="../video/Reels/HarShamKi%20Tarha_WTP%201.mp4#t=0.5" muted loop playsinline preload="metadata"></video>
+          <div class="video-play-overlay">
+            <div class="play-icon"><span class="material-symbols-outlined">play_arrow</span></div>
+          </div>
+          <button class="video-mute-btn" aria-label="Unmute video">
+            <span class="material-symbols-outlined">volume_off</span>
+          </button>
+        </div>
+        <div class="thumb-glow thumb-glow--primary" style="background: var(--tertiary);"></div>
+      </div>
+    </section>
+
+    <!-- ========== TRACK 4: TERA INTEZAAR RAHAAA (Latest) ========== -->
+    <section class="track2-grid section-gap" id="track4">
+      <div class="fade-left" style="position: relative; order: 1;">
+        <div class="video-container glass-card glow-primary paused" data-video="tera-intezaar">
+          <video src="../video/Reels/terainzaaarrahaaa.mp4#t=0.5" muted loop playsinline preload="metadata"></video>
+          <div class="video-play-overlay">
+            <div class="play-icon"><span class="material-symbols-outlined">play_arrow</span></div>
+          </div>
+          <button class="video-mute-btn" aria-label="Unmute video">
+            <span class="material-symbols-outlined">volume_off</span>
+          </button>
+        </div>
+        <div class="thumb-glow thumb-glow--secondary"></div>
+      </div>
+
+      <div class="fade-up" style="order: 2;">
+        <span class="track2-label">Manzil EP • 2026 — Latest Release</span>
+        <h2 class="track2-title">Tera Intezaar<br>Rahaaa</h2>
+        <div class="hero-desc-card glass-card">
+          <div>
+            <h4 class="track2-desc-label">Behind the Music</h4>
+            <p class="hero-desc-text">
+              "Tera Intezaar Rahaaa" is the concluding chapter of MANZIL — a raw, unfiltered confession of endless
+              waiting. Written and composed by Soochh &amp; Dhairya Oza, it completes the poetic arc that began with
+              "Barson Seh". The track lays bare the soul's deepest yearning, turning silence into music and absence into
+              art.
+            </p>
+          </div>
+          <div style="padding-top: 16px;">
+            <a class="btn-cta btn-cta--outline" href="https://youtu.be/ROr1k6tcNMI" target="_blank"
+              rel="noopener noreferrer">
+              Listen on YouTube
+              <span class="material-symbols-outlined">play_arrow</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SOUNDSCAPE EXPLORATION ========== -->
+    <section class="soundscape-section section-gap" id="soundscape">
+      <div class="soundscape-header fade-up">
+        <span class="soundscape-label">Creative Breakdown</span>
+        <h2 class="soundscape-title">Soundscape Exploration</h2>
+        <p class="soundscape-subtitle">Deconstructing the DNA of the SOOCHH sonic identity — where raw emotion meets
+          cinematic production.</p>
+      </div>
+
+      <div class="soundscape-grid">
+        <div class="soundscape-card glass-card soundscape-card--primary fade-up">
+          <div class="soundscape-icon soundscape-icon--primary">
+            <span class="material-symbols-outlined">waves</span>
+          </div>
+          <h3>Textural Layering</h3>
+          <p>
+            We utilize multi-layered granular synthesis to create "organic digital" textures. By sampling acoustic
+            instruments and stretching them across time, we achieve a sound that feels both ancient and futuristic — a
+            tactile grit that defines the SOOCHH atmosphere.
+          </p>
+        </div>
+
+        <div class="soundscape-card glass-card soundscape-card--secondary fade-up" style="transition-delay: 0.15s;">
+          <div class="soundscape-icon soundscape-icon--secondary">
+            <span class="material-symbols-outlined">heart_broken</span>
+          </div>
+          <h3>Melodic Vulnerability</h3>
+          <p>
+            Melodies are never static. We employ microtonal shifts and purposeful imperfections in timing to mimic human
+            frailty. These "vulnerabilities" in the digital signal create a bridge of empathy between the machine-driven
+            production and the listener's ear.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FOUNDER SPOTLIGHT ========== -->
+    <section class="founder-section section-gap" id="founder">
+      <div class="founder-img-wrap order-img-mobile fade-left">
+        <div class="founder-img-frame glass-card">
+          <img src="../photo/soochh(crop)3.jpg" alt="Dhairya N. Oza — Founder of SOOCHH" loading="lazy" decoding="async" />
+        </div>
+        <div class="founder-glow founder-glow--tl"></div>
+        <div class="founder-glow founder-glow--br"></div>
+      </div>
+
+      <div class="order-text-mobile fade-up">
+        <span class="founder-label">The Founder</span>
+        <h2 class="founder-name">Dhairya N. Oza</h2>
+        <div class="founder-bio">
+          <p>
+            As the visionary behind SOOCHH, Dhairya N. Oza operates at the intersection of narrative depth and digital
+            sonic landscapes. His work seeks to bridge the gap between abstract philosophical concepts and tangible
+            auditory experiences.
+          </p>
+          <div class="founder-quote">
+            "I don't just want people to hear music; I want them to feel the architecture of a thought. Sound is the
+            only medium fast enough to keep up with the speed of emotion."
+          </div>
+          <p>
+            With a background in both classical theory and avant-garde electronic production, Dhairya focuses on
+            creating "living" compositions that evolve with every listen.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== BEYOND THE SOUND ========== -->
+    <section class="beyond-section" id="journey">
+      <div class="beyond-glow"></div>
+      <div class="beyond-inner">
+        <div class="beyond-header fade-up">
+          <span class="beyond-label">Artist's Musical Journey</span>
+          <h2 class="beyond-title">Beyond The Sound</h2>
+          <p class="beyond-desc">
+            The SOOCHH project is more than just a collection of frequencies; it's a commitment to pushing the
+            boundaries of sonic storytelling. We believe that music should be a transformative experience — one that
+            challenges the listener to perceive their environment through a new lens of digital organicism.
+          </p>
+          <a class="btn-ghost" href="https://medium.com/@vydsaawrites/melody-music-and-meaning-92d0834f3497"
+            target="_blank" rel="noopener noreferrer">
+            Read the Full Story on Medium
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+        </div>
+
+        <div class="timeline-grid">
+          <div class="timeline-card glass-card fade-up">
+            <div class="timeline-date timeline-date--primary">2025 • Debut</div>
+            <h4>BARSAAT</h4>
+            <p>The debut single by Soochh — a monsoon-inspired, slow-romantic journey through love and nostalgia.</p>
+            <div style="display:flex; justify-content:center;">
+              <a class="btn-ghost" href="https://music.youtube.com/watch?v=JS9CMhiqluA" target="_blank"
+                rel="noopener noreferrer">
+                Listen Now
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="timeline-card glass-card fade-up" style="transition-delay: 0.15s;">
+            <div class="timeline-date timeline-date--secondary">2026 • Manzil</div>
+            <h4>Barson Seh</h4>
+            <p>The opening chapter of MANZIL EP — a poetic meditation on years of longing and unfulfilled desire.</p>
+            <div style="display:flex; justify-content:center;">
+              <a class="btn-ghost" href="https://music.youtube.com/watch?v=qXZW5ZGa7kE" target="_blank"
+                rel="noopener noreferrer">
+                Listen Now
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="timeline-card glass-card fade-up" style="transition-delay: 0.3s;">
+            <div class="timeline-date timeline-date--tertiary">2026 • Manzil</div>
+            <h4>Har Shaam Ki Tarha</h4>
+            <p>The heart of MANZIL EP — every evening becomes a ritual where dusk meets memory.</p>
+            <div style="display:flex; justify-content:center;">
+              <a class="btn-ghost" href="https://youtu.be/bcE2EFUsW3o?si=nlVKnLYSQeFu5Pzy" target="_blank"
+                rel="noopener noreferrer">
+                Listen Now
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="timeline-card glass-card fade-up" style="transition-delay: 0.45s;">
+            <div class="timeline-date timeline-date--tertiary">2026 • Manzil — Latest</div>
+            <h4>Tera Intezaar Rahaaa</h4>
+            <p>The concluding chapter of MANZIL — a raw confession of endless waiting and timeless longing.</p>
+            <div style="display:flex; justify-content:center;">
+              <a class="btn-ghost" href="https://youtu.be/ROr1k6tcNMI" target="_blank" rel="noopener noreferrer">
+                Listen Now
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="pro-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="../photo/TFS UNIVERSE1.png" alt="TFS Universe Logo" class="footer-logo">
+        <p class="footer-bio">A premium creative ecosystem spanning film production, digital media agency, motorcycle reviews, and e-commerce. Discover our many worlds.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+        </div>
+      </div>
+      <div class="footer-links-group">
+        <div class="footer-col">
+          <h4 class="footer-heading">Our Brands</h4>
+          <ul>
+            <li><a href="the-flying-shirt.html">The Flying Shirt</a></li>
+            <li><a href="TFS-Film-Works.html">TFS Film Works</a></li>
+            <li><a href="TFS-media-works.html">TFS Media Works</a></li>
+            <li><a href="BuyItonline.html">BuyItOnline</a></li>
+            <li><a href="Soochh.html">Soochh</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Contact Us</h4>
+          <ul>
+            <li><a href="tel:+918320287732">+91 8320287732</a></li>
+            <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=tfsuniverse369@gmail.com" target="_blank">tfsuniverse@gmail.com</a></li>
+            <li class="founder-text">Founder: Dhairya N. Oza</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 TFS Universe. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // ===== SCROLL REVEAL ANIMATIONS =====
+    (function () {
+      const animEls = document.querySelectorAll('.fade-up, .fade-left, .fade-right');
+      if (!animEls.length) return;
+
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reducedMotion) {
+        animEls.forEach(el => el.classList.add('visible'));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+      animEls.forEach(el => observer.observe(el));
+    })();
+
+    // ===== MOBILE NAV + COMPACT HEADER =====
+    (function () {
+      const toggle = document.getElementById('navToggle');
+      const mobile = document.getElementById('mobileNav');
+      const header = document.querySelector('.tfs-header');
+      if (!toggle || !mobile || !header) return;
+
+      function closeMenu() {
+        toggle.classList.remove('open');
+        mobile.classList.remove('show');
+        toggle.setAttribute('aria-expanded', 'false');
+        mobile.setAttribute('aria-hidden', 'true');
+      }
+
+      toggle.addEventListener('click', () => {
+        const open = !toggle.classList.contains('open');
+        if (open) {
+          toggle.classList.add('open');
+          mobile.classList.add('show');
+        } else {
+          mobile.classList.remove('show');
+          toggle.classList.remove('open');
+        }
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        mobile.setAttribute('aria-hidden', open ? 'false' : 'true');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!mobile.classList.contains('show')) return;
+        if (!mobile.contains(e.target) && !toggle.contains(e.target)) closeMenu();
+      });
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobile.classList.contains('show')) {
+          closeMenu();
+          toggle.focus();
+        }
+      });
+
+      mobile.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          if (mobile.classList.contains('show')) closeMenu();
+        });
+      });
+
+      window.addEventListener('scroll', () => {
+        if ((window.scrollY || 0) > 40) header.classList.add('compact');
+        else header.classList.remove('compact');
+      }, { passive: true });
+    })();
+
+    // ===== VIDEO PLAY/PAUSE & MUTE/UNMUTE (SYNCHRONIZED) =====
+    (function () {
+      const allContainers = document.querySelectorAll('.video-container');
+
+      function stopAllExcept(activeContainer) {
+        allContainers.forEach(c => {
+          if (c === activeContainer) return;
+          const v = c.querySelector('video');
+          const icon = c.querySelector('.video-mute-btn .material-symbols-outlined');
+          v.pause();
+          v.currentTime = 0;
+          v.muted = true;
+          c.classList.add('paused');
+          if (icon) icon.textContent = 'volume_off';
+        });
+      }
+
+      allContainers.forEach(container => {
+        const video = container.querySelector('video');
+        const muteBtn = container.querySelector('.video-mute-btn');
+        const muteIcon = muteBtn.querySelector('.material-symbols-outlined');
+
+        // Click to play/pause
+        container.addEventListener('click', (e) => {
+          if (e.target.closest('.video-mute-btn')) return;
+
+          if (video.paused) {
+            // Stop all others, reset them
+            stopAllExcept(container);
+            // Start this video from beginning
+            video.currentTime = 0;
+            video.play();
+            container.classList.remove('paused');
+          } else {
+            video.pause();
+            container.classList.add('paused');
+          }
+        });
+
+        // Mute/unmute button
+        muteBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          video.muted = !video.muted;
+          muteIcon.textContent = video.muted ? 'volume_off' : 'volume_up';
+          muteBtn.setAttribute('aria-label', video.muted ? 'Unmute video' : 'Mute video');
+        });
+      });
+    })();
+  </script>
+</body>
+
+</html>

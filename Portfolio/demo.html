@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Dropdown Demo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --accent-color: #3b82f6;
+            --accent-hover: #60a5fa;
+            --card-bg: #1e293b;
+            --border-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        details {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        details[open] {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent-color);
+        }
+
+        summary {
+            padding: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background-color 0.2s;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+
+        details[open] > summary::after {
+            transform: rotate(45deg);
+        }
+
+        .content {
+            padding: 0 1.5rem 1.5rem;
+            animation: slideDown 0.4s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Nested Accordions */
+        .sub-details {
+            background-color: rgba(0,0,0,0.2);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .sub-details > summary {
+            padding: 1rem;
+            font-size: 1.1rem;
+            color: #cbd5e1;
+        }
+
+        .sub-details[open] {
+            border-color: var(--border-color);
+            box-shadow: none;
+        }
+
+        /* Third level nested */
+        .sub-sub-details {
+            background-color: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+        }
+
+        .sub-sub-details > summary {
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            color: #e2e8f0;
+            font-weight: 500;
+        }
+
+        .sub-sub-details[open] {
+            border-color: #475569;
+        }
+
+        .sub-content {
+            padding: 0 1rem 1rem;
+            font-size: 0.95rem;
+            color: #94a3b8;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--accent-hover);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Portfolio Dropdown Demo</h1>
+
+    <!-- Group A -->
+    <details open>
+        <summary>Group A: Automotive Industry</summary>
+        <div class="content">
+            <span class="badge">Primary: Automotive Industry</span>
+            <span class="badge">Secondary: Sales & Market Industry (The core foundation)</span>
+            
+            <p style="margin-top: 1rem; margin-bottom: 1.5rem;"><em>Linked in - The success story of Founder & Managing Director of Oza Motorsports Pvt. Ltd.<br>Explaining - From the foundation as an Automotive Engineer towards finding and building Oza Motorsports.</em></p>
+
+            <details class="sub-details">
+                <summary>The Journey</summary>
+                <div class="sub-content">
+                    
+                    <details class="sub-sub-details">
+                        <summary>The Foundation as an Engineer (2014 - 2017)</summary>
+                        <div class="sub-content" style="padding-top: 1rem;">
+                            <p style="margin-bottom: 1rem;">The journey began in Ahmedabad during his primary schooling at Som-Lalit School, where Mr. Oza started getting curious about High performance Supercars & Superbikes and so he started pursuing his interest in the Automotive world on the Internet. Later he finished his SSC (10th Standard) in 2014. Due to his passion in Machines & Vehicles he chose a specialized technical path instead of a traditional high school route. He then moved to Baroda to study for a Diploma in Automobile Engineering at Parul University.</p>
+                            <p style="margin-bottom: 0;">He was an Hyperactive student who liked to participate in multiple activities & opportunities. From the very beginning he had a daily habit to research on various topics of Automotive engineering. Additionally he also took multiple internships from multiple Automotive giants such as Mercedes - benz, MV Agusta, Benelli, Hyosung & Honda. This gave him a deep understanding of Internal Combustion (IC) Engines & Modern Automotive Technologies. However while pursuing Internship at MV Agusta, Benelli & Hyosung he found that his inclination was now moving slightly more towards the Superbikes.</p>
+                        </div>
+                    </details>
+
+                    <details class="sub-sub-details">
+                        <summary>Advanced Research & Navigating his Innovations and his Startup (2017 - 2026)</summary>
+                        <div class="sub-content" style="padding-top: 1rem;">
+                            <p style="margin-bottom: 1rem;">In 2017 Mr. Oza returned to Ahmedabad for a B.Tech in Automobile Engineering at Indus University, where he graduated in 2020. During these years, he shifted focus from learning to creating the Standard & Innovative High performance IC Engines & its Technologies.</p>
+                            <p style="margin-bottom: 1rem;">During his Graduation Period he also got expertise in space planning and designing in the field of Interior designing by designing his Studio (a room of his personal interest) by himself. He came up with a theme of the Interior considering his interest in automotive vehicles, music & mountains. He used Multiple custom paints, artworks, Actual sculptures, Motorcycles & the parts of motorcycles in his designs which eventually became a homely vibe for him. This later in 2025 helped him to design another Office & Studio for both of his companies.</p>
+                            <p style="margin-bottom: 1rem;">In 2017, Mr. Oza began his journey as a Designing Engineer after which he designed & developed his first ever Motorcycle called the SE1. SE1 was a Hybrid design of Bobber & Brat Style Motorcycles which itself was an innovation. Apart from this he also gave a Rat bite look to the Motorcycle. Mr. Oza later named this distinctive design philosophy "BobArt" and secured its intellectual property by registering the design under the Designs Act, 2000</p>
+                            <p style="margin-bottom: 1rem;">Mr. Oza conceptualized and engineered the V.ODNE1s High-Performance Engine Platform, designing multiple conventional and innovative V-Series engine architectures. Through this platform, he introduced a proprietary design methodology that unlocked V-engine configurations in multiples of three (3, 6, 9, 12, 15, 18...) which significantly expanded the design possibilities beyond conventional V-engine architecture.</p>
+                            <p style="margin-bottom: 1rem;">Under Mr. Oza's leadership, guidance, and technical supervision, Oza Motorsports developed the proprietary LTB Valve Technology—a Camless Valve Mechanism—positioning the company among only two automotive organizations globally to own this advanced valve actuation technology.</p>
+                            <p style="margin-bottom: 1rem;">By 2018, Mr. Oza also started working as a Scientist as he actively started working on his own innovations in IC engines & its technologies. Later for which he became one of the few students (from his college) to get an Government grant (from the Indian Government) Under the SSIP (Student Startup and Innovation Policy) through ICSII (Indus Center of Startups Incubation & Innovations).</p>
+                            <p style="margin-bottom: 1rem;">Soon he started to form a team for which he himself conducted multiple Interviews with highly experienced Engineers. And so he led his feet towards becoming and acting as a Head of his own (R&D) Research & Development Programs.</p>
+                            <p style="margin-bottom: 0;">Later he realised that turning an engineering breakthrough into a successful business was a huge challenge for any young inventor. Realizing he needed to protect his creations, Mr. Oza pursued a 3 - month course on IPR - Intellectual Property Rights (led by multiple highly trained & Experienced Advocates) at i-Hub right after his graduation in 2020. This wise move gave him a very deep understanding of IPR & its rights due to which he has currently filed 9 different IPRs which strategically protects his creative ideas & his technologies.</p>
+                        </div>
+                    </details>
+
+                    <details class="sub-sub-details">
+                        <summary>The Struggles, the Pivots, & Government Backing (2020 - 2024)</summary>
+                        <div class="sub-content" style="padding-top: 1rem;">
+                            <p style="margin-bottom: 1rem;">Finding funding for an automotive hardware startup is notoriously tough, but Mr. Oza began pitching steadily to incubation committees. His first breakthrough came when ICSII - Indus Center for Startups, Incubation & Innovation, was newly established. And he became one of the first entrepreneurs to receive the early stage fundings.</p>
+                            <p style="margin-bottom: 1rem;">Soon after he received Mentorship from GUSEC - Gujarat University Startup & Entrepreneurship Council. Then in 2023 SUSEC - Saurashtra University Startup & Entrepreneurship Council also decided to fund his project by providing 2 different grants.</p>
+                            <p style="margin-bottom: 1rem;">Later in 2023 Mr. Oza Registered & Founded his company with an ambition to make an Hyper Performance Automotive Vehicle Manufacturing company known as Oza Motorsports Pvt. Ltd</p>
+                            <p style="margin-bottom: 1rem;">However in 2024 after almost 1.5 Years of Pitching to i-Hub Gujarat he secured his biggest funding and opportunities as he received a Non returnable Government Grant of 7,75,000/- INR and an Offer from Belgium Government to Re-locate his company to Brussels. Throughout his journey, he managed to secure a total of Six Government Grants.</p>
+                            <p style="margin-bottom: 1rem;">With protected technologies and initial funding, Mr. Oza aimed to fill his technical gaps by enrolling in an MBA program in Innovation & Entrepreneurship at the International University of Applied Sciences in Germany. However, the demands of building a physical engineering company forced him to make a choice; he dropped out of the MBA program in 2024 to fully commit to his company.</p>
+                            <p style="margin-bottom: 0;">True entrepreneurship involves knowing when to pivot or turn down offers that don’t fit a company’s vision. With great determination and confidence in his direction, Mr. Oza decided to revoke four of those early grants. However, he skillfully managed the remaining funds, and with the sum of non-refundable grants requiring careful expense tracking - to grow his operations, hire freelancers, and onboard full-time service providers to bring his engine designs & its technologies to life.</p>
+                        </div>
+                    </details>
+
+                    <details class="sub-sub-details">
+                        <summary>Higher Achievements & Global Recognition (2025 - Present)</summary>
+                        <div class="sub-content" style="padding-top: 1rem;">
+                            <p style="margin-bottom: 1rem;">By managing a diverse team and establishing a strong corporate structure, Mr. Oza successfully set up Oza Motorsports Private Limited as a well-organized corporate entity in India, with himself acting as the Founder & Managing Director.</p>
+                            <p style="margin-bottom: 1rem;">His entrepreneurial journey evolved into a success story for the regional ecosystem. In 2025, the very organization where he had pitched for a year and a half, i-Hub invited him again, not to assess him, but to share his Success Story & Entrepreneurial Experience & inspire the next generation of founders.</p>
+                            <p style="margin-bottom: 1rem;">Other than Government grants he also secured support from various Organizations, Mentors & Industrial Experts across India.</p>
+                            <p style="margin-bottom: 0;">Today, Mr. Oza stands at a significant global crossroads. The technical and commercial success of Oza Motorsports Private Limited has attracted international attention, leading to a formal offer from the Government of Belgium to relocate his entire company from Ahmedabad, India, to Brussels, Belgium signifying his shift from a local engineering student to an internationally recognized Automotive inventor.</p>
+                        </div>
+                    </details>
+
+                </div>
+            </details>
+
+            <details class="sub-details">
+                <summary>Niches</summary>
+                <div class="sub-content">
+                    <ul>
+                        <li>Automotive Engineer</li>
+                        <li>Design Engineer</li>
+                        <li>Interior Designer</li>
+                        <li>Scientist</li>
+                        <li>Head of Research & Development Department</li>
+                        <li>Entrepreneur</li>
+                        <li>Founder & Managing Director</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details class="sub-details">
+                <summary>Skills (20)</summary>
+                <div class="sub-content">
+                    <ul>
+                        <li><strong>Creative Thinking</strong> – Demonstrates the ability to generate innovative ideas and develop effective solutions for complex engineering.</li>
+                        <li><strong>Adaptability</strong> – Quickly adjusts to evolving technologies, industry trends, and changing project requirements.</li>
+                        <li><strong>Machine Designing</strong> – Possesses the ability to conceptualize, design, and refine mechanical components.</li>
+                        <li><strong>Spatial Visualization</strong> – Exhibits strong three-dimensional visualization skills to interpret technical drawings.</li>
+                        <li><strong>Scientific Research</strong> – Conducts systematic research by collecting, analyzing, and interpreting technical data.</li>
+                        <li><strong>Innovative Thinking</strong> – Identifies opportunities for improvement by developing creative and practical solutions to existing problems.</li>
+                        <li><strong>Problem Solving</strong> – Analyzes complex situations logically to identify root causes and implement practical solutions.</li>
+                        <li><em>And 13 more...</em></li>
+                    </ul>
+                </div>
+            </details>
+
+            <details class="sub-details">
+                <summary>Achievements (20)</summary>
+                <div class="sub-content">
+                    <ul>
+                        <li>Completed Diploma in Automobile Engineering with First Class Distinction.</li>
+                        <li>Completed B.Tech in Automobile Engineering with First Class with Distinction.</li>
+                        <li>Successfully completed industrial internships with Mercedes-Benz, Honda, MV Agusta, Benelli & Hyosung.</li>
+                        <li>Designed and developed the SE1 hybrid Bobber–Brat motorcycle featuring the BobArt design philosophy.</li>
+                        <li>Registered the SE1 motorcycle design under the Designs Act, 2000.</li>
+                        <li>Conceptualized and engineered the V.ODNE1s High-Performance Engine Platform.</li>
+                        <li>Designed multiple conventional and innovative V-Series engine architectures.</li>
+                        <li>Introduced a proprietary V-engine architecture supporting cylinder configurations in multiples of three.</li>
+                        <li>Led the development of the proprietary LTB Valve Technology (Camless Valve Mechanism).</li>
+                        <li>Positioned Oza Motorsports among only two automotive organizations globally developing proprietary Camless Valve Technology.</li>
+                        <li>Established and led his own Automotive Research & Development (R&D) division.</li>
+                        <li>Designed multiple automotive-themed studios and office spaces.</li>
+                        <li>Received the SSIP Government Grant through ICSII.</li>
+                        <li>Secured 6 Government Grants supporting automotive innovation.</li>
+                        <li>Received a ₹7.75 Lakh Non-Returnable Government Grant from i-Hub Gujarat.</li>
+                        <li>Registered 9 Intellectual Property Rights (IPRs).</li>
+                        <li>Founded Oza Motorsports Private Limited under Startup India.</li>
+                        <li>Invited by i-Hub Gujarat to share his entrepreneurial success story.</li>
+                        <li>Received a formal relocation opportunity from the Government of Belgium.</li>
+                        <li>Received recognition from Startup India, i-Hub Gujarat and Vejalpur Startup Festival.</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+    </details>
+
+    <!-- Group B -->
+    <details>
+        <summary>Group B: Sales & Marketing Industry</summary>
+        <div class="content">
+             <span class="badge">Primary: Sales & Marketing Industry</span>
+             <span class="badge">Secondary: Automotive Industry</span>
+             <p>The Hustle - From a 16 year old Teen Broker to a renowned Superbike Dealer.</p>
+             <p style="color: #94a3b8; font-style: italic; margin-top: 1rem;">(Niches, Skills, and Achievements will be populated here similar to Group A)</p>
+        </div>
+    </details>
+    
+    <!-- Group C -->
+    <details>
+        <summary>Group C: Influencer Industry</summary>
+        <div class="content">
+             <span class="badge">Primary: Influencer Industry</span>
+             <span class="badge">Secondary: Automotive Industry</span>
+             <p>From getting influenced to Influencing Everyone.</p>
+             <p style="color: #94a3b8; font-style: italic; margin-top: 1rem;">(Content populates here...)</p>
+        </div>
+    </details>
+
+</div>
+
+<script>
+    // Optional: Close other details when one is opened to act like a true accordion
+    const details = document.querySelectorAll('details');
+    details.forEach((targetDetail) => {
+        targetDetail.addEventListener('click', () => {
+            if (!targetDetail.hasAttribute('open')) {
+                // If it's a top level detail, close other top level details
+                if(targetDetail.parentElement.classList.contains('container')) {
+                    details.forEach((detail) => {
+                        if (detail !== targetDetail && detail.parentElement.classList.contains('container')) {
+                            detail.removeAttribute('open');
+                        }
+                    });
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

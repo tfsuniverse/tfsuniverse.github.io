@@ -1,0 +1,975 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Flying Shirt — Motorcycle Reviews, Events & Podcasts</title>
+  <meta name="description"
+    content="The Flying Shirt — Honest motorcycle reviews, riding gear assessments, event coverage, and The Flying Talks podcast. Built for riders, by riders." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.youtube.com" />
+  <link rel="preconnect" href="https://i.ytimg.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Manrope:wght@200..800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link href="../CSS/header.css" rel="stylesheet">
+  <link href="../CSS/Footer.css" rel="stylesheet">
+
+  <meta name="keywords" content="Indian bike podcast, Bike podcast, Motorcycle podcast, Superbike podcast, Budget bikes in india , Best bikes in india, Bike riding experience, Biker lifestyle india, Indian podcast, Real talk podcast, Storytelling podcast, Trending podcasts in india, Podcast for riders, Trending podcasts in india, Podcast for riders, Bike modification podcast, Biker motivation podcast, Superbike discussion podcast, Superbike maintenance cost india podcast, Life with superbike india, First superbike journey podcast, Indian superbike rider truth/guest podcast, motorcycle tips , motorcycle tips for beginners , motorcycle tips and techniques, riding gear, harley davidson , best motorcycle in india, motorcycle racing, best motorcycle helmet 2026, best motorcycle under 1 lakh">
+
+  <style>
+    :root {
+      --bg: #020617;
+      --surface: #06092d;
+      --surface-container: rgba(15, 23, 42, 0.95);
+      --surface-container-low: #090f23;
+      --surface-highest: rgba(30, 41, 59, 0.8);
+      --primary: #7fe9ff;
+      --primary-container: #5cf5e3;
+      --secondary: #2dd4bf;
+      --tertiary: #ffe483;
+      --on-primary: #020617;
+      --on-surface: #e9f6ff;
+      --on-surface-variant: rgba(181, 204, 230, 0.85);
+      --outline-variant: rgba(148, 163, 253, 0.35);
+      --max-w: 1200px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Manrope', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--on-surface);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400; }
+
+    /* ============ HERO ============ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .hero-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover; opacity: 0.4;
+    }
+    .hero-gradient {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(2,6,23,0) 0%, rgba(2,6,23,1) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 10;
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 32px;
+      text-align: left;
+    }
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      margin-bottom: 24px;
+      border-radius: 999px;
+      background: rgba(180,40,0,0.6);
+      color: var(--primary);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 72px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+      max-width: 800px;
+    }
+    .hero h1 .accent { color: var(--primary); font-style: italic; }
+    .hero-desc {
+      font-size: clamp(16px, 2vw, 22px);
+      color: var(--on-surface-variant);
+      max-width: 640px;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 16px; }
+    .btn-primary-kv {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--primary); color: var(--on-primary);
+      padding: 14px 28px; border-radius: 8px;
+      font-weight: 700; font-size: 16px;
+      border: none; cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .btn-primary-kv:hover { transform: scale(0.96); }
+    .btn-outline-kv {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 2px solid var(--secondary); color: var(--secondary);
+      padding: 12px 28px; border-radius: 8px;
+      font-weight: 700; font-size: 16px;
+      background: transparent; cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-outline-kv:hover { background: rgba(255,115,80,0.1); }
+
+    /* ============ COMPETENCIES ============ */
+    .competencies {
+      padding: 96px 32px;
+      background: transparent;
+    }
+    .competencies-inner {
+      max-width: var(--max-w); margin: 0 auto;
+    }
+    .section-head { margin-bottom: 48px; }
+    .section-head h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700; margin-bottom: 12px;
+    }
+    .section-bar { width: 96px; height: 4px; background: var(--primary); border-radius: 2px; }
+    .comp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .comp-card {
+      background: var(--surface-container);
+      padding: 32px;
+      border-radius: 12px;
+      transition: background 0.3s;
+    }
+    .comp-card:hover { background: var(--surface-highest); }
+    .comp-icon {
+      width: 56px; height: 56px;
+      background: #000;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 28px;
+    }
+    .comp-icon .material-symbols-outlined { font-size: 28px; }
+    .comp-icon--green .material-symbols-outlined { color: var(--primary); }
+    .comp-icon--orange .material-symbols-outlined { color: var(--secondary); }
+    .comp-icon--gold .material-symbols-outlined { color: var(--tertiary); }
+    .comp-card h3 { font-size: 22px; margin-bottom: 12px; }
+    .comp-card p { color: var(--on-surface-variant); line-height: 1.7; margin-bottom: 20px; font-size: 14px; }
+    .comp-list { list-style: none; }
+    .comp-list li {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--on-surface-variant);
+      margin-bottom: 10px;
+    }
+    .comp-list li .material-symbols-outlined { font-size: 16px; }
+
+    /* ============ PORTFOLIO SCROLLING BOX CARDS ============ */
+    .portfolio {
+      padding: 96px 32px;
+      background: var(--surface-container-low);
+      overflow: hidden;
+    }
+    .portfolio-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .portfolio-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 36px; gap: 16px; flex-wrap: wrap;
+    }
+    .portfolio-header p { color: var(--on-surface-variant); max-width: 480px; }
+    .scroll-label {
+      color: var(--primary);
+      font-size: 11px; letter-spacing: 0.18em;
+      text-transform: uppercase; font-weight: 700;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .scroll-label::after {
+      content: '';
+      display: inline-block;
+      width: 32px; height: 2px;
+      background: var(--primary);
+      animation: scrollArrowPulse 1.5s ease-in-out infinite;
+    }
+    @keyframes scrollArrowPulse {
+      0%, 100% { transform: translateX(0); opacity: 0.5; }
+      50% { transform: translateX(6px); opacity: 1; }
+    }
+    .scroll-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding-bottom: 20px;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      cursor: grab;
+    }
+    .scroll-track:active { cursor: grabbing; }
+    .scroll-track::-webkit-scrollbar { display: none; }
+
+    /* Box Card Style — like homepage cosmos cards */
+    .scroll-card {
+      flex: 0 0 280px;
+      background: rgba(22, 8, 31, 0.96);
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(83, 66, 92, 0.5);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s, border-color 0.4s;
+      display: flex;
+      flex-direction: column;
+    }
+    .scroll-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(197, 254, 0, 0.12), 0 8px 24px rgba(0,0,0,0.6);
+      border-color: rgba(197, 254, 0, 0.4);
+    }
+    .scroll-card-img {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    .scroll-card-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+    }
+    .scroll-card:hover .scroll-card-img img { transform: scale(1.08); }
+    .scroll-card-body {
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .scroll-card-body h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--on-surface);
+      margin: 0;
+    }
+    .scroll-card-body p {
+      font-size: 13px;
+      color: var(--on-surface-variant);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .scroll-card-tag {
+      display: inline-block;
+      width: fit-content;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(197, 254, 0, 0.1);
+      color: var(--primary);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ============ YOUTUBE SHOWCASE ============ */
+    .yt-section {
+      padding: 96px 32px;
+      background: transparent;
+    }
+    .yt-inner { max-width: var(--max-w); margin: 0 auto; }
+    .yt-head {
+      text-align: center; margin-bottom: 48px;
+    }
+    .yt-head h2 {
+      font-size: clamp(28px, 5vw, 48px);
+      margin-bottom: 12px;
+    }
+    .yt-head .section-bar { margin: 0 auto 20px; }
+    .yt-head p {
+      color: var(--on-surface-variant);
+      max-width: 640px; margin: 0 auto;
+    }
+    .yt-featured {
+      max-width: 900px;
+      margin: 0 auto 48px;
+    }
+    .yt-player {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--surface-highest);
+      border: 1px solid rgba(83,66,92,0.3);
+    }
+    .yt-player iframe {
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* Lite YouTube — click-to-play placeholder */
+    .lite-yt {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid rgba(83,66,92,0.3);
+      cursor: pointer;
+    }
+    .lite-yt img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      transition: opacity 0.3s;
+    }
+    .lite-yt:hover img { opacity: 1; }
+    .lite-yt-play {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.35);
+      transition: background 0.3s;
+    }
+    .lite-yt:hover .lite-yt-play { background: rgba(0,0,0,0.15); }
+    .lite-yt-play svg {
+      width: 68px; height: 48px;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+      transition: transform 0.2s;
+    }
+    .lite-yt:hover .lite-yt-play svg { transform: scale(1.1); }
+    .lite-yt.active {
+      cursor: default;
+    }
+    .lite-yt.active img,
+    .lite-yt.active .lite-yt-play { display: none; }
+    .lite-yt iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+    .yt-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .yt-thumb {
+      cursor: pointer;
+    }
+    .yt-thumb-img {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--surface-container);
+      margin-bottom: 12px;
+    }
+    .yt-thumb-img img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .yt-thumb-play {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.4);
+      opacity: 0; transition: opacity 0.3s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .yt-thumb:hover .yt-thumb-play { opacity: 1; }
+    .yt-thumb-play .material-symbols-outlined { font-size: 42px; color: #fff; }
+    .yt-thumb h4 { font-size: 15px; font-weight: 700; }
+    .yt-cta { text-align: center; }
+
+    /* ============ SOCIAL HUB ============ */
+    .social-hub {
+      padding: 36px 32px;
+      background: transparent;
+    }
+    .social-hub-inner {
+      max-width: 900px; margin: 0 auto;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .social-hub h3 {
+      font-size: 20px; color: var(--primary);
+    }
+    .social-hub p { color: var(--on-surface-variant); font-size: 14px; }
+    .social-orbs { display: flex; gap: 14px; }
+    .social-orb {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(50,29,62,0.8);
+      border: 1px solid rgba(148, 163, 253, 0.4);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary);
+      transition: all 0.3s;
+    }
+    .social-orb:hover {
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+    .social-orb svg { width: 20px; height: 20px; fill: currentColor; }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 900px) {
+      .comp-grid { grid-template-columns: 1fr; }
+      .scroll-card { flex: 0 0 260px; }
+      .yt-grid { grid-template-columns: 1fr; }
+      .social-hub-inner { justify-content: center; text-align: center; }
+    }
+    @media (max-width: 600px) {
+      .hero { padding-top: 100px; min-height: auto; padding-bottom: 60px; }
+      .hero-content { padding: 0 20px; }
+      .hero h1 { font-size: 28px; }
+      .hero-desc { font-size: 15px; }
+      .btn-primary-kv, .btn-outline-kv { padding: 12px 20px; font-size: 14px; }
+      .portfolio { padding: 48px 20px; }
+      .portfolio-header { flex-direction: column; align-items: flex-start; }
+      .scroll-card { flex: 0 0 240px; }
+      .scroll-card-img { height: 160px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .scroll-card img { transition: none; }
+    }
+  </style>
+
+  <link rel="icon" type="image/png" href="../photo/logo.png">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="tfs-header" role="banner">
+    <div class="header-inner">
+      <div class="brand">
+        <a href="Home1.html" class="brand-link" aria-label="TFS Universe home">
+          <img src="../photo/logo.png" alt="TFS logo" class="brand-logo">
+        </a>
+      </div>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <ul id="main-nav" class="nav-list">
+          <li><a href="Home1.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#cosmos-section">Our Brands ▼</a>
+            <ul class="dropdown-menu">
+              <li><a href="the-flying-shirt.html">The Flying Shirt</a></li>
+              <li><a href="TFS-Film-Works.html">TFS Film Works</a></li>
+              <li><a href="TFS-media-works.html">TFS Media Works</a></li>
+              <li><a href="BuyItonline.html">BuyItOnline</a></li>
+              <li><a href="Soochh.html">Soochh</a></li>
+            </ul>
+          </li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="career.html">Career</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-mobile-controls">
+        <button id="navToggle" class="hamburger" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileNav" class="mobile-nav" aria-hidden="true">
+      <ul class="mobile-nav-list">
+        <li><a href="Home1.html">Home</a></li>
+        <li class="mobile-dropdown">
+          <a href="#cosmos-section">Our Brands ▼</a>
+          <ul class="mobile-dropdown-menu">
+            <li><a href="the-flying-shirt.html">The Flying Shirt</a></li>
+            <li><a href="TFS-Film-Works.html">TFS Film Works</a></li>
+            <li><a href="TFS-media-works.html">TFS Media Works</a></li>
+            <li><a href="BuyItonline.html">BuyItOnline</a></li>
+            <li><a href="Soochh.html">Soochh</a></li>
+          </ul>
+        </li>
+        <li><a href="Contact.html">Contact</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="career.html">Career</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ============ HERO SECTION ============ -->
+  <header class="tfs-header" role="banner">
+    <div class="header-inner">
+      <div class="brand">
+        <a href="Home1.html" class="brand-link" aria-label="TFS Universe home">
+          <img src="../photo/logo.png" alt="TFS logo" class="brand-logo">
+        </a>
+      </div>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <ul id="main-nav" class="nav-list">
+          <li><a href="Home1.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#cosmos-section">Our Brands ▼</a>
+            <ul class="dropdown-menu">
+              <li><a href="the-flying-shirt.html">The Flying Shirt</a></li>
+              <li><a href="TFS-Film-Works.html">TFS Film Works</a></li>
+              <li><a href="TFS-media-works.html">TFS Media Works</a></li>
+              <li><a href="BuyItonline.html">BuyItOnline</a></li>
+              <li><a href="Soochh.html">Soochh</a></li>
+            </ul>
+          </li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="career.html">Career</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-mobile-controls">
+        <button id="navToggle" class="hamburger" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileNav" class="mobile-nav" aria-hidden="true">
+      <ul class="mobile-nav-list">
+        <li><a href="Home1.html">Home</a></li>
+        <li class="mobile-dropdown">
+          <a href="#cosmos-section">Our Brands ▼</a>
+          <ul class="mobile-dropdown-menu">
+            <li><a href="the-flying-shirt.html">The Flying Shirt</a></li>
+            <li><a href="TFS-Film-Works.html">TFS Film Works</a></li>
+            <li><a href="TFS-media-works.html">TFS Media Works</a></li>
+            <li><a href="BuyItonline.html">BuyItOnline</a></li>
+            <li><a href="Soochh.html">Soochh</a></li>
+          </ul>
+        </li>
+        <li><a href="Contact.html">Contact</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="career.html">Career</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ============ CORE COMPETENCIES ============ -->
+  <section class="competencies" id="services">
+    <div class="competencies-inner">
+      <div class="section-head">
+        <h2>Core Competencies</h2>
+        <div class="section-bar"></div>
+      </div>
+      <div class="comp-grid">
+        <!-- Gear Reviews -->
+        <div class="comp-card">
+          <div class="comp-icon comp-icon--green">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+          </div>
+          <h3>Motorcycle Reviews</h3>
+          <p>
+            Authentic, high-octane testing of motorcycles and riding gear. We don't just list specs; we stress-test bikes and gear in real-world Indian riding conditions.
+          </p>
+          <ul class="comp-list">
+            <li><span class="material-symbols-outlined" style="color: var(--primary);">check_circle</span> In-Depth Performance Reviews</li>
+            <li><span class="material-symbols-outlined" style="color: var(--primary);">check_circle</span> Riding Gear Deep-dives</li>
+            <li><span class="material-symbols-outlined" style="color: var(--primary);">check_circle</span> Real-World Mileage Reports</li>
+          </ul>
+        </div>
+        <!-- Event Coverage -->
+        <div class="comp-card">
+          <div class="comp-icon comp-icon--orange">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">festival</span>
+          </div>
+          <h3>Event Coverage</h3>
+          <p>
+            Capturing the soul of motorcycling at rallies and events across India. From India Bike Week to local riding meetups, we bring the atmosphere to the screen.
+          </p>
+          <ul class="comp-list">
+            <li><span class="material-symbols-outlined" style="color: var(--secondary);">check_circle</span> Multi-cam Cinematic Recaps</li>
+            <li><span class="material-symbols-outlined" style="color: var(--secondary);">check_circle</span> Keynote & Booth Highlights</li>
+            <li><span class="material-symbols-outlined" style="color: var(--secondary);">check_circle</span> Community Interaction Clips</li>
+          </ul>
+        </div>
+        <!-- Podcast -->
+        <div class="comp-card">
+          <div class="comp-icon comp-icon--gold">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">podcasts</span>
+          </div>
+          <h3>The Flying Talks Podcast</h3>
+          <p>
+            Awareness-driven discussions on motorcycles, safety, lifestyle, and the evolving riding culture — honest, informative, and relatable conversations.
+          </p>
+          <ul class="comp-list">
+            <li><span class="material-symbols-outlined" style="color: var(--tertiary);">check_circle</span> Riding Safety Awareness</li>
+            <li><span class="material-symbols-outlined" style="color: var(--tertiary);">check_circle</span> Industry Insider Interviews</li>
+            <li><span class="material-symbols-outlined" style="color: var(--tertiary);">check_circle</span> Culture & Lifestyle Talks</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VISUAL PORTFOLIO ============ -->
+  <section class="portfolio">
+    <div class="portfolio-inner">
+      <div class="portfolio-header">
+        <div>
+          <h2>Visual Portfolio</h2>
+          <div class="section-bar"></div>
+          <p style="margin-top: 12px;">A selection of cinematic captures and riding adventures from the field.</p>
+        </div>
+        <div class="scroll-label">Scroll to Explore →</div>
+      </div>
+      <div class="scroll-track" id="scrollTrack">
+
+        <!-- Card 1 -->
+        <div class="scroll-card">
+          <div class="scroll-card-img">
+            <img src="../photo/tfs flying shirt1.png" alt="TFS rider on BMW G310 GS" loading="lazy" />
+          </div>
+          <div class="scroll-card-body">
+            <h4>The Flying Shirt</h4>
+            <p>Born to ride — capturing the spirit of motorcycling one story at a time.</p>
+            <span class="scroll-card-tag">Featured</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="scroll-card">
+          <div class="scroll-card-img">
+            <img src="../photo/F-1.jpg" alt="BMW G310 GS review" loading="lazy" />
+          </div>
+          <div class="scroll-card-body">
+            <h4>BMW G310 GS Review</h4>
+            <p>In-depth performance review of BMW's versatile adventure motorcycle.</p>
+            <span class="scroll-card-tag">Review</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="scroll-card">
+          <div class="scroll-card-img">
+            <img src="../photo/tfs-hero-motorcycle.png" alt="Cinematic motorcycle shot" loading="lazy" />
+          </div>
+          <div class="scroll-card-body">
+            <h4>Cinematic Rides</h4>
+            <p>Dramatic twilight roads and high-octane visual motorcycle narratives.</p>
+            <span class="scroll-card-tag">Cinematic</span>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="scroll-card">
+          <div class="scroll-card-img">
+            <img src="../photo/IBW.jpg" alt="India Bike Week 2023" loading="lazy" />
+          </div>
+          <div class="scroll-card-body">
+            <h4>India Bike Week 2023</h4>
+            <p>Full event coverage from India's biggest motorcycling festival.</p>
+            <span class="scroll-card-tag">Event</span>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="scroll-card">
+          <div class="scroll-card-img">
+            <img src="../photo/bike-adventure.png" alt="Adventure motorcycle ride" loading="lazy" />
+          </div>
+          <div class="scroll-card-body">
+            <h4>Adventure Trails</h4>
+            <p>Off-road adventures through unexplored terrain and hidden trails.</p>
+            <span class="scroll-card-tag">Adventure</span>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="scroll-card">
+          <div class="scroll-card-img">
+            <img src="../photo/bike-mountain.png" alt="Mountain motorcycle ride" loading="lazy" />
+          </div>
+          <div class="scroll-card-body">
+            <h4>Mountain Passes</h4>
+            <p>Conquering the highest mountain passes on two wheels.</p>
+            <span class="scroll-card-tag">Expedition</span>
+          </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="scroll-card">
+          <div class="scroll-card-img">
+            <img src="../photo/bike-night.png" alt="Night motorcycle ride" loading="lazy" />
+          </div>
+          <div class="scroll-card-body">
+            <h4>Night Rides</h4>
+            <p>Exploring the city after dark — moody nightscapes and neon-lit roads.</p>
+            <span class="scroll-card-tag">Lifestyle</span>
+          </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="scroll-card">
+          <div class="scroll-card-img">
+            <img src="../photo/flying .jpg" alt="TFS riding culture" loading="lazy" />
+          </div>
+          <div class="scroll-card-body">
+            <h4>Riding Culture</h4>
+            <p>The community and camaraderie that defines the riding lifestyle.</p>
+            <span class="scroll-card-tag">Community</span>
+          </div>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="scroll-card">
+          <div class="scroll-card-img">
+            <img src="../photo/podcast_2.2.jpg" alt="TFS Podcast" loading="lazy" />
+          </div>
+          <div class="scroll-card-body">
+            <h4>The Flying Talks</h4>
+            <p>Conversations about motorcycles, safety, and the evolving riding culture.</p>
+            <span class="scroll-card-tag">Podcast</span>
+          </div>
+        </div>
+
+        <!-- Card 10 -->
+        <div class="scroll-card">
+          <div class="scroll-card-img">
+            <img src="../photo/the fling shirt.jpg" alt="TFS brand identity" loading="lazy" />
+          </div>
+          <div class="scroll-card-body">
+            <h4>TFS Brand Identity</h4>
+            <p>The visual signature behind every ride and every story we tell.</p>
+            <span class="scroll-card-tag">Brand</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ YOUTUBE SHOWCASE ============ -->
+  <section class="yt-section" id="youtube">
+    <div class="yt-inner">
+      <div class="yt-head">
+        <h2>YouTube Showcase</h2>
+        <div class="section-bar"></div>
+        <p>
+          Dive into our latest adventures, from deep-dive motorcycle reviews to cinematic journey recaps and riding culture podcasts.
+        </p>
+      </div>
+
+      <!-- Featured Video Embed — Lite (click-to-play for fast loading) -->
+      <div class="yt-featured">
+        <div class="lite-yt" id="liteYt" data-videoid="3I8xPeRoo90">
+          <img src="https://i.ytimg.com/vi/3I8xPeRoo90/hqdefault.jpg" alt="The Flying Shirt — Featured Video" loading="lazy" decoding="async" />
+          <div class="lite-yt-play" aria-label="Play video">
+            <svg viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Thumbnails Grid -->
+      <div class="yt-grid">
+        <a class="yt-thumb" href="https://youtu.be/vhTZpvrPgAE?si=3oZKOvvasIu3DnD-" target="_blank" rel="noopener noreferrer">
+          <div class="yt-thumb-img">
+            <img src="../photo/Youtube_photo/youtube_thumbnail_4.webp" alt="YouTube Thumbnail 1" loading="lazy" />
+            <div class="yt-thumb-play">
+              <span class="material-symbols-outlined">play_circle</span>
+            </div>
+          </div>
+          <h4>BMW G310 GS — Complete Review</h4>
+        </a>
+        <a class="yt-thumb" href="https://youtu.be/fbwP0sKw3FQ?si=HoxUi-IRMLNSoU8T" target="_blank" rel="noopener noreferrer">
+          <div class="yt-thumb-img">
+            <img src="../photo/Youtube_photo/youtube_thumbnails_2.webp" alt="YouTube Thumbnail 2" loading="lazy" />
+            <div class="yt-thumb-play">
+              <span class="material-symbols-outlined">play_circle</span>
+            </div>
+          </div>
+          <h4>India Bike Week 2023 — Full Coverage</h4>
+        </a>
+        <a class="yt-thumb" href="https://youtu.be/rPjTI7Unfvc?si=sTGMn9bU1nx_zj-J" target="_blank" rel="noopener noreferrer">
+          <div class="yt-thumb-img">
+            <img src="../photo/Youtube_photo/youtube_thumbnail_1.webp" alt="YouTube Thumbnail 3" loading="lazy" />
+            <div class="yt-thumb-play">
+              <span class="material-symbols-outlined">play_circle</span>
+            </div>
+          </div>
+          <h4>The Flying Talks — Podcast Series</h4>
+        </a>
+      </div>
+
+      <div class="yt-cta">
+        <a class="btn-primary-kv" href="https://youtube.com/@theflyingshirt?si=Dqj3vfyyr0rG8-Kr" target="_blank" rel="noopener noreferrer">
+          Visit YouTube Channel
+          <span class="material-symbols-outlined">open_in_new</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOCIAL HUB ============ -->
+  <section class="social-hub">
+    <div class="social-hub-inner">
+      <div>
+        <h3>Connect with TFS</h3>
+        <p>Follow our journey across all platforms.</p>
+      </div>
+      <div class="social-orbs">
+        <!-- YouTube -->
+        <a class="social-orb" href="https://youtube.com/@theflyingshirt?si=i3pNU1riZ-oXrD0M" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
+        </a>
+        <!-- Instagram -->
+        <a class="social-orb" href="https://www.instagram.com/theflying_shirt?igsh=OXllNGZtYmg0Ym4w" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"></path></svg>
+        </a>
+        <!-- Spotify -->
+        <a class="social-orb" href="https://spotify.openinapp.co/TFT-THE-FLYING-TALKS" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.49 17.3c-.215.353-.675.465-1.03.25-2.83-1.73-6.4-2.12-10.61-1.16-.403.092-.81-.16-.902-.562-.092-.403.16-.81.562-.902 4.61-1.05 8.55-.6 11.73 1.34.354.215.466.675.25 1.03zm1.465-3.26c-.272.443-.848.583-1.29.31-3.24-1.99-8.18-2.57-12-1.41-.5.152-1.025-.132-1.177-.632-.152-.5.132-1.025.632-1.177 4.38-1.33 9.83-.68 13.52 1.59.444.27.585.847.315 1.29zm.126-3.41c-3.88-2.3-10.28-2.51-14-1.38-.595.18-1.228-.157-1.408-.752-.18-.595.157-1.228.752-1.408 4.28-1.3 11.33-1.05 15.8 1.6.535.317.712 1.01.395 1.545-.318.535-1.012.712-1.547.395z"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="pro-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="../photo/TFS UNIVERSE1.png" alt="TFS Universe Logo" class="footer-logo">
+        <p class="footer-bio">A premium creative ecosystem spanning film production, digital media agency, motorcycle reviews, and e-commerce. Discover our many worlds.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+        </div>
+      </div>
+      <div class="footer-links-group">
+        <div class="footer-col">
+          <h4 class="footer-heading">Our Brands</h4>
+          <ul>
+            <li><a href="the-flying-shirt.html">The Flying Shirt</a></li>
+            <li><a href="TFS-Film-Works.html">TFS Film Works</a></li>
+            <li><a href="TFS-media-works.html">TFS Media Works</a></li>
+            <li><a href="BuyItonline.html">BuyItOnline</a></li>
+            <li><a href="Soochh.html">Soochh</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Contact Us</h4>
+          <ul>
+            <li><a href="tel:+918320287732">+91 8320287732</a></li>
+            <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=tfsuniverse369@gmail.com" target="_blank">tfsuniverse@gmail.com</a></li>
+            <li class="founder-text">Founder: Dhairya N. Oza</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 TFS Universe. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ============ SCRIPT ============ -->
+  <script>
+    // Header navigation
+    (function () {
+      const toggle = document.getElementById('navToggle');
+      const mobile = document.getElementById('mobileNav');
+      if (!toggle || !mobile) return;
+
+      function closeMenu() {
+        toggle.classList.remove('open');
+        mobile.classList.remove('show');
+        toggle.setAttribute('aria-expanded', 'false');
+        mobile.setAttribute('aria-hidden', 'true');
+      }
+
+      toggle.addEventListener('click', () => {
+        const open = !toggle.classList.contains('open');
+        if (open) {
+          toggle.classList.add('open');
+          mobile.classList.add('show');
+          toggle.setAttribute('aria-expanded', 'true');
+          mobile.setAttribute('aria-hidden', 'false');
+        } else {
+          closeMenu();
+        }
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!mobile.classList.contains('show')) return;
+        if (!mobile.contains(e.target) && !toggle.contains(e.target)) closeMenu();
+      });
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobile.classList.contains('show')) {
+          closeMenu();
+          toggle.focus();
+        }
+      });
+
+      // Compact header on scroll
+      const header = document.querySelector('.tfs-header');
+      if (header) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 40) header.classList.add('compact');
+          else header.classList.remove('compact');
+        }, { passive: true });
+      }
+    })();
+
+    // Drag-to-scroll for portfolio
+    (function () {
+      const track = document.getElementById('scrollTrack');
+      if (!track) return;
+      let isDown = false, startX, scrollLeft;
+
+      track.addEventListener('mousedown', (e) => {
+        isDown = true;
+        track.style.cursor = 'grabbing';
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+      });
+      track.addEventListener('mouseleave', () => { isDown = false; track.style.cursor = 'grab'; });
+      track.addEventListener('mouseup', () => { isDown = false; track.style.cursor = 'grab'; });
+      track.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - track.offsetLeft;
+        track.scrollLeft = scrollLeft - (x - startX) * 1.5;
+      });
+    })();
+
+    // Lite YouTube — load iframe only on click
+    (function () {
+      const liteYt = document.getElementById('liteYt');
+      if (!liteYt) return;
+      liteYt.addEventListener('click', function () {
+        if (liteYt.classList.contains('active')) return;
+        const vid = liteYt.dataset.videoid;
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube.com/embed/' + vid + '?autoplay=1&rel=0';
+        iframe.title = 'The Flying Shirt — Featured Video';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        liteYt.classList.add('active');
+        liteYt.appendChild(iframe);
+      });
+    })();
+  </script>
+
+</body>
+</html>

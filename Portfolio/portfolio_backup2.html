@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhairya N. Oza - The Modern-Day Polymath</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #09090b;
+            --bg-card: rgba(24, 24, 27, 0.6);
+            --bg-card-hover: rgba(39, 39, 42, 0.8);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-1: #38bdf8;
+            --accent-2: #818cf8;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.05), transparent 25%),
+                              radial-gradient(circle at 85% 30%, rgba(129, 140, 248, 0.05), transparent 25%);
+            background-attachment: fixed;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            color: var(--text-primary);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, var(--accent-1), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 5rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+
+        /* Capsules / Pills Navigation */
+        .capsule-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 4rem;
+        }
+
+        .capsule {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .capsule:hover, .scroll-capsule:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 20px -10px rgba(56, 189, 248, 0.3);
+        }
+        
+        .capsule.primary-tag {
+            background: linear-gradient(90deg, rgba(56, 189, 248, 0.15), rgba(129, 140, 248, 0.15));
+            border-color: rgba(129, 140, 248, 0.3);
+        }
+        .capsule.secondary-tag {
+            background: rgba(255,255,255,0.02);
+            font-size: 0.9rem;
+        }
+
+        /* Glass Cards for Intros & Sections */
+        .glass-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            backdrop-filter: blur(12px);
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        .quote {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--accent-1);
+            border-left: 4px solid var(--accent-2);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-weight: 300;
+        }
+
+        /* Question Section */
+        .question-section {
+            text-align: center;
+            margin: 5rem 0 3rem;
+            padding: 3rem;
+            background: linear-gradient(145deg, rgba(56, 189, 248, 0.1), rgba(129, 140, 248, 0.05));
+            border-radius: 2rem;
+            border: 1px solid rgba(129, 140, 248, 0.2);
+        }
+
+        .question-section h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* Accordions */
+        .accordion {
+            margin-bottom: 1.5rem;
+        }
+
+        .accordion-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+            user-select: none;
+            transition: background 0.3s ease;
+        }
+        
+        .accordion-header.nested {
+            font-size: 1.1rem;
+            padding: 1.25rem;
+            background: rgba(255,255,255,0.02);
+            border-top: 1px solid var(--border);
+        }
+
+        .accordion-header:hover {
+            background: var(--bg-card-hover);
+        }
+
+        .icon {
+            transition: transform 0.3s ease;
+            font-size: 1.5rem;
+            color: var(--accent-1);
+            line-height: 1;
+        }
+
+        .accordion-item.active > .accordion-header .icon {
+            transform: rotate(45deg);
+            color: var(--accent-2);
+        }
+        
+        .accordion-item.active {
+            border-color: rgba(129, 140, 248, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0 1.5rem;
+        }
+
+        .accordion-item.active > .accordion-content {
+            padding: 0 1.5rem 1.5rem;
+        }
+        
+        .accordion-content p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+        .accordion-content p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .accordion-content ul {
+            padding-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .accordion-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Badges inline */
+        .tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 1rem 0 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Lists */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+        .feature-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-1);
+            font-weight: bold;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        .scroll-link {
+            color: var(--accent-1);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .scroll-link:hover {
+            color: var(--accent-2);
+            text-decoration: underline;
+        }
+
+        .cert-group {
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: var(--accent-2);
+            font-size: 1.1rem;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- Header -->
+    <header class="hero">
+        <h2 class="gradient-text">Who is Dhairya N. Oza???</h2>
+        <h1>The Modern-Day Polymath</h1>
+    </header>
+
+    <!-- Industry Navigation Capsules -->
+    <div class="capsule-container">
+        <a href="#automotive" class="capsule scroll-link-top">Automotive Industry</a>
+        <a href="#sales" class="capsule scroll-link-top">Sales & Marketing</a>
+        <a href="#influencer" class="capsule scroll-link-top">Influencer Industry</a>
+        <a href="#content" class="capsule scroll-link-top">Content Creation</a>
+        <a href="#ecommerce" class="capsule scroll-link-top">E-commerce & Dropshipping</a>
+        <a href="#music" class="capsule scroll-link-top">Music Industry</a>
+    </div>
+
+    <!-- Main Intro -->
+    <section class="glass-card">
+        <p style="margin-bottom: 1rem;">
+            Mr. Dhairya N. Oza, the Founder & Managing Director of Oza Motorsports Pvt. Ltd. & TFS Universe is also widely recognized as Soochh, The Flying Shirt, and Mr. Oza, is an exceptional Polymath whose Story, Journey & Ideology challenges the belief that a person can only master one profession. His primary interests are in the automotive and music industries. He is a visionary entrepreneur, inventor, researcher, engineer, strategist, automotive journalist, influencer, independent artist, and a business leader. With expertise spanning over 30+ professional domains across 6 major industries, he combines technical knowledge, creativity, business strategy, and innovation to build impactful ventures and drive industry growth.
+        </p>
+        <p style="margin-bottom: 1rem;">
+            With more than a decade of multidisciplinary professional experience. Mr. Oza has gained 60+ certifications and awards recognizing excellence, his commitment to continuous learning and professional development reflects his pursuit of mastery across multiple disciplines. The knowledge acquired through these achievements has evolved into 68 professional skills and spanning in multiple economic sectors: engineering, business, marketing, media, e-commerce, and music reflect Mr. Oza's exceptional versatility which defines him as a true and a modern-day Polymath.
+        </p>
+        <p style="margin-bottom: 1rem;">
+            His strong professional foundation is supported by specialized education in Automotive Engineering, advanced IPR and entrepreneurship training, internships with leading automotive brands, and continuous industry learning. Throughout his career, he has registered 9 Intellectual Property Rights (IPRs), secured 6 Government Innovation Grants, collaborated with leading organizations and universities, and earned recognition for combining engineering excellence with strategic business leadership.
+        </p>
+        <p style="margin-bottom: 1rem;">
+            Across every industry and niche, Mr. Oza has consistently transformed ambitious ideas into measurable achievements. As the Founder & Managing Director of Oza Motorsports Pvt. Ltd., he established a high-performance automotive designing & manufacturing company, led advanced R&D programs, designed and registered innovative automotive technologies, secured funding from organizations including ICSII, GUSEC, SUSEC, and i-Hub Gujarat, and received an international relocation offer from the Belgium Government. In premium automotive sales, he rose from a teenage superbike broker to becoming one and only Marshal of BMW Motorrad Gujarat region and one of the top-performing Sales Executives, delivering 69 bookings, 64 retail deliveries, and an average customer satisfaction score of 9.8 out of 10.
+        </p>
+        <p style="margin-bottom: 1rem;">
+            Through TFS and the TFS Universe, he built a diversified business ecosystem encompassing media production, filmmaking, digital marketing, consulting, and e-commerce. He has personally interviewed 400+ candidates & collaborated with more than 25 universities, and mentored more than 50 students to ensure and prepare the next generation of professionals. As the founder of BuyItOnline, he successfully developed and managed a business with 780+ products across multiple marketplaces, while under his artistic identity Soochh, he became an internationally distributed independent singer-songwriter, (singer, lyricist & composer) music director, actor, and filmmaker.
+        </p>
+        <p style="margin-bottom: 1rem;">
+            Soochh with his debut Album MANZIL has already made its way to World TV Premiere, Radio networks, National Television (with repeated streaming 6-18 times in a day), it's also streaming on more than 150 digital platforms & 1,250+ commercial outlets. His extraordinary portfolio of innovation, leadership, technical expertise, creativity, entrepreneurship, mentorship, and global recognition has established him as a true and a modern-day polymath whose impact extends far beyond traditional professional boundaries. Who quotes and believes in:
+        </p>
+        <div class="quote">
+            “Among my morals and ethics, I have this one rule: never say anything negative about something that you can’t improve or create by yourself. Instead of enhance, redefine or create it as per your own vision.”
+        </div>
+    </section>
+
+    <!-- Overall Overview -->
+    <div class="accordion">
+        <div class="accordion-item">
+            <div class="accordion-header">
+                Overall Achievements <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" style="padding-top: 1rem;">
+                <p style="font-weight: 600; color: var(--accent-1); margin-bottom: 0.5rem; font-size: 1.1rem;">🌟 Discover 68 groundbreaking milestones that define a multifaceted career.</p>
+                <p>Spanning across Automotive, Sales, Influencing, Content Creation, E-commerce, and Music.</p>
+                <ul class="feature-list">
+                    <li><a href="#group-a-achievements" class="scroll-link">Automotive Industry: 20 Achievements</a></li>
+                    <li><a href="#group-b-achievements" class="scroll-link">Sales & Marketing Industry: 11 Achievements</a></li>
+                    <li><a href="#group-c-achievements" class="scroll-link">Influencer Industry: 10 Achievements</a></li>
+                    <li><a href="#group-d-achievements" class="scroll-link">Content Creation Industry: 9 Achievements</a></li>
+                    <li><a href="#group-e-achievements" class="scroll-link">E-commerce & Dropshipping Industry: 8 Achievements</a></li>
+                    <li><a href="#group-f-achievements" class="scroll-link">Music Industry: 10 Achievements</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">
+                Overall Skills <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" style="padding-top: 1rem;">
+                <p style="font-weight: 600; color: var(--accent-1); margin-bottom: 1rem; font-size: 1.1rem;">⚡ Unveiling the 68 unique abilities driving excellence across 6 industries.</p>
+                <ul class="feature-list">
+                    <li><a href="#group-a-skills" class="scroll-link">Automotive Industry: 20 Skills</a> (Creative thinking, Adaptability, Machine designing, etc.)</li>
+                    <li><a href="#group-b-skills" class="scroll-link">Sales & Marketing Industry: 11 Skills</a> (Communication, Active Listening, Empathy, etc.)</li>
+                    <li><a href="#group-c-skills" class="scroll-link">Influencer Industry: 14 Skills</a> (Visualization, Content creation, Script writing, etc.)</li>
+                    <li><a href="#group-d-skills" class="scroll-link">Content Creation Industry: 11 Skills</a> (Customer support, Lead generation, CRM management, etc.)</li>
+                    <li><a href="#group-e-skills" class="scroll-link">E-commerce & Dropshipping Industry: 5 Skills</a> (Market Research, Vendor management, etc.)</li>
+                    <li><a href="#group-f-skills" class="scroll-link">Music Industry: 7 Skills</a> (Poetry, Lyrics writing, Singing, Acting, etc.)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">
+                Certificates and Awards <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" style="padding-top: 1rem;">
+                <p style="font-weight: 600; color: var(--accent-1); margin-bottom: 0.5rem; font-size: 1.1rem;">🏆 A showcase of 51 hard-earned honors and global recognitions.</p>
+                
+                <div class="cert-group">AUTOMOTIVE INDUSTRY:</div>
+                <ul class="feature-list">
+                    <li>Participated in the "Scrapcyclers" event during GTU Techfest.</li>
+                    <li>Participated in the "LASER MAZE" event at Parul University's PROJECTIONS 2016.</li>
+                    <li>Completed 15-day Industrial Training in Automobile Engineering at Mercedes-Benz (Landmark Cars Pvt. Ltd.).</li>
+                    <li>Completed 3.5-month Industrial Training at Honda (Landmark Automobiles Pvt. Ltd.).</li>
+                    <li>Participated in the Race Car Design Workshop conducted with IIT Guwahati.</li>
+                    <li>Provisional Diploma Certificate in Automobile Engineering from GTU (CGPA 7.85).</li>
+                    <li>Final Diploma Certificate in Automobile Engineering from GTU (CGPA 7.85).</li>
+                    <li>Participated in the "Evolution of Transportation" event at Indus University.</li>
+                    <li>Participated in the "Automaniac" event by the Indus Automobile Engineers Association.</li>
+                    <li>Participated in the "Tool Time" event by the Indus Automobile Engineers Association.</li>
+                    <li>Participated in the "Tech Taboo" technical event at Indus University.</li>
+                    <li>Participated in the "Tool Time" event by the Indus SPARX of Instincts 2019.</li>
+                    <li>Participated in the Ford Driving Skills for Life Program.</li>
+                    <li>Participated in the "Sketchathon" event during the Auto Tech Fest at Indus University.</li>
+                    <li>Bachelor of Technology Degree in Automobile Engineering with First Class with Distinction.</li>
+                    <li>Startup India Recognition Certificate for Oza Motorsports Private Limited.</li>
+                    <li>Certificate of Appreciation from the Vejalpur Startup Festival for Oza Motorsports.</li>
+                    <li>Certificate of Appreciation from i-Hub for Oza Motorsports' participation in the Germination Bootcamp.</li>
+                </ul>
+
+                <div class="cert-group">SALES & MARKETING INDUSTRY:</div>
+                <ul class="feature-list">
+                    <li>Secured 1st Position in "Marketing Mania" at Indus University.</li>
+                    <li>Secured 2nd Position in the "Shipwreck" cultural event at Indus University.</li>
+                    <li>Completed BMW Group TMSi training on the new BMW F 900 R & F 900 XR motorcycles.</li>
+                    <li>Completed BMW Group TMSi "Bike-to-Bike" training module.</li>
+                    <li>Completed BMW Group TMSi training on Original BMW Motorrad Accessories.</li>
+                    <li>Completed BMW Group TMSi "Motorrad History & USP's" training module.</li>
+                    <li>Completed BMW Group TMSi "Introduction to the Used Bike Business" training module.</li>
+                    <li>Completed BMW Group TMSi "Basic Stock and Order Management" training module.</li>
+                    <li>Completed BMW Group TMSi "BMW Motorrad Premium Selection" training module.</li>
+                    <li>Completed BMW Group TMSi "BMW Motorrad Service Inclusive" training module.</li>
+                    <li>Completed BMW Group TMSi "Fit-for-All" training module.</li>
+                    <li>Completed BMW Group TMSi "Dealer Self Authorization (DSA)" training module.</li>
+                    <li>Completed BMW Group TMSi "BMW Motorrad Electric Part 2" training module.</li>
+                    <li>Completed BMW Group TMSi "Electric Systems" training module.</li>
+                    <li>Completed BMW Group TMSi "BMW Motorrad Electric Part 1" training module.</li>
+                    <li>Completed BMW Group TMSi training on the new BMW R 18 motorcycle.</li>
+                    <li>Completed BMW Group TMSi "BMW Motorrad Service Basics" training module.</li>
+                    <li>Completed BMW Group TMSi "Connected Ride Cradle" training module.</li>
+                    <li>Completed BMW Group TMSi "Brand & Brand Behaviour" training module.</li>
+                    <li>Completed BMW Group TMSi "Motorrad Warranty" training module.</li>
+                    <li>Received ANDAPP Certificate of Appreciation for outstanding performance during FY 2021–22.</li>
+                    <li>Experience Letter as Sales Executive at Gallops Autohaus (BMW Dealer).</li>
+                </ul>
+
+                <div class="cert-group">CONTENT CREATION INDUSTRY:</div>
+                <ul class="feature-list">
+                    <li>Certificate of Appreciation/Participation awarded to TFS Universe at the UIM Internship Fair 2026.</li>
+                </ul>
+
+                <div class="cert-group">E-COMMERCE & DROPSHIPPING INDUSTRY:</div>
+                <ul class="feature-list">
+                    <li>Participated in the Internal Smart India Hackathon 2020 at Indus University.</li>
+                    <li>Completed the Intellectual Property Rights (IPR) online course by Gujarat Student Startup & Innovation Hub (i-Hub).</li>
+                </ul>
+
+                <div class="cert-group">MUSIC INDUSTRY:</div>
+                <ul class="feature-list">
+                    <li>Government of India Copyright Certificate for the Hindi rock song "Barsaat".</li>
+                    <li>Government of India Copyright Certificate for the music application "MANZIL" containing three original Hindi songs.</li>
+                </ul>
+
+                <div class="cert-group">Other Certificates:</div>
+                <ul class="feature-list">
+                    <li>Awarded to Dhairya N. Oza by Som-Lalit Primary School for achieving the 3rd rank in multiple school competitions.</li>
+                    <li>Successfully completed a term with 94.48% of the Abacus and Mental Arithmetic Programme by U C MAS Mental Arithmetic (India) Pvt. Ltd.</li>
+                    <li>Certificate of Participation in the CL Young India Challenge representing Som-Lalit School.</li>
+                    <li>Trial Certificate confirming successful completion of S.S.C. Examination from Som-Lalit Secondary School.</li>
+                    <li>Participated in the Fashion Show during Parul University's DHOOM 2017.</li>
+                    <li>Successfully completed the "Dare to Jump" Bungee Jump experience at Thrill Factory.</li>
+                </ul>
+
+                <p style="margin-top: 2rem; font-weight: bold; color: var(--accent-1);">Total Certificates & Awards: 51</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transition Question -->
+    <div class="question-section">
+        <h3 class="gradient-text">Curious About His Multifaceted Journey?</h3>
+        <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+            Dive deeper into his industry-specific triumphs, explore the ventures he built, and uncover the detailed roadmap of a true polymath.
+        </p>
+    </div>
+
+    <!-- MAIN DROPDOWNS -->
+
+    <!-- Group 1: Automotive Industry -->
+    <div id="automotive" class="accordion">
+        <div class="accordion-item" id="group-a-main">
+            <div class="accordion-header" style="font-size: 1.5rem;">
+                Automotive Industry <span class="icon">+</span>
+            </div>
+            <div class="accordion-content">
+                <div class="tags-row" style="margin-top: 1.5rem;">
+                    <span class="capsule primary-tag">Primary: Automotive Industry</span>
+                    <span class="capsule secondary-tag">Secondary: Sales & Marketing</span>
+                </div>
+                
+                <p style="font-style: italic; color: var(--accent-1); margin-bottom: 2rem;">
+                    "The success story of Founder & Managing Director of Oza Motorsports Pvt. Ltd. From the foundation as an Automotive Engineer towards founding and building Oza Motorsports."
+                </p>
+
+                <!-- Niches (Moved up) -->
+                <h4 class="section-title">Niches</h4>
+                <ul class="feature-list">
+                    <li>Automotive Engineer</li>
+                    <li>Design Engineer</li>
+                    <li>Interior Designer</li>
+                    <li>Scientist</li>
+                    <li>Head of Research & Development Department</li>
+                    <li>Entrepreneur</li>
+                    <li>Founder & Managing Director</li>
+                </ul>
+
+                <!-- Journey -->
+                <h4 class="section-title">The Journey</h4>
+                <div class="accordion nested-accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header nested">The Foundation as an Engineer (2014 - 2017) <span class="icon">+</span></div>
+                        <div class="accordion-content" style="padding-top: 1rem;">
+                            <p>The journey began in Ahmedabad during his primary schooling at Som-Lalit School, where Mr. Oza started getting curious about High performance Supercars & Superbikes and so he started pursuing his interest in the Automotive world on the Internet. Later he finished his SSC (10th Standard) in 2014. Due to his passion in Machines & Vehicles he chose a specialized technical path instead of a traditional high school route. He then moved to Baroda to study for a Diploma in Automobile Engineering at Parul University.</p>
+                            <p>He was an Hyperactive student who liked to participate in multiple activities & opportunities. From the very beginning he had a daily habit to research on various topics of Automotive engineering. Additionally he also took multiple internships from multiple Automotive giants such as Mercedes - benz, MV Agusta, Benelli, Hyosung & Honda. This gave him a deep understanding of Internal Combustion (IC) Engines & Modern Automotive Technologies. However while pursuing Internship at MV Agusta, Benelli & Hyosung he found that his inclination was now moving slightly more towards the Superbikes.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header nested">Advanced Research & Navigating his Innovations (2017 - 2026) <span class="icon">+</span></div>
+                        <div class="accordion-content" style="padding-top: 1rem;">
+                            <p>In 2017 Mr. Oza returned to Ahmedabad for a B.Tech in Automobile Engineering at Indus University, where he graduated in 2020. During these years, he shifted focus from learning to creating the Standard & Innovative High performance IC Engines & its Technologies.</p>
+                            <p>During his Graduation Period he also got expertise in space planning and designing in the field of Interior designing by designing his Studio (a room of his personal interest) by himself. He came up with a theme of the Interior considering his interest in automotive vehicles, music & mountains. He used Multiple custom paints, artworks, Actual sculptures, Motorcycles & the parts of motorcycles in his designs which eventually became a homely vibe for him.</p>
+                            <p>In 2017, Mr. Oza began his journey as a Designing Engineer after which he designed & developed his first ever Motorcycle called the SE1. SE1 was a Hybrid design of Bobber & Brat Style Motorcycles which itself was an innovation... Mr. Oza later named this distinctive design philosophy "BobArt" and secured its intellectual property.</p>
+                            <p>Mr. Oza conceptualized and engineered the V.ODNE1s High-Performance Engine Platform, designing multiple conventional and innovative V-Series engine architectures... Under Mr. Oza's leadership, Oza Motorsports developed the proprietary LTB Valve Technology—a Camless Valve Mechanism.</p>
+                            <p>Later he realized he needed to protect his creations, Mr. Oza pursued a 3 - month course on IPR... which strategically protects his creative ideas & his technologies.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header nested">The Struggles, the Pivots, & Government Backing (2020 - 2024) <span class="icon">+</span></div>
+                        <div class="accordion-content" style="padding-top: 1rem;">
+                            <p>Finding funding for an automotive hardware startup is notoriously tough, but Mr. Oza began pitching steadily to incubation committees. His first breakthrough came when ICSII was newly established.</p>
+                            <p>Soon after he received Mentorship from GUSEC. Then in 2023 SUSEC also decided to fund his project... In 2024 after almost 1.5 Years of Pitching to i-Hub Gujarat he secured his biggest funding and opportunities as he received a Non returnable Government Grant of 7,75,000/- INR and an Offer from Belgium Government to Re-locate his company to Brussels.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header nested">Higher Achievements & Global Recognition (2025 - Present) <span class="icon">+</span></div>
+                        <div class="accordion-content" style="padding-top: 1rem;">
+                            <p>By managing a diverse team and establishing a strong corporate structure, Mr. Oza successfully set up Oza Motorsports Private Limited as a well-organized corporate entity in India. In 2025, i-Hub invited him again to share his Success Story.</p>
+                            <p>Today, Mr. Oza stands at a significant global crossroads... leading to a formal offer from the Government of Belgium to relocate his entire company from Ahmedabad, India, to Brussels, Belgium signifying his shift from a local engineering student to an internationally recognized Automotive inventor.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="accordion nested-accordion">
+                    <div class="accordion-item" id="group-a-skills">
+                        <div class="accordion-header nested">Skills (20) <span class="icon">+</span></div>
+                        <div class="accordion-content" style="padding-top: 1rem;">
+                            <ul class="feature-list">
+                                <li>Creative thinking</li><li>Adaptability</li><li>Machine designing</li><li>Spatial visualization</li>
+                                <li>Scientific Research</li><li>Innovative thinking</li><li>Problem Solving</li><li>Project planning</li>
+                                <li>Prototype building</li><li>Quality control</li><li>Leadership</li><li>Presentation</li>
+                                <li>Strategic Writing</li><li>Understanding Human behaviour & Psychology</li><li>Decision making</li>
+                                <li>Strategic planning</li><li>Business planning</li><li>Cost estimating</li><li>Budget utilizing</li>
+                                <li>Operations management</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
+                <div class="accordion nested-accordion">
+                    <div class="accordion-item" id="group-a-achievements">
+                        <div class="accordion-header nested">Achievements (20) <span class="icon">+</span></div>
+                        <div class="accordion-content" style="padding-top: 1rem;">
+                            <ul class="feature-list">
+                                <li>Completed Diploma in Automobile Engineering with First Class Distinction.</li>
+                                <li>Successfully pursued internships with five major automotive giants.</li>
+                                <li>Registered the SE1 (BobArt) motorcycle design under the Designs Act.</li>
+                                <li>Led the development of the proprietary LTB Valve Technology (Camless Valve Mechanism).</li>
+                                <li>Secured 6 Government Grants from leading startup and innovation bodies.</li>
+                                <li>Received an official relocation opportunity from the Government of Belgium.</li>
+                                <li>(And 14 more...)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificates -->
+                <div class="accordion nested-accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header nested">Certificates & Awards <span class="icon">+</span></div>
+                        <div class="accordion-content" style="padding-top: 1rem;">
+                            <ul class="feature-list">
+                                <li>Provisional & Final Diploma Certificate in Automobile Engineering from GTU.</li>
+                                <li>Bachelor of Technology Degree in Automobile Engineering with First Class with Distinction.</li>
+                                <li>Startup India Recognition Certificate for Oza Motorsports Private Limited.</li>
+                                <li>Certificate of Appreciation from i-Hub.</li>
+                                <li>And numerous technical participation certificates...</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Group 2: Sales & Marketing Industry -->
+    <div id="sales" class="accordion">
+        <div class="accordion-item" id="group-b-main">
+            <div class="accordion-header" style="font-size: 1.5rem;">
+                Sales & Marketing Industry <span class="icon">+</span>
+            </div>
+            <div class="accordion-content">
+                <div class="tags-row" style="margin-top: 1.5rem;">
+                    <span class="capsule primary-tag">Primary: Sales & Marketing Industry</span>
+                    <span class="capsule secondary-tag">Secondary: Automotive Industry</span>
+                </div>
+                
+                <p style="font-style: italic; color: var(--accent-1); margin-bottom: 2rem;">
+                    "The Hustle - From a 16 year old Teen Broker to a renowned Superbike Dealer."
+                </p>
+
+                <!-- Niches (Moved up) -->
+                <h4 class="section-title">Niches</h4>
+                <ul class="feature-list">
+                    <li>Broker</li>
+                    <li>Dealer</li>
+                    <li>Insurance Consultant</li>
+                    <li>Sales Executive</li>
+                    <li>Marshal</li>
+                </ul>
+
+                <!-- Journey -->
+                <h4 class="section-title">The Journey</h4>
+                <div class="accordion nested-accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header nested">The 16-Year-Old Superbike Broker Who Couldn't Ride <span class="icon">+</span></div>
+                        <div class="accordion-content" style="padding-top: 1rem;">
+                            <p>Long before earning his engineering degree, Mr. Oza started his career in premium automotive sales at just the age of 16. He entered into the premium Pre-owned Superbike market as an independent broker, facing a unique challenge of being too young & didn’t know how to ride a motorcycle.</p>
+                            <p>Despite this, he successfully sold his first superbike, which was a Benelli 600i. Over the following years, he continued facilitating the sale of numerous motorcycles, strengthening his industry network while developing extensive technical and market knowledge.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header nested">Scaling from a Broker to Dealer <span class="icon">+</span></div>
+                        <div class="accordion-content" style="padding-top: 1rem;">
+                            <p>As his network expanded, Mr. Oza grew from a young broker to a well-known premium pre-owned superbike dealer. Over the years, he developed a wide portfolio, mastering the specific sales, valuation, and insurance consultation skills needed for global brands.</p>
+                            <p>He didn't just sell bikes; he learned about the technicalities, the features, the advancement, the machinery & even how premium dealerships operate. He later added insurance consulting to his skill set.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header nested">Sales Executive & Marshall at BMW Motorrad <span class="icon">+</span></div>
+                        <div class="accordion-content" style="padding-top: 1rem;">
+                            <p>On 22nd February 2021, Mr. Oza joined BMW Motorrad, marking his transition from an independent premium superbike dealer to the corporate luxury automotive industry. Over the course of 15 months, he was entrusted with one of BMW Motorrad's key territories Gujarat.</p>
+                            <p>He generated 69 bookings and completed 64 successful retail deliveries. His consistent focus resulted in an outstanding average customer satisfaction rating of 9.8/10. He was subsequently appointed as a Regional Marshal for BMW Motorrad, representing the brand across the Gujarat territory.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="accordion nested-accordion">
+                    <div class="accordion-item" id="group-b-skills">
+                        <div class="accordion-header nested">Skills (11 + 7) <span class="icon">+</span></div>
+                        <div class="accordion-content" style="padding-top: 1rem;">
+                            <ul class="feature-list">
+                                <li>Communication</li><li>Active Listening</li><li>Empathy</li><li>Understanding Consumer Behaviour</li>
+                                <li>Negotiation</li><li>Convincing Customers (Persuasion Skill)</li><li>Sales Strategy</li>
+                                <li>Customer Retention</li><li>Insurance Consultation</li><li>Teamwork</li><li>Conflict Resolution</li>
+                                <li>Customer support, Lead generation, CRM management... (from Group D)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
+                <div class="accordion nested-accordion">
+                    <div class="accordion-item" id="group-b-achievements">
+                        <div class="accordion-header nested">Achievements (11) <span class="icon">+</span></div>
+                        <div class="accordion-content" style="padding-top: 1rem;">
+                            <ul class="feature-list">
+                                <li>Sold his first superbike (Benelli TNT 600i) at the age of 16.</li>
+                                <li>Established himself as a renowned Premium Pre-Owned Superbike Dealer.</li>
+                                <li>Received 3 major job offers from automotive giants.</li>
+                                <li>Successfully retailed 64 BMW Motorrad motorcycles.</li>
+                                <li>Achieved an outstanding 9.8/10 Average Customer Satisfaction Rating.</li>
+                                <li>Completed 18 BMW Motorrad Professional Training & Certification Programs.</li>
+                                <li>Became one & only Marshal of BMW Motorrad for the Gujarat Region.</li>
+                                <li>Received an offer for the position of Sales Executive at Porsche.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificates -->
+                <div class="accordion nested-accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header nested">Certificates & Awards <span class="icon">+</span></div>
+                        <div class="accordion-content" style="padding-top: 1rem;">
+                            <ul class="feature-list">
+                                <li>Completed 18 separate BMW Group TMSi training modules (e.g., Brand Behaviour, Warranty, Electric Systems, Used Bike Business).</li>
+                                <li>Received ANDAPP Certificate of Appreciation for outstanding performance during FY 2021–22.</li>
+                                <li>Experience Letter as Sales Executive at Gallops Autohaus (BMW Dealer).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Empty sections for pending groups to prevent anchor links from breaking -->
+    <div id="influencer" class="accordion" style="display:none;"><div class="accordion-item" id="group-c-achievements"></div><div class="accordion-item" id="group-c-skills"></div></div>
+    <div id="content" class="accordion" style="display:none;"><div class="accordion-item" id="group-d-achievements"></div><div class="accordion-item" id="group-d-skills"></div></div>
+    <div id="ecommerce" class="accordion" style="display:none;"><div class="accordion-item" id="group-e-achievements"></div><div class="accordion-item" id="group-e-skills"></div></div>
+    <div id="music" class="accordion" style="display:none;"><div class="accordion-item" id="group-f-achievements"></div><div class="accordion-item" id="group-f-skills"></div></div>
+
+
+</div> <!-- /container -->
+
+<script>
+    // Accordion Logic with max-height for smooth transitions
+    document.querySelectorAll('.accordion-header').forEach(button => {
+        button.addEventListener('click', () => {
+            const accordionItem = button.parentElement;
+            const accordionContent = button.nextElementSibling;
+            
+            // Toggle active class
+            accordionItem.classList.toggle('active');
+            
+            // Set max-height for smooth transition
+            if (accordionItem.classList.contains('active')) {
+                accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+            } else {
+                accordionContent.style.maxHeight = 0;
+            }
+        });
+    });
+
+    // Handle nested accordions height readjustment
+    document.querySelectorAll('.nested-accordion .accordion-header').forEach(button => {
+        button.addEventListener('click', () => {
+            const parentContent = button.closest('.accordion-content');
+            
+            // Wait for transition to recalculate parent max-height
+            setTimeout(() => {
+                if (parentContent && parentContent.parentElement.classList.contains('active')) {
+                    // Temporarily set parent to auto to get new scroll height
+                    let currentContent = parentContent;
+                    while (currentContent) {
+                        currentContent.style.maxHeight = currentContent.scrollHeight + "px";
+                        currentContent = currentContent.parentElement.closest('.accordion-content');
+                    }
+                }
+            }, 50);
+        });
+    });
+
+    // Smooth scroll and auto-open accordions for internal links
+    function handleScrollLink(e, linkEl) {
+        e.preventDefault();
+        const targetId = linkEl.getAttribute('href');
+        if (!targetId || targetId === '#') return;
+        
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+            // Open target and all its parent accordions
+            let current = targetEl;
+            while (current && current !== document.body && !current.classList.contains('container')) {
+                if (current.classList.contains('accordion-item')) {
+                    current.classList.add('active');
+                    const content = current.querySelector('.accordion-content');
+                    if (content) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                }
+                current = current.parentElement;
+            }
+            
+            // Readjust parent accordion heights to ensure full visibility
+            setTimeout(() => {
+                let parentContent = targetEl.closest('.accordion-content');
+                while (parentContent) {
+                    parentContent.style.maxHeight = parentContent.scrollHeight + "px";
+                    parentContent = parentContent.parentElement.closest('.accordion-content');
+                }
+            }, 50);
+
+            // Scroll into view
+            setTimeout(() => {
+                targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Add a highlight effect
+                targetEl.style.transition = 'box-shadow 0.5s ease';
+                targetEl.style.boxShadow = '0 0 25px var(--accent-1)';
+                setTimeout(() => {
+                    targetEl.style.boxShadow = 'none';
+                }, 2000);
+            }, 150);
+        }
+    }
+
+    document.querySelectorAll('.scroll-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            handleScrollLink(e, this);
+        });
+    });
+
+    // Handle Top Industry Navigation links similarly to ensure their target accordions open
+    document.querySelectorAll('.scroll-link-top').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetAccordion = document.querySelector(targetId + ' > .accordion-item');
+            if (targetAccordion) {
+                targetAccordion.classList.add('active');
+                const content = targetAccordion.querySelector('.accordion-content');
+                if (content) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+                
+                setTimeout(() => {
+                    targetAccordion.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    
+                    targetAccordion.style.transition = 'box-shadow 0.5s ease';
+                    targetAccordion.style.boxShadow = '0 0 25px var(--accent-1)';
+                    setTimeout(() => {
+                        targetAccordion.style.boxShadow = 'none';
+                    }, 2000);
+                }, 150);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
