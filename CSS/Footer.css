@@ -143,13 +143,13 @@ html { scroll-behavior: smooth; }
 .footer-links-group {
   display: flex;
   flex: 2 1 500px;
-  gap: 40px;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
 }
 
 .footer-col {
-  flex: 1 1 200px;
+  flex: 1;
+  min-width: 140px;
 }
 
 .footer-heading {
