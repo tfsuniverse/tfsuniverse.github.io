@@ -4,3 +4,4 @@ Allow: /
 Sitemap: https://tfsuniverse.github.io/sitemap.txt
 Sitemap: https://tfsuniverse.github.io/sitemap.xml
 Sitemap: https://tfsuniverse.github.io/sitemap-test.xml
+Sitemap: https://tfsuniverse.github.io/sitemapuniverse2.xml
