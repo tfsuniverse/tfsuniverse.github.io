@@ -39,42 +39,94 @@
   <link rel="icon" type="image/png" href="../photo/logo.png">
 
   <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
+ <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://tfsuniverse.github.io/#website",
+      "url": "https://tfsuniverse.github.io/",
+      "name": "TFS Universe",
+      "description": "Creative ecosystem spanning media, film, automotive journalism, and commerce."
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://tfsuniverse.github.io/#tfs-flying-shirt",
+      "name": "The Flying Shirt",
+      "alternateName": "TFS The Flying Shirt",
+      "url": "https://tfsuniverse.github.io/HTML/the-flying-shirt.html",
+      "logo": "https://tfsuniverse.github.io/photo/logo.png",
+      "image": "https://tfsuniverse.github.io/photo/the%20flying%20shirt.jpg",
+      "description": "India's premier motorcycle media brand delivering authentic bike reviews, superbike testing, riding gear evaluations, and automotive podcasts.",
+      "parentOrganization": {
         "@type": "Organization",
-        "@id": "https://tfsuniverse.github.io/#tfs-flying-shirt",
-        "name": "The Flying Shirt",
-        "parentOrganization": {
-          "@type": "Organization",
-          "name": "TFS Universe",
-          "url": "https://tfsuniverse.github.io/"
-        },
-        "url": "https://tfsuniverse.github.io/HTML/the-flying-shirt.html",
-        "logo": "https://tfsuniverse.github.io/photo/logo.png",
-        "description": "India's premier motorcycle media brand delivering honest bike reviews, superbike content, and automotive podcasts.",
-        "sameAs": [
-          "https://www.youtube.com/@theflyingshirt",
-          "https://www.instagram.com/theflying_shirt",
-          "https://fb.openinapp.co/THE-FLYING-SHIRT",
-          "https://spotify.openinapp.co/TFT-THE-FLYING-TALKS"
-        ]
+        "name": "TFS Universe",
+        "url": "https://tfsuniverse.github.io/"
       },
-      {
-        "@type": "WebPage",
-        "@id": "https://tfsuniverse.github.io/HTML/the-flying-shirt.html#webpage",
-        "url": "https://tfsuniverse.github.io/HTML/the-flying-shirt.html",
-        "name": "The Flying Shirt | Premium Motorcycle Reviews",
-        "isPartOf": {
-          "@type": "WebSite",
-          "url": "https://tfsuniverse.github.io/"
-        }
+      "knowsAbout": [
+        "Motorcycles",
+        "Superbikes",
+        "Motorcycle Reviews",
+        "Riding Gear",
+        "Motorcycle Touring in India",
+        "Automotive Podcasts"
+      ],
+      "sameAs": [
+        "https://www.youtube.com/@theflyingshirt",
+        "https://www.instagram.com/theflying_shirt",
+        "https://fb.openinapp.co/THE-FLYING-SHIRT",
+        "https://spotify.openinapp.co/TFT-THE-FLYING-TALKS"
+      ]
+    },
+    {
+      "@type": "PodcastSeries",
+      "@id": "https://tfsuniverse.github.io/HTML/the-flying-shirt.html#podcast",
+      "name": "The Flying Talks",
+      "description": "Conversations that ride beyond the road. An Indian automotive podcast exploring bike culture, rider stories, safety, and superbike lifestyle.",
+      "url": "https://spotify.openinapp.co/TFT-THE-FLYING-TALKS",
+      "author": {
+        "@id": "https://tfsuniverse.github.io/#tfs-flying-shirt"
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://tfsuniverse.github.io/HTML/the-flying-shirt.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tfsuniverse.github.io/HTML/Home1.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The Flying Shirt",
+          "item": "https://tfsuniverse.github.io/HTML/the-flying-shirt.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://tfsuniverse.github.io/HTML/the-flying-shirt.html#webpage",
+      "url": "https://tfsuniverse.github.io/HTML/the-flying-shirt.html",
+      "name": "The Flying Shirt | Premium Motorcycle Reviews & Superbike Content",
+      "isPartOf": {
+        "@id": "https://tfsuniverse.github.io/#website"
+      },
+      "about": {
+        "@id": "https://tfsuniverse.github.io/#tfs-flying-shirt"
+      },
+      "breadcrumb": {
+        "@id": "https://tfsuniverse.github.io/HTML/the-flying-shirt.html#breadcrumb"
+      }
+    }
+  ]
+}
+</script>
+
+  <link rel="canonical" href="https://tfsuniverse.github.io/HTML/the-flying-shirt.html" />
 </head>
 
 <body>
@@ -146,7 +198,7 @@
       
       <div class="tfs-hero-content">
         <span class="tfs-badge">Automotive Media</span>
-        <h1 class="tfs-hero-title">The Flying Shirt</h1>
+        <h1 class="tfs-hero-title">The Flying Shirt: Expert Motorcycle & Superbike Reviews India</h1>
         <p class="tfs-hero-subtitle">
           India's most authentic automotive media brand. Delivering expert motorcycle reviews, superbike content, and meaningful stories from the riding community.
         </p>
