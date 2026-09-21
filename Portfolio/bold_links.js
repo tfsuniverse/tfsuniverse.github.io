@@ -16,7 +16,7 @@ const replacements = [
     { target: '60+ certifications', wrap: 'strong' },
     { target: 'awards recognizing excellence', wrap: 'strong' },
     { target: '68 professional skills', wrap: 'strong' },
-    { target: 'as a true and a modern-day Polymath.', wrap: 'strong' },
+    { target: 'as a true and a Ultimate Polymath.', wrap: 'strong' },
     { target: '9 Intellectual Property Rights (IPRs)', wrap: 'strong' },
     { target: '6 Government Innovation Grants', wrap: 'strong' },
     { target: 'ICSII, GUSEC, SUSEC, and i-Hub Gujarat', wrap: 'strong' },
