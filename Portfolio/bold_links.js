@@ -55,7 +55,7 @@ const replacements = [
     { target: 'V.ODNE1s High-Performance Engine Platform', wrap: 'a', url: 'https://www.ozamotorsports.com/services' },
     { target: 'proprietary design methodology that unlocked V-engine configurations in multiples of three', wrap: 'strong' },
     { target: 'beyond conventional V-engine architecture', wrap: 'strong' },
-    { target: 'LTB Valve Technology—a Camless Valve Mechanism', wrap: 'a', url: 'https://www.ozamotorsports.com/services' },
+    { target: 'LTB Valve Techno.', wrap: 'a', url: 'https://www.ozamotorsports.com/services' },
     { target: 'only two automotive organizations globally to own this advanced valve actuation technology', wrap: 'strong' },
     { target: 'Scientist', wrap: 'strong' },
     { target: 'innovations in IC engines & its technologies', wrap: 'strong' },
