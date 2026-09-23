@@ -313,6 +313,24 @@
             padding: 4rem 2rem;
         }
 
+        .hero-screen {
+            min-height: calc(100vh - 8rem);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Hero Section */
         .hero {
             text-align: center;
@@ -614,30 +632,32 @@
     <!-- Live Universe Galaxy Background -->
     <canvas id="universe-canvas"></canvas>
     <div class="container">
-        <!-- Header -->
-        <nav style="margin-bottom: 2rem; font-size: 0.9rem; color: var(--text-secondary);">
-            <a href="/" style="color: var(--accent-1); text-decoration: none;">Home</a> &gt;
-            <a href="/HTML/Home1.html" style="color: var(--accent-1); text-decoration: none;">TFS Universe</a> &gt;
-            <span style="color: var(--text-primary);">Portfolio</span>
-        </nav>
-        <header class="hero">
-            <p class="ios-liquid-glass-text"
-                style="font-size: 1.25rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem;">
-                Who is Dhairya N. Oza?</p>
-            <h1 class="ios-liquid-glass-heading" style="font-size: 3.2rem; line-height: 1.2;"><span
-                    class="ios-liquid-glass-text">The Ultimate Polymath</span></h1>
-        </header>
-        <!-- Industry Navigation Capsules -->
-        <div class="capsule-container">
-            <a class="capsule scroll-link-top" href="#automotive">Automotive Industry</a>
-            <a class="capsule scroll-link-top" href="#sales">Sales &amp; Marketing</a>
-            <a class="capsule scroll-link-top" href="#influencer">Influencer Industry</a>
-            <a class="capsule scroll-link-top" href="#content">Content Creation</a>
-            <a class="capsule scroll-link-top" href="#ecommerce">E-commerce &amp; Dropshipping</a>
-            <a class="capsule scroll-link-top" href="#music">Music Industry</a>
+        <div class="hero-screen">
+            <!-- Header -->
+            <nav style="margin-bottom: 2rem; font-size: 0.9rem; color: var(--text-secondary);">
+                <a href="/" style="color: var(--accent-1); text-decoration: none;">Home</a> &gt;
+                <a href="/HTML/Home1.html" style="color: var(--accent-1); text-decoration: none;">TFS Universe</a> &gt;
+                <span style="color: var(--text-primary);">Portfolio</span>
+            </nav>
+            <header class="hero">
+                <p class="ios-liquid-glass-text"
+                    style="font-size: 1.25rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem;">
+                    Who is Dhairya N. Oza?</p>
+                <h1 class="ios-liquid-glass-heading" style="font-size: 3.2rem; line-height: 1.2;"><span
+                        class="ios-liquid-glass-text">The Ultimate Polymath</span></h1>
+            </header>
+            <!-- Industry Navigation Capsules -->
+            <div class="capsule-container">
+                <a class="capsule scroll-link-top" href="#automotive">Automotive Industry</a>
+                <a class="capsule scroll-link-top" href="#sales">Sales &amp; Marketing</a>
+                <a class="capsule scroll-link-top" href="#influencer">Influencer Industry</a>
+                <a class="capsule scroll-link-top" href="#content">Content Creation</a>
+                <a class="capsule scroll-link-top" href="#ecommerce">E-commerce &amp; Dropshipping</a>
+                <a class="capsule scroll-link-top" href="#music">Music Industry</a>
+            </div>
         </div>
         <!-- Main Intro -->
-        <section class="glass-card">
+        <section class="glass-card scroll-reveal">
             <p style="margin-bottom: 1rem;">
                 Mr. Dhairya Narendrakumar Oza, the <strong>Founder &amp; Managing Director</strong> of <a class="external-link"
                     href="https://www.ozamotorsports.com/"
@@ -3264,6 +3284,24 @@
             // Initialize space objects AFTER resize sets width and height
             spaceObjects = [new SpaceObject('satellite')];
             animate();
+
+            // Scroll Reveal Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        // Remove class when out of view for seamless in and out
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            // Make all glass-cards and question-sections animate on scroll
+            document.querySelectorAll('.glass-card, .question-section').forEach(el => {
+                el.classList.add('scroll-reveal');
+                observer.observe(el);
+            });
         </script>
     </div>
 </body>
